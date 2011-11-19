@@ -1,13 +1,15 @@
-package com.soebes.katas.raumbelegung;
+Code Katas
+==========
 
-import org.testng.annotations.Test;
+Raumbelegungssystem
+-------------------
+       
+ * Wir haben eine Anzahl von Räumen zur Verfügung
+ ** Eigenschaften
+ *** Zeitliche Verfügbarkeit eines Raumes (eventuelle auch eine nicht Verfügbarkeit)
+ *** ...
 
-public class RaumbelegungsTest {
-
-    @Test
-    public void firstTest() {
-        // Raumbelegungssystem
-        
+ *  
         // Räume 
         //  R1...RN
         //   Zeitliche Verfügbarkeit eines Raumes
@@ -18,5 +20,9 @@ public class RaumbelegungsTest {
         // Belegungspläne
         // * Prüfung, ob ein spezifischer Raum zu einem Termin frei ist...
         // * Prüfung, ob irgendein Raum zu einem spezifischen Termin frei ist 
-    }
-}
+
+Aufzugssystem
+-------------
+
+Heizungssystem
+--------------
