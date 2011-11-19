@@ -1,15 +1,14 @@
-Code Katas
-==========
+# Code Katas
 
-Raumbelegungssystem
--------------------
-       
+## Raumbelegungssystem
+
+
  * Wir haben eine Anzahl von Räumen zur Verfügung
- ** Eigenschaften
- *** Zeitliche Verfügbarkeit eines Raumes (eventuelle auch eine nicht Verfügbarkeit)
- *** ...
+   Zu den Eigenschaften eines Raumes zählt die Verfügbarkeit 
+   des Raumes. Das bedeutet, in Welchem Zeitraumen kann der Raum
+   belegt werden.
 
- *  
+
         // Räume 
         //  R1...RN
         //   Zeitliche Verfügbarkeit eines Raumes
@@ -21,8 +20,9 @@ Raumbelegungssystem
         // * Prüfung, ob ein spezifischer Raum zu einem Termin frei ist...
         // * Prüfung, ob irgendein Raum zu einem spezifischen Termin frei ist 
 
-Aufzugssystem
--------------
 
-Heizungssystem
---------------
+ (eventuelle auch eine nicht Verfügbarkeit)
+
+## Aufzugssystem
+
+## Heizungssystem
