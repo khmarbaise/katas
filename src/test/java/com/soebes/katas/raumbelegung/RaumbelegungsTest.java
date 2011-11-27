@@ -12,7 +12,7 @@ public class RaumbelegungsTest {
         //  R1...RN
         //   Zeitliche Verfügbarkeit eines Raumes
         //   Termine in den Räumen
-        //   Zeitliche Verfügbarkeit der Räume (z.B. nur von 11:00 Uhr - 15:00 Uhr 
+        //   Zeitliche Verfügbarkeit der Rüume (z.B. nur von 11:00 Uhr - 15:00 Uhr 
         //    oder nicht Verfügbar an einem bestimmten Tag, Zeitraum
         //
         // Belegungspläne
