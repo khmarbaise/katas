@@ -6,6 +6,10 @@ import static org.testng.Assert.assertTrue;
 import org.testng.annotations.Test;
 
 public class AufzugTest {
+    public class Aufzug {
+      private String name;
+      private boolean inBewegung;
+    }
 
     @Test
     public void regelnLaden() {
