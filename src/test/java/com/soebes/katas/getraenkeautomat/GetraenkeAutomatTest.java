@@ -7,8 +7,9 @@ public class GetraenkeAutomatTest {
     @Test
     public void firstTest() {
         //Getränke Automat
-        // Zustände
-        // Geld Rückgabe
-        // etc.
+        // Geld Einwurf mit Münzspeicher (Geldwechsler)
+        // Zustände des Automaten
+        // Ausgabe Getränk...
+        //
     }
 }
