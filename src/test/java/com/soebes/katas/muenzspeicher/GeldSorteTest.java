@@ -23,4 +23,11 @@ public class GeldSorteTest {
         GeldSorte einCent = new GeldSorte(1, 100);
         assertThat(einCent.hasVorrat()).isTrue();
     }
+
+    @Test
+    public void pruefeEntnahme() throws NichtGenugVorratException {
+        GeldSorte einCent = new GeldSorte(1, 1);
+        assertThat(einCent.entnehme()).isEqualTo(1);
+        assertThat(einCent.hasVorrat()).isFalse();
+    }
 }
