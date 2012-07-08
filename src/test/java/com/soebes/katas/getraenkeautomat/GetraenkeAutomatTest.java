@@ -57,8 +57,8 @@ public class GetraenkeAutomatTest {
  *   (Version 2.0: Ausbaustufe mit EC- und Kreditkarte) => Seperate Ergänzung
  *   
  *   Vorgegeben bekommen wird vom Münzsystem:
- *     dass eine Münze mit entsprechenden Wert erkannt wurde (z.B. 1 x 1,00 Euro).
- *     dass ein Schein mit entsprechendem Wert erkannt wurde. (max. 50 Euro?)
+ *     dass eine Münze mit entsprechenden Wert erkannt wurde (z.B. 1 x 1,00 Euro oder 3 x 0,50 Euro ).
+ *     dass ein Schein mit entsprechendem Wert erkannt wurde. (max. 50 Euro? z.B. 2 x 20 Euro Schein )
  *   
  *   Für die Geldrückgabe können wir die Ausgabe einer Münze Auslösen mit einem 
  *   bestimmten Wert (0,01, 0,02, 0,05, 0,10, 0,20, 0,50, 1,00, 2,00) 
@@ -93,6 +93,17 @@ public class GetraenkeAutomatTest {
  *       -> Berechnung des Preises
  *       -> Abrechnung
  *       -> Rückgeld / Freigabe der Produkte
+ *
  * 
+ * Ablauf:
+ * 
+ * 1. Anzeige der zur Verfügung stehenden Produkte (Anpassung an den aktuellen Bestand)
+ * 2. Auswahl aus den Produkten
+ * 3. Ermittlung des Preise
+ * 4. Zahlung des Preises
+ * 5. Ausgabe der Produkte 
+ * 5. Eventuelle Restgeldrückgabe
+ * 
+ * wieder bei 1 
  */
 }
