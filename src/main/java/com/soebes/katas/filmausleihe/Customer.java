@@ -24,8 +24,8 @@ public class Customer {
         return rentals;
     }
 
-    public void setAusleihen(List<Rental> ausleihen) {
-        this.rentals = ausleihen;
+    public void setAusleihen(List<Rental> rentals) {
+        this.rentals = rentals;
     }
 
     public double getPrice() {
