@@ -16,5 +16,9 @@ public class Movie {
     public void setTitle(String title) {
         this.title = title;
     }
+
+    public double getPrice(int numberOfDaysRented) {
+        return 1.00 * numberOfDaysRented;
+    }
     
 }

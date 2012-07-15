@@ -12,7 +12,7 @@ public class Rental {
     }
 
     public double getPrice() {
-        return 1.0 * numberOfDaysRented;
+        return movie.getPrice(numberOfDaysRented);
     }
 
 }
