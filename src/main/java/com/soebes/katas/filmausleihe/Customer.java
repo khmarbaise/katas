@@ -29,7 +29,11 @@ public class Customer {
     }
 
     public double getPrice() {
-        return 0.0;
+        double result = 0.0;
+        for (Rental item : getRentals()) {
+            result += item.getPrice();
+        }
+        return result;
     }
 
 }

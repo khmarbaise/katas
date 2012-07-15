@@ -14,8 +14,9 @@ public class FilmeTest {
     //Unterschiedliche Preise (je nach Typ und Ausleidauer)
     //Unterschiedliche Personen
     //Rechnungsausgabe
+
     @Test
-    public void firstStep() {
+    public void rentalForOneDay() {
         Person person = new Person("Doe", "John");
 
         //Kunde besteht aus einer Person
@@ -30,6 +31,23 @@ public class FilmeTest {
         
         double price = customer.getPrice();
         assertThat(price).isEqualTo(1.00, DELTA);
+
+    }
+
+    @Test
+    public void rentalForTwoDays() {
+        Person person = new Person("Doe", "John");
+
+        Customer customer = new Customer();
+        customer.setPerson(person);
+
+        Movie movie = new Movie("Die Hard");
+        Rental rental = new Rental(movie, 2);
+
+        customer.getRentals().add(rental);
+        
+        double price = customer.getPrice();
+        assertThat(price).isEqualTo(2.00, DELTA);
 
     }
 

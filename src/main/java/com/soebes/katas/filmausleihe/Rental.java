@@ -11,4 +11,8 @@ public class Rental {
         this.numberOfDaysRented = numberOfDaysRented;
     }
 
+    public double getPrice() {
+        return 1.0 * numberOfDaysRented;
+    }
+
 }
