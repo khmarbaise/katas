@@ -1,26 +1,50 @@
 package com.soebes.katas.getraenkeautomat;
 
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
-
+import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 
 import org.testng.annotations.Test;
 
 public class GetraenkeAutomatTest {
 
     @Test
+    public void testForInitializers() {
+        List<String> result = new ArrayList<String>() {
+            private static final long serialVersionUID = 1;
+            {
+                add("test");
+                add("test");
+            }
+        };
+        
+        List<String> resultLL = new LinkedList<String>() {
+            private static final long serialVersionUID = 1L;
+            {
+                add("First");
+                add("Second");
+            }
+        };
+        for (String item : result) {
+            System.out.println("Item: " + item);
+            
+        }
+        for (String item : resultLL) {
+            System.out.println("Item:" + item);
+        }
+    }
+
+    @Test
     public void mockitoFirstTest() {
-	LinkedList<String> mockedList = mock(LinkedList.class);
-	when(mockedList.get(0)).thenReturn("first");
-	when(mockedList.get(1)).thenThrow(new RuntimeException());
-	
-	System.out.println(mockedList.get(0));
-	
-	System.out.println(mockedList.get(1));
-	
-	verify(mockedList);
+//	LinkedList<String> mockedList = mock(LinkedList.class);
+//	when(mockedList.get(0)).thenReturn("first");
+//	when(mockedList.get(1)).thenThrow(new RuntimeException());
+//	
+//	System.out.println(mockedList.get(0));
+//	
+//	System.out.println(mockedList.get(1));
+//	
+//	verify(mockedList);
     }
 //    @Test
 //    public void firstTest() {

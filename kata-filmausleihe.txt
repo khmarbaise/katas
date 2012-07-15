@@ -1,0 +1,12 @@
+
+Idee ist es eine Film Ausleihe zu entwicklen.
+
+Es gibt verschiedene Kategorien von Filmen, die unterschiedliche
+Preise haben.
+
+Mehrere unterschiedliche Filme
+Unterschiedliche Preise (je nach Typ und Ausleidauer)
+Rabatte je nach Typ und Ausleidauer
+Unterschiedliche Personen
+Rechnungsausgabe
+
