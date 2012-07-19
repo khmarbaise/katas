@@ -6,7 +6,23 @@ Preise haben.
 
 Mehrere unterschiedliche Filme
 Unterschiedliche Preise (je nach Typ und Ausleidauer)
+  - Block Buster: 1,8 Pro Tag
+  - Aktuelle: 1,3 Pro Tag
+  - Kinder: 1,0 Tag
+
 Rabatte je nach Typ und Ausleidauer
+  - Block Buster ab 3 Tagen 12 % Rabatt
+
+    wenn mindestens 2 Filme geliehen wurden.
+    egal welche Art.
+
+  - Block Buster ab 4 Tagen 8 % Rabatt
+
+   
 Unterschiedliche Personen
 Rechnungsausgabe
+
+In Stufe 2:
+
+  Berechnung der Ausleihtage Anhand der Datumsdifferenz
 
