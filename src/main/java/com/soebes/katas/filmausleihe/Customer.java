@@ -28,7 +28,7 @@ public class Customer {
         this.rentals = rentals;
     }
 
-    public double getPrice() {
+    public double calculatePrice() {
         double result = 0.0;
         for (Rental item : getRentals()) {
             result += item.getPrice();

@@ -2,11 +2,14 @@ package com.soebes.katas.filmausleihe;
 
 public class Movie {
 
-    private String title;
+	private PriceType priceType;
+	
+	private String title;
 
-    public Movie(String title) {
+    public Movie(String title, PriceType price) {
         super();
         this.title = title;
+        this.priceType = price;
     }
 
     public String getTitle() {
@@ -17,8 +20,12 @@ public class Movie {
         this.title = title;
     }
 
-    public double getPrice(int numberOfDaysRented) {
-        return 1.00 * numberOfDaysRented;
-    }
-    
+    public PriceType getPriceType() {
+		return priceType;
+	}
+
+	public void setPriceType(PriceType price) {
+		this.priceType = price;
+	}
+
 }
