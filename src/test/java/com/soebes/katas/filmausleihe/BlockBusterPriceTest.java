@@ -1,6 +1,6 @@
 package com.soebes.katas.filmausleihe;
 
-import static org.fest.assertions.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -24,7 +24,7 @@ public class BlockBusterPriceTest extends TestBase {
     public void shouldGiveThePriceForRentalOfDifferentDaysOfABlockBusterMovie(int rentendDays, double expectedPrice) {
         PriceType price = new BlockBusterPrice();
         double result = price.calculatePrice(rentendDays);
-        assertThat(result).isEqualTo(expectedPrice, DELTA);
+        assertThat( result).isEqualTo(expectedPrice, DELTA );
     }
 
 }

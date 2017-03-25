@@ -1,19 +1,22 @@
 package com.soebes.katas.muenzspeicher;
 
+import static org.assertj.core.api.Assertions.assertThat;
+
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-import static org.fest.assertions.Assertions.assertThat;
+public class RegExTest
+{
 
-public class RegExTest {
+    public static final Pattern REG = Pattern.compile( "1\\.(0|[1-9][0-9]*)(\\.(0|[1-9][0-9]*))*" );
 
-    public static final Pattern REG = Pattern.compile("1\\.(0|[1-9][0-9]*)(\\.(0|[1-9][0-9]*))*");
-
-    @DataProvider(name = "test")
-    public Object[][] createData() {
+    @DataProvider( name = "test" )
+    public Object[][] createData()
+    {
+     //@formatter:off
      return new Object[][] {
        { "000.000.000.000", false },
        { "00.00.0.0", false },
@@ -28,11 +31,12 @@ public class RegExTest {
        { "1.20", true },
        { "1.10.100.10", true },
      };
+     //@formatter:off
     }
 
     @Test(dataProvider = "test")
     public void testFirst(String ip, boolean expected) {
         Matcher m = REG.matcher(ip);
-        assertThat(m.matches()).isEqualTo(expected);
+        assertThat( m.matches()).isEqualTo(expected);
     }
 }

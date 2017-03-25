@@ -1,9 +1,10 @@
 package com.soebes.katas.filmausleihe;
 
-import org.fest.assertions.Delta;
+import org.assertj.core.data.Offset;
 
-public class TestBase {
+public class TestBase
+{
 
-	public static final Delta DELTA = Delta.delta(1E-6);
+    public static final Offset<Double> DELTA = Offset.offset( 1E-6 );
 
 }
