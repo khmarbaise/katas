@@ -1,14 +1,28 @@
 package com.soebes.katas.factors;
 
-import java.util.Collections;
+import java.util.ArrayList;
 import java.util.List;
 
 public class PrimeFactors
 {
 
-    public static List<Integer> factorsOf( int i )
+    public static List<Integer> factorsOf( int n )
     {
-        return Collections.emptyList();
+        List<Integer> result = new ArrayList<>();
+        if ( n > 1 )
+        {
+            while ( n % 2 == 0 )
+            {
+                result.add( 2 );
+                n /= 2;
+            }
+            if ( n > 1 )
+            {
+                result.add( n );
+            }
+        }
+
+        return result;
     }
 
 }
