@@ -34,36 +34,18 @@ public class FactorsTest
 
     public List<Integer> factorsOf( final int n )
     {
-        int remainder = n;
         List<Integer> result = new ArrayList<>();
-        if ( n > 1 )
+        int remainder = n;
+        int divider = 2;
+        while ( remainder > 1 )
         {
-            while ( remainder % 2 == 0 )
+            while ( remainder % divider == 0 )
             {
-                result.add( 2 );
-                remainder /= 2;
+                result.add( divider );
+                remainder /= divider;
             }
-            while ( remainder % 3 == 0 )
-            {
-                result.add( 3 );
-                remainder /= 3;
-            }
-            if ( remainder % 5 == 0 )
-            {
-                result.add( 5 );
-            }
-            if ( remainder % 7 == 0 )
-            {
-                result.add( 7 );
-            }
-            if ( remainder % 11 == 0 )
-            {
-                result.add( 11 );
-            }
-            if ( remainder % 13 == 0 )
-            {
-                result.add( 13 );
-            }
+            
+            divider++;
         }
         return result;
     }
