@@ -31,6 +31,12 @@ public class FactorsTest
         assertThat( factorsOf( 15 ) ).containsExactly( 3, 5 );
         assertThat( factorsOf( 15 ) ).containsExactly( 3, 5 );
         assertThat( factorsOf( 2 * 2 * 3 * 3 * 5 * 5 ) ).containsExactly( 2, 2, 3, 3, 5, 5 );
+        assertThat( factorsOf( 2 * 2 * 3 * 3 * 5 * 5 * 7 ) ).containsExactly( 2, 2, 3, 3, 5, 5, 7 );
+        assertThat( factorsOf( 2 * 2 * 3 * 3 * 5 * 5 * 7 * 11 * 11  ) ).containsExactly( 2, 2, 3, 3, 5, 5, 7, 11, 11 );
+        assertThat( factorsOf( 2 * 2 * 3 * 3 * 5 * 5 * 7 * 11 * 13 ) ).containsExactly( 2, 2, 3, 3, 5, 5, 7, 11, 13 );
+        assertThat( factorsOf( 2 * 2 * 3 * 3 * 5 * 5 * 7 * 11 * 13 * 13 ) ).containsExactly( 2, 2, 3, 3, 5, 5, 7, 11, 13, 13 );
+        assertThat( factorsOf( 2 * 2 * 3 * 3 * 5 * 5 * 7 * 11 * 11 * 13 * 13 ) ).containsExactly( 2, 2, 3, 3, 5, 5, 7, 11, 11, 13, 13 );
+        assertThat( factorsOf( 2 * 2 * 3 * 3 * 5 * 5 * 7 * 7 * 11 * 11 * 13 * 13 ) ).containsExactly( 2, 2, 3, 3, 5, 5, 7, 7, 11, 11, 13, 13 );
     }
 
     public List<Integer> factorsOf( final int n )
@@ -39,35 +45,16 @@ public class FactorsTest
 
         int remainder = n;
 
-        if ( remainder > 1 )
+        int divider = 2;
+
+        while ( remainder > 1 )
         {
-            while ( remainder % 2 == 0 )
+            while ( remainder % divider == 0 )
             {
-                result.add( 2 );
-                remainder /= 2;
+                result.add( divider );
+                remainder /= divider;
             }
-            while ( remainder % 3 == 0 )
-            {
-                result.add( 3 );
-                remainder /= 3;
-            }
-            while ( remainder % 5 == 0 )
-            {
-                result.add( 5 );
-                remainder /= 5;
-            }
-            if ( remainder % 7 == 0 )
-            {
-                result.add( 7 );
-            }
-            if ( remainder % 11 == 0 )
-            {
-                result.add( 11 );
-            }
-            if ( remainder % 13 == 0 )
-            {
-                result.add( 13 );
-            }
+            divider++;
         }
         return result;
     }
