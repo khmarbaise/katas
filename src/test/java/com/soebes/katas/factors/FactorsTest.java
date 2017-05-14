@@ -17,18 +17,23 @@ public class FactorsTest
         assertThat( factorsOf( 1 ) ).isEqualTo( Collections.emptyList() );
         assertThat( factorsOf( 2 ) ).containsExactly( 2 );
         assertThat( factorsOf( 3 ) ).containsExactly( 3 );
+        assertThat( factorsOf( 4 ) ).containsExactly( 2, 2 );
     }
 
     public List<Integer> factorsOf( final int n )
     {
         List<Integer> result = new ArrayList<>();
-        if ( n > 1 )
+        
+        int remainder = n;
+        
+        if ( remainder > 1 )
         {
-            if ( n % 2 == 0 )
+            while ( remainder % 2 == 0 )
             {
                 result.add( 2 );
+                remainder /= 2;
             }
-            if ( n % 3 == 0 )
+            if ( remainder % 3 == 0 )
             {
                 result.add( 3 );
             }
