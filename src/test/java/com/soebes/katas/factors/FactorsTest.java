@@ -19,6 +19,7 @@ public class FactorsTest
         assertThat( factorsOf( 3 ) ).containsExactly( 3 );
         assertThat( factorsOf( 4 ) ).containsExactly( 2, 2 );
         assertThat( factorsOf( 5 ) ).containsExactly( 5 );
+        assertThat( factorsOf( 6 ) ).containsExactly( 2, 3 );
     }
 
     public List<Integer> factorsOf( final int n )
