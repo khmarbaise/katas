@@ -56,4 +56,10 @@ public class PrimeFactorsTest
         assertThat( PrimeFactors.factorsOf( 8 ) ).containsExactly( 2, 2, 2 );
     }
 
+    @Test
+    public void primeOfNineIsThreeTimesThree()
+    {
+        assertThat( PrimeFactors.factorsOf( 9 ) ).containsExactly( 3, 3 );
+    }
+
 }
