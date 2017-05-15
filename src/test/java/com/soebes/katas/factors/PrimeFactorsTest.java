@@ -49,4 +49,34 @@ public class PrimeFactorsTest
     {
         assertThat( PrimeFactors.factorsOf( 7 ) ).containsExactly( 7 );
     }
+
+    @Test
+    public void primeOfEightIsTwoTimesTwoTimesTwo()
+    {
+        assertThat( PrimeFactors.factorsOf( 8 ) ).containsExactly( 2, 2, 2 );
+    }
+
+    @Test
+    public void primeOfNineIsThreeTimesThree()
+    {
+        assertThat( PrimeFactors.factorsOf( 9 ) ).containsExactly( 3, 3 );
+    }
+
+    @Test
+    public void primeOfTenIsTwoTimesFive()
+    {
+        assertThat( PrimeFactors.factorsOf( 10 ) ).containsExactly( 2, 5 );
+    }
+
+    @Test
+    public void primeOfElevenIsEleven()
+    {
+        assertThat( PrimeFactors.factorsOf( 11 ) ).containsExactly( 11 );
+    }
+
+    @Test
+    public void primeOfTwelveIsTwoTimesTwoTimesThree()
+    {
+        assertThat( PrimeFactors.factorsOf( 12 ) ).containsExactly( 2, 2, 3 );
+    }
 }
