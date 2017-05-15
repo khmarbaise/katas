@@ -24,6 +24,10 @@ public class PrimeFactors
             {
                 result.add( 5 );
             }
+            if ( n % 7 == 0 )
+            {
+                result.add( 7 );
+            }
         }
         return result;
     }
