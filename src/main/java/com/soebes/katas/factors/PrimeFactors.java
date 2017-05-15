@@ -9,30 +9,16 @@ public class PrimeFactors
     public static List<Integer> factorsOf( int n )
     {
         List<Integer> result = new ArrayList<>();
-        if ( n > 1 )
+        int remainder = n;
+        int divider = 2;
+        while ( remainder > 1 )
         {
-            while ( n % 2 == 0 )
+            while ( remainder % divider == 0 )
             {
-                result.add( 2 );
-                n /= 2;
+                result.add( divider );
+                remainder /= divider;
             }
-            while ( n % 3 == 0 )
-            {
-                result.add( 3 );
-                n /= 3;
-            }
-            if ( n % 5 == 0 )
-            {
-                result.add( 5 );
-            }
-            if ( n % 7 == 0 )
-            {
-                result.add( 7 );
-            }
-            if ( n % 11 == 0 )
-            {
-                result.add( 11 );
-            }
+            divider++;
         }
         return result;
     }
