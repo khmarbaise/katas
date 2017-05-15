@@ -16,9 +16,10 @@ public class PrimeFactors
                 result.add( 2 );
                 n /= 2;
             }
-            if ( n % 3 == 0 )
+            while ( n % 3 == 0 )
             {
                 result.add( 3 );
+                n /= 3;
             }
             if ( n % 5 == 0 )
             {
@@ -27,6 +28,10 @@ public class PrimeFactors
             if ( n % 7 == 0 )
             {
                 result.add( 7 );
+            }
+            if ( n % 11 == 0 )
+            {
+                result.add( 11 );
             }
         }
         return result;
