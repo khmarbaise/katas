@@ -43,4 +43,10 @@ public class PrimeFactorsTest
     {
         assertThat( PrimeFactors.factorsOf( 6 ) ).containsExactly( 2, 3 );
     }
+
+    @Test
+    public void primeOfSevenIsSeven()
+    {
+        assertThat( PrimeFactors.factorsOf( 7 ) ).containsExactly( 7 );
+    }
 }
