@@ -37,4 +37,10 @@ public class PrimeFactorsTest
     {
         assertThat( PrimeFactors.factorsOf( 5 ) ).containsExactly( 5 );
     }
+
+    @Test
+    public void primeOfSixIsTwoTimesThree()
+    {
+        assertThat( PrimeFactors.factorsOf( 6 ) ).containsExactly( 2, 3 );
+    }
 }
