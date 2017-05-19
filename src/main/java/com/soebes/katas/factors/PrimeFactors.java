@@ -6,7 +6,7 @@ import java.util.List;
 public class PrimeFactors
 {
 
-    public static List<Integer> factorsOf( int n )
+    public static List<Integer> of( final int n )
     {
         List<Integer> result = new ArrayList<>();
         int remainder = n;
