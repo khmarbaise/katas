@@ -9,8 +9,8 @@ public class PrimeFactors
     public static List<Integer> of( final int n )
     {
         List<Integer> result = new ArrayList<>();
-        int remainder = n;
         int divider = 2;
+        int remainder = n;
         while ( remainder > 1 )
         {
             while ( remainder % divider == 0 )
