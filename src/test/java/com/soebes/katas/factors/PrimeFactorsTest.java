@@ -97,4 +97,5 @@ public class PrimeFactorsTest
     {
         assertThat( PrimeFactors.of( 2 * 3 * 5 * 7 * 11 * 13 ) ).containsExactly( 2, 3, 5, 7, 11, 13 );
     }
+    
 }
