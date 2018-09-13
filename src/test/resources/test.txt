@@ -1,0 +1,17 @@
+tabelle;ANTON
+columns;A;B;C
+format;int;int;int
+rec;001;1;2;3
+rec;001;2;3;4
+rec;001;3;4;5
+rec;001;4;5;6
+end;4
+tabelle;BERTA
+columns;X;Y;T
+format;text;text;text
+rec;002;eins;zwei;drei
+rec;002;zwei;drei;vier
+rec;002;drei;vier;fuenf
+rec;002;vier;fuenf;sechs
+end;4
+eof;2

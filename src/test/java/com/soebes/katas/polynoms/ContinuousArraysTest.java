@@ -136,7 +136,7 @@ public class ContinuousArraysTest
         ArrayList<Integer> maxset = maxset( GIVEN_B );
         assertThat( maxset ).containsExactly( 0, 0 );
     }
-    @Test
+    @Test(enabled = false)
     public void forth()
     {
         System.out.println( "-------------------------------" );

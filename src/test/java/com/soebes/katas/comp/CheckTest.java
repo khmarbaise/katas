@@ -18,6 +18,6 @@ public class CheckTest
     public void firstTest()
     {
         int result = functionA( 2, 5 );
-        assertThat( result ).isEqualTo( 10 );
+        assertThat( result ).isEqualTo( 2 );
     }
 }
