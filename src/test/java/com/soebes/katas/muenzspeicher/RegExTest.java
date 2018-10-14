@@ -5,8 +5,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.junit.jupiter.api.Test;
 import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
 
 public class RegExTest
 {

@@ -3,7 +3,7 @@ package com.soebes.katas.functional;
 import java.util.function.Consumer;
 import java.util.function.Function;
 
-import org.testng.annotations.Test;
+import org.junit.jupiter.api.Test;
 
 public class F1 {
 

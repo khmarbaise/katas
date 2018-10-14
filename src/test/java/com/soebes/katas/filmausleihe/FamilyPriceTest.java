@@ -2,8 +2,8 @@ package com.soebes.katas.filmausleihe;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
+import org.junit.jupiter.api.Test;
 import org.testng.annotations.DataProvider;
-import org.testng.annotations.Test;
 
 public class FamilyPriceTest
     extends TestBase

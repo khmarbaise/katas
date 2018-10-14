@@ -3,7 +3,7 @@ package com.soebes.katas.wordwrap;
 import static com.soebes.katas.wordwrap.Wrapper.wrap;
 import static org.assertj.core.api.Assertions.assertThat;
 
-import org.testng.annotations.Test;
+import org.junit.jupiter.api.Test;
 
 public class WrapperTest
 {

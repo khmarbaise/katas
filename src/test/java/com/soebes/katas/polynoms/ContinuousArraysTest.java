@@ -4,7 +4,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.ArrayList;
 
-import org.testng.annotations.Test;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 public class ContinuousArraysTest
 {
@@ -136,7 +137,8 @@ public class ContinuousArraysTest
         ArrayList<Integer> maxset = maxset( GIVEN_B );
         assertThat( maxset ).containsExactly( 0, 0 );
     }
-    @Test(enabled = false)
+    @Test
+    @Disabled
     public void forth()
     {
         System.out.println( "-------------------------------" );

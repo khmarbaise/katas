@@ -1,6 +1,7 @@
 package com.soebes.katas.functions;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import java.util.Arrays;
 import java.util.List;
@@ -8,7 +9,8 @@ import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
-import org.testng.annotations.Test;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 public class FunctionTest
 {
@@ -50,15 +52,16 @@ public class FunctionTest
         return "Prefix: " + in;
     }
 
-    @Test(expectedExceptions = { UnsupportedOperationException.class })
+    @Test
     public void xxxTestStream() {
 //        List<String> asList = Collections.unmodifiableList( Arrays.asList( "a", "b", "c" ));
         List<String> asList = Arrays.asList( "a", "b", "c" );
         asList.add( "X" );
-        asList.remove( 0 );
+        assertThrows( UnsupportedOperationException.class, () -> asList.remove( 0 ) );
     }
     
-    @Test(enabled = false)
+    @Test
+    @Disabled
     public void shouldBeXXX()
     {
         // cos a = sin (pi/2-a)

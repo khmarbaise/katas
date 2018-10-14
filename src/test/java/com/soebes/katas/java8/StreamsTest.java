@@ -3,7 +3,7 @@ package com.soebes.katas.java8;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-import org.testng.annotations.Test;
+import org.junit.jupiter.api.Test;
 
 public class StreamsTest {
 

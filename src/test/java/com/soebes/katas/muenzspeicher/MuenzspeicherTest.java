@@ -1,6 +1,6 @@
 package com.soebes.katas.muenzspeicher;
 
-import org.testng.annotations.Test;
+import org.junit.jupiter.api.Test;
 
 public class MuenzspeicherTest {
     @Test

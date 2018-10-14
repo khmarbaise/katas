@@ -1,6 +1,6 @@
 package com.soebes.katas.aufzug;
 
-import org.testng.annotations.Test;
+import org.junit.jupiter.api.Test;
 
 public class AufzugTest {
     public class Aufzug {
