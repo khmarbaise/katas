@@ -56,7 +56,7 @@ public class FunctionTest
     public void xxxTestStream() {
 //        List<String> asList = Collections.unmodifiableList( Arrays.asList( "a", "b", "c" ));
         List<String> asList = Arrays.asList( "a", "b", "c" );
-        asList.add( "X" );
+        assertThrows( UnsupportedOperationException.class, () -> asList.add( "X" ) );
         assertThrows( UnsupportedOperationException.class, () -> asList.remove( 0 ) );
     }
     

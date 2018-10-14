@@ -2,27 +2,30 @@ package com.soebes.katas.filmausleihe;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-import org.junit.jupiter.api.Test;
-import org.testng.annotations.DataProvider;
+import java.util.stream.Stream;
+
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
 
 public class FamilyPriceTest
     extends TestBase
 {
 
-    @DataProvider( name = "createPriceTestSetForFamilyMovie" )
-    public Object[][] createPriceTestSetForFamilyMovie()
+    static Stream<Arguments> createPriceTestSetForFamilyMovie()
     {
-        //@formatter:off
-        return new Object[][] {
-            { 1,  0.50 },
-            { 2,  1.00 },
-            { 3,  1.50 },
-            { 4,  2.00 },
-        };
-        //@formatter:on
+        // @formatter:off
+        return Stream.of( //
+          Arguments.of( 1, 0.50 ), //
+          Arguments.of( 2, 1.00 ), //
+          Arguments.of( 3, 1.50 ), //
+          Arguments.of( 4, 2.00 ) //
+        );
+        // @formatter:on
     }
 
-    @Test( dataProvider = "createPriceTestSetForFamilyMovie" )
+    @ParameterizedTest
+    @MethodSource( "createPriceTestSetForFamilyMovie" )
     public void shouldGiveThePriceForRentalOfDifferentDaysForFamilyMovie( int rentedDays, double expectedPrice )
     {
         PriceType price = new FamilyPrice();
