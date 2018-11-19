@@ -6,7 +6,7 @@ import java.io.ObjectOutputStream;
 
 import org.junit.jupiter.api.Test;
 
-import jdk.nashorn.internal.ir.debug.ObjectSizeCalculator;
+// import jdk.nashorn.internal.ir.debug.ObjectSizeCalculator;
 
 public class CodeTest
 {
@@ -30,8 +30,8 @@ public class CodeTest
 
         byte[] byteArray = baos.toByteArray();
 
-        long objectSize = ObjectSizeCalculator.getObjectSize( pi );
-        System.out.println( "Size:" + objectSize );
+//        long objectSize = ObjectSizeCalculator.getObjectSize( pi );
+//        System.out.println( "Size:" + objectSize );
 
     }
 }

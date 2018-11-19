@@ -1,12 +1,22 @@
 package com.soebes.katas.functions;
 
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.assertThrows;
+import static org.junit.jupiter.api.Assertions.*;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.DoubleSummaryStatistics;
+import java.util.LinkedHashMap;
 import java.util.List;
+import java.util.LongSummaryStatistics;
+import java.util.concurrent.atomic.DoubleAccumulator;
+import java.util.concurrent.atomic.DoubleAdder;
+import java.util.concurrent.atomic.LongAdder;
 import java.util.function.Function;
+import java.util.function.Predicate;
 import java.util.stream.Collectors;
+import java.util.stream.IntStream;
+import java.util.stream.LongStream;
 import java.util.stream.Stream;
 
 import org.junit.jupiter.api.Disabled;
@@ -31,16 +41,15 @@ public class FunctionTest
         System.out.println( tripple.apply( 10 ).apply( 5 ) );
     }
 
+	public static Predicate<String> ONLY_A = s -> s.contains("A");
+	public static Predicate<String> ONLY_B = s -> s.contains("B");
+    
     @Test
     public void testFunctionsWithMap()
     {
         List<String> collect = Stream.of( "A", "B", "C", "D", "E" )
-            .filter( m -> 
-                (
-                   m.contains( "A" ) || m.contains( "B" ) 
-                ) 
-            )
-            .map( FunctionTest::mapFunction)
+        		.filter(ONLY_A.or(ONLY_B))
+            .map( FunctionTest::mapFunction )
             .collect( Collectors.toList() );
         
         assertThat( collect ).hasSize( 2 );
@@ -61,13 +70,66 @@ public class FunctionTest
     }
     
     @Test
-    @Disabled
     public void shouldBeXXX()
     {
+    	
         // cos a = sin (pi/2-a)
 //        Function<Double, Double> umfang = x -> x * 2 * Math.PI;
         Function<Double, Double> umfang = radius -> 2.0 * Math.PI * radius;
 //        assertThat( umfang.apply( 2.0 ) ).isEqualTo( 12.1444 );
         //Double cos = Function.compose( (Double x) -> Math.PI / 2.0 - x, Math::sin).apply(2.0);
     }
+    
+    // Non Lambda:
+	static Function<Integer, Integer> compose(Function<Integer, Integer> f1, Function<Integer, Integer> f2) {
+		return new Function<Integer, Integer>() {
+			public Integer apply(Integer arg) {
+				return f1.apply(f2.apply(arg));
+			}
+		};
+	}
+
+	static Function<Integer, Integer> composeLambda(Function<Integer, Integer> f1, Function<Integer, Integer> f2) {
+		return arg -> f1.apply(f2.apply(arg));
+	}
+
+	static List<Integer> LIST_OF_INTS = List.of(1, 2, 5, 7, 8, 9, 10);
+
+	List<String> LIST_OF_STRINGS = List.of("1", "2", "5", "7", "8", "9", "10");
+	
+	// https://www.oracle.com/technetwork/articles/java/ma14-java-se-8-streams-2177646.html
+	@SuppressWarnings("unused")
+	@Test
+	void testName()  {
+		Long summ = 0L;
+		for (Integer integer : LIST_OF_INTS) {
+			summ += integer;
+		}
+
+		Long summS1 = LIST_OF_STRINGS.stream().mapToLong(s -> Integer.valueOf(s)).sum();
+		
+		Long summV1 = LIST_OF_INTS.stream().mapToLong(i -> i.longValue()).reduce(0, Long::sum);
+
+		Long summV2 = LIST_OF_INTS.stream().mapToLong(i -> i.longValue()).sum();
+		LongSummaryStatistics summV3 = LIST_OF_INTS.stream().mapToLong(i -> i.longValue()).summaryStatistics();
+		
+		Long summV4 = LIST_OF_INTS.stream().collect(Collectors.summingLong(i -> i.longValue()));
+
+		LongAdder la = new LongAdder();
+		LIST_OF_INTS.stream().forEach(la::add);
+		Long summV5 = la.longValue();
+		
+		LongSummaryStatistics collect = LIST_OF_INTS.stream().collect(Collectors.summarizingLong(i -> i.longValue()));
+		Long summV6 = collect.getSum();
+		
+		System.out.println("Summ:" + summV5);
+
+		long[] array = LongStream.rangeClosed(1L, 10_000_000L).toArray();
+		long count = LongStream.rangeClosed(1L, 10_000_000L).count();
+		System.out.println("Count:" + count);
+
+		DoubleAccumulator da;
+		
+		List<String> x = new ArrayList<>();
+	}
 }

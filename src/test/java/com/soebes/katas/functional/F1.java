@@ -22,8 +22,8 @@ public class F1 {
     System.out.println(square.apply(triple.apply(2)));
   }
 
-  public interface BinaryOperator extends Function<Integer, Function<Integer, Integer>> {
-  };
+	public interface BinaryOperator extends Function<Integer, Function<Integer, Integer>> {
+	};
 
   @Test
   public void secondTest() {
