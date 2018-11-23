@@ -34,7 +34,7 @@ public class FirstTest
 
         System.out.print( prettyOut( TO_CHECK_FOR.getBytes() ) );
         System.out.println( "TO=\"" + TO_CHECK_FOR + "\"" );
-        assertThat( TO_CHECK_FOR.toString().matches( ".+" ) ).isTrue();
+        assertThat( TO_CHECK_FOR.toString().matches( ".+" ) ).isFalse();
 
     }
 }

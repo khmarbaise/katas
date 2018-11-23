@@ -1,5 +1,6 @@
 package com.soebes.katas.sublist;
 
+import java.util.Comparator;
 import java.util.Objects;
 import java.util.function.Function;
 

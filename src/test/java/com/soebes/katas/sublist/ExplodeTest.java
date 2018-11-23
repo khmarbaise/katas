@@ -5,13 +5,14 @@ import static org.assertj.core.api.Assertions.assertThat;
 import java.math.BigInteger;
 import java.util.Arrays;
 import java.util.List;
-import java.util.function.Predicate;
+import java.util.Map;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.LongStream;
 
 import org.junit.jupiter.api.Test;
 
-public class ExplodeTest
+class ExplodeTest
 {
     private List<String> LIST_OF_WORDS =
         List.of( "alpha", "bravo", "charlie", "delta", "foxtrot", "golf", "hotel", "india", "juliet", "kilo", "lima",
@@ -103,11 +104,27 @@ public class ExplodeTest
     void factoral_Reduce()
     {
         BigInteger reduce = LongStream //
-           .rangeClosed( 1, 50 ) //
+           .rangeClosed( 1, 10 ) //
            .mapToObj( BigInteger::valueOf ) //
            .reduce( BigInteger.ONE, BigInteger::multiply );
         System.out.println( "Reduce=" + reduce );
+    }
+    
+    @Test
+    void mapReduceExample()
+    {
+        Pattern pattern = Pattern.compile( "[, ':\\-]+");
+        
+        LIST_OF_WORDS.forEach( s -> System.out.println(s) ); 
+//        pattern.splitAsStream( input );
+        Map<String, Long> map = Map.of( "a", Long.valueOf( 1 ) );
 
-        Predicate<Person> p = s -> true;
+        Map.Entry.comparingByValue();
+        
+//        map.entrySet().stream().max( Mapcomparator );
+//        BigInteger reduce = LongStream
+//            .rangeClosed( 1, 100 )
+//            .mapToObj( Long::valueOf )
+//            .reduce( LongI, LongAccumulator::accumulate );
     }
 }
