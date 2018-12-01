@@ -14,6 +14,7 @@ import java.util.concurrent.atomic.DoubleAdder;
 import java.util.concurrent.atomic.LongAdder;
 import java.util.function.Function;
 import java.util.function.Predicate;
+import java.util.function.ToDoubleFunction;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.LongStream;
@@ -98,7 +99,6 @@ public class FunctionTest
 	List<String> LIST_OF_STRINGS = List.of("1", "2", "5", "7", "8", "9", "10");
 	
 	// https://www.oracle.com/technetwork/articles/java/ma14-java-se-8-streams-2177646.html
-	@SuppressWarnings("unused")
 	@Test
 	void testName()  {
 		Long summ = 0L;
@@ -118,11 +118,15 @@ public class FunctionTest
 		LongAdder la = new LongAdder();
 		LIST_OF_INTS.stream().forEach(la::add);
 		Long summV5 = la.longValue();
+		System.out.println("Summ:" + summV5);
 		
 		LongSummaryStatistics collect = LIST_OF_INTS.stream().collect(Collectors.summarizingLong(i -> i.longValue()));
+		System.out.println( "summarizingLong=" + collect );
 		Long summV6 = collect.getSum();
+
 		
-		System.out.println("Summ:" + summV5);
+		Double collect2 = LIST_OF_INTS.stream().collect( Collectors.averagingDouble( (Integer value) -> Double.valueOf( value ) ) );
+        System.out.println( "averagingDouble=" + collect2 );
 
 		long[] array = LongStream.rangeClosed(1L, 10_000_000L).toArray();
 		long count = LongStream.rangeClosed(1L, 10_000_000L).count();
@@ -132,4 +136,36 @@ public class FunctionTest
 		
 		List<String> x = new ArrayList<>();
 	}
+	
+	@Test
+    void averagingDouble()
+    {
+        List<Double> of = List.of( 9_999_999_999_999_999.0d, 1.0d, 3.141_59d, 2.718_28d  );
+        double forEachResult = 0.0d;
+        for ( Double value : of )
+        {
+            forEachResult += value; 
+        }
+        
+        Double result = of.stream().mapToDouble( Double::valueOf ).sum();
+        System.out.println( "result:" +  result);
+        System.out.println( "forEachResult:" +  forEachResult);
+        
+        long longFirst = Long.MIN_VALUE;
+        long longFirstInverted = -longFirst;
+        System.out.println( "longFirst: " + longFirst + " longFirstInverted:" + longFirstInverted );
+        
+        int first = Integer.MIN_VALUE;
+        int firstInverted = - first;
+        System.out.println( "first: " + first + " firstInverted:" + firstInverted );
+        
+        short shortFirst = Short.MIN_VALUE;
+        short shortFirstInverted = (short)-shortFirst;
+        
+        System.out.println( "shortFirst:" + shortFirst + " shortFirstInverted:" + shortFirstInverted );
+
+        byte byteFirst = Byte.MIN_VALUE;
+        byte byteFirstInverted = (byte)-byteFirst;
+        System.out.println( "byteFirst:" + byteFirst + " byteFirstInverted:" + byteFirstInverted );
+    }
 }

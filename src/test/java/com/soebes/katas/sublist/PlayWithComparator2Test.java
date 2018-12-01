@@ -1,6 +1,6 @@
 package com.soebes.katas.sublist;
 
-import java.util.Comparator;
+import java.util.HashMap;
 import java.util.Objects;
 import java.util.function.Function;
 
@@ -71,8 +71,6 @@ public class PlayWithComparator2Test
         System.out.println( "Rod     :" + rod );
         System.out.println( "Michael <-> rod      : " + comp.compare( michael, rod ) );
         System.out.println( "Michael <-> Jarmaine : " + comp.compare( michael, jarmaine ) );
-        
-        PersonComparator<Person> negComp = comp.reversed();
         
     }
 }

@@ -6,6 +6,7 @@ import java.math.BigInteger;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.function.LongFunction;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.LongStream;
@@ -68,7 +69,7 @@ class ExplodeTest
                .flatMap( word -> expand( word ).stream() ) //
                .collect( Collectors.toList() );
         
-        System.out.println( "collect:" + collect );
+        System.out.println( "collect2:" + collect );
     }
     
     private List<String> sonnet = List.of(
@@ -99,14 +100,18 @@ class ExplodeTest
         
     }
     
-    
+    LongFunction<BigInteger> CONVERT_TO_BIGINTEGER = (long s) -> {
+      return BigInteger.valueOf( s );  
+    };
+
     @Test
     void factoral_Reduce()
     {
         BigInteger reduce = LongStream //
-           .rangeClosed( 1, 10 ) //
-           .mapToObj( BigInteger::valueOf ) //
+           .rangeClosed( 1, 50000 ) //
+           .mapToObj( CONVERT_TO_BIGINTEGER ) //
            .reduce( BigInteger.ONE, BigInteger::multiply );
+        System.out.println( "Reduce length=" + reduce.toString().length());
         System.out.println( "Reduce=" + reduce );
     }
     
@@ -120,6 +125,7 @@ class ExplodeTest
         Map<String, Long> map = Map.of( "a", Long.valueOf( 1 ) );
 
         Map.Entry.comparingByValue();
+        
         
 //        map.entrySet().stream().max( Mapcomparator );
 //        BigInteger reduce = LongStream
