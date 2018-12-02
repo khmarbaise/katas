@@ -6,6 +6,7 @@ import java.math.BigInteger;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Map;
+import java.util.concurrent.atomic.LongAccumulator;
 import java.util.function.LongFunction;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
@@ -108,11 +109,12 @@ class ExplodeTest
     void factoral_Reduce()
     {
         BigInteger reduce = LongStream //
-           .rangeClosed( 1, 50000 ) //
+           .rangeClosed( 1, 500 ) //
            .mapToObj( CONVERT_TO_BIGINTEGER ) //
            .reduce( BigInteger.ONE, BigInteger::multiply );
         System.out.println( "Reduce length=" + reduce.toString().length());
         System.out.println( "Reduce=" + reduce );
+
     }
     
     @Test
@@ -125,6 +127,7 @@ class ExplodeTest
         Map<String, Long> map = Map.of( "a", Long.valueOf( 1 ) );
 
         Map.Entry.comparingByValue();
+
         
         
 //        map.entrySet().stream().max( Mapcomparator );

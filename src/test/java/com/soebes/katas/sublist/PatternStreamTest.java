@@ -1,6 +1,7 @@
 package com.soebes.katas.sublist;
 
 import java.io.Serializable;
+import java.math.BigInteger;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
@@ -90,6 +91,7 @@ class PatternStreamTest {
     
         Comparator<Entry<String, Long>> compare = Comparator.comparing( Map.Entry::getValue );
         
+        // cat Maps | sort -r | head -5 
         Stream<Entry<String, Long>> top5 = words //
                         .entrySet() //
                         .stream() //
@@ -100,8 +102,7 @@ class PatternStreamTest {
             System.out.println( "Entry:" + e.getKey() + " v:" + e.getValue());
         });
 
-        
+
         Map<String, Long> counter = new HashMap<>();
-        
     }
 }
