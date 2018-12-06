@@ -3,13 +3,6 @@ package com.soebes.katas.functions;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.LongSummaryStatistics;
-import java.util.concurrent.atomic.LongAccumulator;
-import java.util.function.Function;
-import java.util.function.LongBinaryOperator;
-import java.util.function.LongFunction;
-import java.util.function.LongUnaryOperator;
-import java.util.stream.Collector;
-import java.util.stream.Collectors;
 import java.util.stream.LongStream;
 
 import org.junit.jupiter.api.Test;

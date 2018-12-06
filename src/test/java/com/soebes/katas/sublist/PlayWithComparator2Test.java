@@ -55,6 +55,7 @@ public class PlayWithComparator2Test
         default PersonComparator<T> reversed() {
             return (T t1, T t2) -> this.compare( t2, t1 ); 
         }
+        
     }
 
     @Test
