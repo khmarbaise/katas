@@ -95,9 +95,11 @@ public class StandardDeviationTest
     @Test
     void standardDeviation()
     {
-        LongSummaryStatistics collect =
-            LongStream.rangeClosed( 10, 10_000_000 ).collect( LongSummaryStatistics::new, LongSummaryStatistics::accept,
-                                                     LongSummaryStatistics::combine );
+	LongSummaryStatistics collect = LongStream
+		.rangeClosed(10, 10_000_000) //
+		.collect(LongSummaryStatistics::new, //
+			LongSummaryStatistics::accept, // 
+			LongSummaryStatistics::combine);
         System.out.println( "Result:" + collect );
 
     }

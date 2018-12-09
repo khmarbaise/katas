@@ -21,9 +21,9 @@ public class PlayWithComparator2Test
     public interface PersonComparator<T>
     {
         int compare( T t1, T t2 );
-
-        // PECS => 
-        // producer: ? extends T 
+        
+        // PECS =>
+        // producer: ? extends T
         // consumer: ? super T
         static <T, R extends Comparable<? super R>> PersonComparator<T> comparing( Function<? super T, R> extractor )
         {
@@ -52,25 +52,24 @@ public class PlayWithComparator2Test
             };
         }
 
-        default PersonComparator<T> reversed() {
-            return (T t1, T t2) -> this.compare( t2, t1 ); 
+        default PersonComparator<T> reversed()
+        {
+            return ( T t1, T t2 ) -> this.compare( t2, t1 );
         }
-        
+
     }
 
     @Test
     void testName()
     {
-        PersonComparator<Person> comp = PersonComparator 
-                                         .comparing( Person::getLastName ) //
-                                         .thenComparing( Person::getFirstName )
-                                         .thenComparing( Person::getAge );
+        PersonComparator<Person> comp = PersonComparator.comparing( Person::getLastName ) //
+                                                        .thenComparing( Person::getFirstName ).thenComparing( Person::getAge );
 
         System.out.println( "Michael  :" + michael );
         System.out.println( "Jarmaine :" + jarmaine );
         System.out.println( "Rod     :" + rod );
         System.out.println( "Michael <-> rod      : " + comp.compare( michael, rod ) );
         System.out.println( "Michael <-> Jarmaine : " + comp.compare( michael, jarmaine ) );
-        
+
     }
 }
