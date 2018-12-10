@@ -52,7 +52,7 @@ class FizzBuzzTest {
 	assertThat(fizzBuzz(27)).isEqualTo("Fizz");
     }
 
-    private String fizzBuzz(int i) {
+    public String fizzBuzz(int i) {
 	StringBuilder sb = new StringBuilder();
 
 	if (i % 3 == 0) {
