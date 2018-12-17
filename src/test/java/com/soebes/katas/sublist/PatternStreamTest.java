@@ -1,7 +1,6 @@
 package com.soebes.katas.sublist;
 
 import java.io.Serializable;
-import java.math.BigInteger;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;

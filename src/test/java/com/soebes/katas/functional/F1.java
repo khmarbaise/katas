@@ -1,7 +1,12 @@
 package com.soebes.katas.functional;
 
+import java.util.Arrays;
+import java.util.List;
+import java.util.Properties;
 import java.util.function.Consumer;
 import java.util.function.Function;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 import org.junit.jupiter.api.Test;
 
@@ -52,5 +57,15 @@ public class F1
 
         System.out.println( "andThen: " + andThen.apply( 15d ) );
         System.out.println( "cos:" + cos );
+    }
+
+    private static final Predicate<Integer> IS_EVEN_NUMBER = (Integer s) -> s % 2 == 0;
+    
+    @Test
+    void anOtherTest()  {
+	List<Integer> numbers = Arrays.asList(1, 4, 6, 8,9);
+	
+	String collected = numbers.stream().filter(IS_EVEN_NUMBER).map(number -> number.toString()).collect(Collectors.joining(","));
+ 	System.out.println("Collected:" + collected);
     }
 }
