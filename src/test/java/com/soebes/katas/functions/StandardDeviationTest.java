@@ -108,7 +108,7 @@ public class StandardDeviationTest
     void standardDeviationBigInteger()
     {
         BigIntegerSummaryStatistics collect =
-            LongStream.rangeClosed( 1, 1_000 )
+            LongStream.rangeClosed( 1, 1_000_000 )
             .mapToObj( m -> BigInteger.valueOf(m) )
             .collect( BigIntegerSummaryStatistics::new, 
                       BigIntegerSummaryStatistics::accept, 
