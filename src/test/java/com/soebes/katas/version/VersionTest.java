@@ -3,10 +3,10 @@ package com.soebes.katas.version;
 import java.util.List;
 import java.util.Objects;
 import java.util.function.Function;
+import java.util.function.Predicate;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 public class VersionTest
@@ -53,11 +53,25 @@ public class VersionTest
         }
 
     }
+    
+    public class Version {
+        
+    }
+    Predicate<Version> combine (List<Predicate<Version>> predicates) {
+        Predicate<Version> temp = version -> true;
+        for( Predicate<Version> cur : predicates) {
+            temp = temp.and( cur );
+        }
+        return temp;
+    }
+
+    Predicate<Version> combineStream (List<Predicate<Version>> predicates) {
+        return predicates.stream().reduce( version -> true, Predicate::and);
+    }
 
     static final Pattern SPLIT_PATTERN = Pattern.compile( "[\\.]+" );
 
     @Test
-    @Disabled
     void test1()
     {
         String versionLower = "1.2.6";
@@ -69,7 +83,6 @@ public class VersionTest
         collectVersionHigher.forEach( System.out::println );
         collectVersionLower.forEach( System.out::println );
  
-        String V1 = "1.2.3-SNAPSHOT";
-        System.out.println( "Result:" + V1.matches( ".*\\-SNAPSHOT" ));
+        
     }
 }

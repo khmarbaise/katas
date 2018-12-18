@@ -12,6 +12,7 @@ import java.util.stream.Collector;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
+import static java.util.stream.Collectors.*;
 import org.junit.jupiter.api.Test;
 
 class PatternStreamTest {
@@ -35,9 +36,9 @@ class PatternStreamTest {
     //@formatter:on
 
     private static final Collector<String, ?, Map<String, Long>> GROUPING_BY =
-            Collectors.groupingBy(
+            groupingBy(
                   word -> word, 
-                  Collectors.counting()
+                  counting()
               );
 
     private static final Pattern PATTERN = Pattern.compile("[, ':\\-\\.]+");
@@ -66,7 +67,7 @@ class PatternStreamTest {
                       .map(TO_UPPERCASE)
                       .flatMap(SPLIT_TO_WORDS)
                       .collect(
-                         Collectors.collectingAndThen(
+                         collectingAndThen(
                              GROUPING_BY, map -> Map.copyOf(map)
                          )
                       );

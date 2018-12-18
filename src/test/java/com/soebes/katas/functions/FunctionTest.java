@@ -1,7 +1,9 @@
 package com.soebes.katas.functions;
 
+import static java.util.stream.Collectors.*;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -14,8 +16,6 @@ import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.LongStream;
 import java.util.stream.Stream;
-
-import org.junit.jupiter.api.Test;
 
 public class FunctionTest
 {
@@ -45,7 +45,7 @@ public class FunctionTest
         List<String> collect = Stream.of( "A", "B", "C", "D", "E" )
         		.filter(ONLY_A.or(ONLY_B))
             .map( FunctionTest::mapFunction )
-            .collect( Collectors.toList() );
+            .collect( toList() );
         
         assertThat( collect ).hasSize( 2 );
         assertThat( collect ).containsExactly( "Prefix: A", "Prefix: B" );
@@ -107,14 +107,14 @@ public class FunctionTest
 		Long summV2 = LIST_OF_INTS.stream().mapToLong(i -> i.longValue()).sum();
 		LongSummaryStatistics summV3 = LIST_OF_INTS.stream().mapToLong(i -> i.longValue()).summaryStatistics();
 		
-		Long summV4 = LIST_OF_INTS.stream().collect(Collectors.summingLong(i -> i.longValue()));
+		Long summV4 = LIST_OF_INTS.stream().collect(summingLong(i -> i.longValue()));
 
 		LongAdder la = new LongAdder();
 		LIST_OF_INTS.stream().forEach(la::add);
 		Long summV5 = la.longValue();
 		System.out.println("Summ:" + summV5);
 		
-		LongSummaryStatistics collect = LIST_OF_INTS.stream().collect(Collectors.summarizingLong(i -> i.longValue()));
+		LongSummaryStatistics collect = LIST_OF_INTS.stream().collect(summarizingLong(i -> i.longValue()));
 		System.out.println( "summarizingLong=" + collect );
 		Long summV6 = collect.getSum();
 

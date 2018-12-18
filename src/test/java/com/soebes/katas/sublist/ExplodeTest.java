@@ -1,6 +1,8 @@
 package com.soebes.katas.sublist;
 
+import static java.util.stream.Collectors.toList;
 import static org.assertj.core.api.Assertions.assertThat;
+import org.junit.jupiter.api.Test;
 
 import java.math.BigInteger;
 import java.util.Arrays;
@@ -8,10 +10,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.function.LongFunction;
 import java.util.regex.Pattern;
-import java.util.stream.Collectors;
 import java.util.stream.LongStream;
-
-import org.junit.jupiter.api.Test;
 
 class ExplodeTest
 {
@@ -24,7 +23,7 @@ class ExplodeTest
     {
         //JDK 11
         // word.codePoints().mapToObj( Character::toString ).collect( Collectors.toList() );
-        return word.codePoints().mapToObj( ( int t ) -> String.valueOf( (char) t ) ).collect( Collectors.toList() );
+        return word.codePoints().mapToObj( ( int t ) -> String.valueOf( (char) t ) ).collect( toList() );
     }
 
     @Test
@@ -35,7 +34,7 @@ class ExplodeTest
         System.out.println( "C='" + c + "'" );
         String a = "abcßüÖÄ";
         List<String> result =
-            a.codePoints().mapToObj( ( int t ) -> String.valueOf( (char) t ) ).collect( Collectors.toList() );
+            a.codePoints().mapToObj( ( int t ) -> String.valueOf( (char) t ) ).collect( toList() );
 
         assertThat( result ).containsExactly( "a", "b", "c", "ß", "ü", "Ö", "Ä" );
     }
@@ -55,7 +54,7 @@ class ExplodeTest
         List<List<String>> collect = LIST_OF_WORDS //
                .stream() //
                .map( word -> expand( word ) ) //
-               .collect( Collectors.toList() );
+               .collect( toList() );
         
         System.out.println( "collect:" + collect );
     }
@@ -64,10 +63,11 @@ class ExplodeTest
     @Test
     void testMap2()
     {
+        System.out.println( "Hello World-----------" );
         List<String> collect = LIST_OF_WORDS //
                .stream() //
                .flatMap( word -> expand( word ).stream() ) //
-               .collect( Collectors.toList() );
+               .collect( toList() );
         
         System.out.println( "collect2:" + collect );
     }
@@ -94,7 +94,7 @@ class ExplodeTest
         List<String> collect = sonnet
                         .stream()
                         .flatMap( line -> Arrays.stream( line.split( " +" )  ))
-                        .collect( Collectors.toList() );
+                        .collect( toList() );
         
         System.out.println( "testFlatMap1::" + collect );
         
@@ -109,7 +109,7 @@ class ExplodeTest
     {
         BigInteger reduce = LongStream //
            .rangeClosed( 1, 500 ) //
-           .mapToObj( CONVERT_TO_BIGINTEGER ) //
+           .mapToObj( BigInteger::valueOf ) //
            .reduce( BigInteger.ONE, BigInteger::multiply );
         System.out.println( "Reduce length=" + reduce.toString().length());
         System.out.println( "Reduce=" + reduce );
@@ -121,7 +121,7 @@ class ExplodeTest
     {
         Pattern pattern = Pattern.compile( "[, ':\\-]+");
         
-        LIST_OF_WORDS.forEach( s -> System.out.println(s) ); 
+        LIST_OF_WORDS.forEach(s -> System.out.println(s) );
 //        pattern.splitAsStream( input );
         Map<String, Long> map = Map.of( "a", Long.valueOf( 1 ) );
 
