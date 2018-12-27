@@ -14,59 +14,59 @@ class FizzBuzzTest {
      */
     @Test
     void first() {
-	assertThat(fizzBuzz(1)).isEqualTo("1");
+        assertThat(fizzBuzz(1)).isEqualTo("1");
     }
 
     @Test
     void second() {
-	assertThat(fizzBuzz(3)).isEqualTo("Fizz");
+        assertThat(fizzBuzz(3)).isEqualTo("Fizz");
     }
 
     @Test
     void third() {
-	assertThat(fizzBuzz(4)).isEqualTo("4");
+        assertThat(fizzBuzz(4)).isEqualTo("4");
     }
 
     @Test
     void forth() {
-	assertThat(fizzBuzz(6)).isEqualTo("Fizz");
+        assertThat(fizzBuzz(6)).isEqualTo("Fizz");
     }
 
     @Test
     void fifth() {
-	assertThat(fizzBuzz(10)).isEqualTo("Buzz");
+        assertThat(fizzBuzz(10)).isEqualTo("Buzz");
     }
 
     @Test
     void sixth() {
-	assertThat(fizzBuzz(15)).isEqualTo("FizzBuzz");
+        assertThat(fizzBuzz(15)).isEqualTo("FizzBuzz");
     }
 
     @Test
     void seven() {
-	assertThat(fizzBuzz(28)).isEqualTo("28");
+        assertThat(fizzBuzz(28)).isEqualTo("28");
     }
 
     @Test
     void eight() {
-	assertThat(fizzBuzz(27)).isEqualTo("Fizz");
+        assertThat(fizzBuzz(27)).isEqualTo("Fizz");
     }
 
     public String fizzBuzz(int i) {
-	StringBuilder sb = new StringBuilder();
+        StringBuilder sb = new StringBuilder();
 
-	if (i % 3 == 0) {
-	    sb.append("Fizz");
-	}
+        if (i % 3 == 0) {
+            sb.append("Fizz");
+        }
 
-	if (i % 5 == 0) {
-	    sb.append("Buzz");
-	}
+        if (i % 5 == 0) {
+            sb.append("Buzz");
+        }
 
-	if (sb.length() == 0) {
-	    sb.append(Integer.toString(i));
-	}
+        if (sb.length() == 0) {
+            sb.append(Integer.toString(i));
+        }
 
-	return sb.toString();
+        return sb.toString();
     }
 }
