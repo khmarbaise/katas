@@ -42,10 +42,10 @@ public class FunctionTest
     @Test
     public void testFunctionsWithMap()
     {
-        List<String> collect = Stream.of( "A", "B", "C", "D", "E" )
-        		.filter(ONLY_A.or(ONLY_B))
-            .map( FunctionTest::mapFunction )
-            .collect( toList() );
+        List<String> collect = Stream.of("A", "B", "C", "D", "E")
+                                 .filter(ONLY_A.or(ONLY_B))
+                                 .map(FunctionTest::mapFunction)
+                                 .collect(toList());
         
         assertThat( collect ).hasSize( 2 );
         assertThat( collect ).containsExactly( "Prefix: A", "Prefix: B" );
@@ -78,9 +78,9 @@ public class FunctionTest
     // Non Lambda:
 	static Function<Integer, Integer> compose(Function<Integer, Integer> f1, Function<Integer, Integer> f2) {
 		return new Function<Integer, Integer>() {
-			public Integer apply(Integer arg) {
-				return f1.apply(f2.apply(arg));
-			}
+            public Integer apply(Integer arg) {
+                return f1.apply(f2.apply(arg));
+            }
 		};
 	}
 
