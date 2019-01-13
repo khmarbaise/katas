@@ -1,9 +1,11 @@
 package com.soebes.katas.streams;
 
+import static java.util.Collections.unmodifiableList;
 import static java.util.stream.Collectors.toUnmodifiableList;
 import org.junit.jupiter.api.Test;
 
 import java.util.*;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 
@@ -19,7 +21,7 @@ public class StreamSecondTest {
         result.addAll(second);
         result.addAll(third);
 
-        List<String> toUnmodifiableList = Collections.unmodifiableList(result);
+        List<String> toUnmodifiableList = unmodifiableList(result);
 
         toUnmodifiableList.forEach(System.out::println);
     }

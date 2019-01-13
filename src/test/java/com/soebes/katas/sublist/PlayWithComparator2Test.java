@@ -62,8 +62,9 @@ public class PlayWithComparator2Test
     @Test
     void testName()
     {
-        PersonComparator<Person> comp = PersonComparator.comparing( Person::getLastName ) //
-                                                        .thenComparing( Person::getFirstName ).thenComparing( Person::getAge );
+        PersonComparator<Person> comp = PersonComparator.comparing(Person::getLastName) //
+                                                        .thenComparing(Person::getFirstName)
+                                                        .thenComparing(Person::getAge);
 
         System.out.println( "Michael  :" + michael );
         System.out.println( "Jarmaine :" + jarmaine );

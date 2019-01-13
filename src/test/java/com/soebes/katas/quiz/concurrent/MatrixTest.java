@@ -8,7 +8,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.stream.Stream;
 
-public class ForkJoinTest {
+public class MatrixTest {
 
     public static class Row<T> {
 

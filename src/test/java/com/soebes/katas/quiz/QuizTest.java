@@ -3,11 +3,8 @@ package com.soebes.katas.quiz;
 import static java.util.stream.Collectors.toList;
 import org.junit.jupiter.api.Test;
 
-import java.util.AbstractMap;
 import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 public class QuizTest {
 
@@ -44,15 +41,15 @@ public class QuizTest {
     void quiz53() {
         List<Integer> integers = List.of(1, 4, 7, 9, 10);
         Integer reduce = integers.stream()
-                                 .map(d -> 1)
                                  .reduce(0, (a, b) -> a + b);
 
         boolean machtes = integers.stream()
                                   .peek(d -> System.out.println("d:" + d))
-                            .anyMatch(d -> d == 1);
+                                  .anyMatch(d -> d == 1);
 
         System.out.println("Matches: " + machtes);
         System.out.println("reduce:" + reduce);
 
     }
+
 }

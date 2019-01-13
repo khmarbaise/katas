@@ -1,8 +1,8 @@
 package com.soebes.katas.enums;
 
-import java.util.EnumSet;
-
 import org.junit.jupiter.api.Test;
+
+import java.util.EnumSet;
 
 class EnumsTest
 {
@@ -26,5 +26,25 @@ class EnumsTest
         EnumSet<FirstEnum> setup = EnumSet.of( FirstEnum.A, FirstEnum.B, FirstEnum.F );
         xyz(setup);
         
+    }
+
+    @Test
+    void enumSetOf() {
+
+        EnumSet<FirstEnum> noneOf = EnumSet.noneOf( FirstEnum.class );
+
+        EnumSet<FirstEnum> firstEnums = EnumSet.allOf(FirstEnum.class);
+
+        EnumSet<FirstEnum> e = EnumSet.of(FirstEnum.E, FirstEnum.A);
+
+        EnumSet<FirstEnum> e1 = EnumSet.of(FirstEnum.E);
+
+        boolean contains = firstEnums.containsAll(e);
+        System.out.println("contains:" + contains);
+        firstEnums.forEach(fe -> System.out.println(" FE:" + fe.name()));
+
+        System.out.println(" isEmpty:" + noneOf.isEmpty());
+        System.out.println(" isEmpty:" + firstEnums.isEmpty());
+
     }
 }

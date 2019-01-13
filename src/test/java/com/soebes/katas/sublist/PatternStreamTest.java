@@ -1,5 +1,8 @@
 package com.soebes.katas.sublist;
 
+import static java.util.stream.Collectors.*;
+import org.junit.jupiter.api.Test;
+
 import java.io.Serializable;
 import java.util.Comparator;
 import java.util.HashMap;
@@ -9,11 +12,7 @@ import java.util.Map.Entry;
 import java.util.function.Function;
 import java.util.regex.Pattern;
 import java.util.stream.Collector;
-import java.util.stream.Collectors;
 import java.util.stream.Stream;
-
-import static java.util.stream.Collectors.*;
-import org.junit.jupiter.api.Test;
 
 class PatternStreamTest {
 

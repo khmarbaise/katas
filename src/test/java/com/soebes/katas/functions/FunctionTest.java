@@ -106,7 +106,7 @@ public class FunctionTest
 
 		Long summV2 = LIST_OF_INTS.stream().mapToLong(i -> i.longValue()).sum();
 		LongSummaryStatistics summV3 = LIST_OF_INTS.stream().mapToLong(i -> i.longValue()).summaryStatistics();
-		
+
 		Long summV4 = LIST_OF_INTS.stream().collect(summingLong(i -> i.longValue()));
 
 		LongAdder la = new LongAdder();
