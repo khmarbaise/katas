@@ -1,17 +1,16 @@
 package com.soebes.katas.quiz;
 
-import static java.util.stream.Collectors.toList;
-import static java.util.stream.Collectors.toUnmodifiableList;
 import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
-import java.net.URI;
-import java.net.URISyntaxException;
-import java.nio.file.*;
-import java.util.Collection;
-import java.util.List;
-import java.util.stream.IntStream;
+import java.nio.file.FileSystems;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.EnumSet;
 import java.util.stream.Stream;
+
+import static java.util.stream.Collectors.toList;
 
 public class FileStreamTest {
 
@@ -41,6 +40,9 @@ public class FileStreamTest {
 
 
         limit.forEachOrdered(s -> System.out.println("Zeile: " + s));
+
+        collect.collect(toList());
+
 //        FileSystem current = FileSystems.getDefault();
 //        current.getRootDirectories().forEach(s -> System.out.println("S:" + s));
 //        current.getFileStores().forEach(fs -> System.out.println("FS: " +fs.name() + " t:" + fs.type()));

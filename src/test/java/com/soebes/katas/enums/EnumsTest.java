@@ -43,6 +43,7 @@ class EnumsTest
         System.out.println("contains:" + contains);
         firstEnums.forEach(fe -> System.out.println(" FE:" + fe.name()));
 
+        EnumSet<FirstEnum> c = EnumSet.of(FirstEnum.C);
         System.out.println(" isEmpty:" + noneOf.isEmpty());
         System.out.println(" isEmpty:" + firstEnums.isEmpty());
 
