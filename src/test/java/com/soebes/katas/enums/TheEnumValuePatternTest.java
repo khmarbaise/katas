@@ -48,24 +48,24 @@ class TheEnumValuePatternTest {
 
 	}
 
-	private final Predicate<Field> FieldIsPublicStaticFinal = s -> //
-	Modifier.isPublic(s.getModifiers()) //
-			&& Modifier.isStatic(s.getModifiers()) //
-			&& Modifier.isFinal(s.getModifiers()) //
+	private final Predicate<Field> Field_Is_PublicStaticFinal = s -> //
+			Modifier.isPublic(s.getModifiers()) //
+		&&	Modifier.isStatic(s.getModifiers()) //
+		&&	Modifier.isFinal(s.getModifiers()) //
 	;
 
 	/**
 	 * Synthetic fields seemed to be generated during running of unit tests in
 	 * relationship with JaCoCo code coverage tool.
 	 */
-	private final Predicate<Field> FieldIsNotSynthentic = s -> !s.isSynthetic();
+	private final Predicate<Field> Field_Is_Not_Synthentic = s -> !s.isSynthetic();
 
 	@Test
 	void first_a() {
 		Field[] declaredFields = TheEnumValuePattern.Values.class.getDeclaredFields();
 
 		List<Field> collect = Arrays.stream(declaredFields) //
-				.filter(s -> FieldIsNotSynthentic.test(s) && FieldIsPublicStaticFinal.test(s)) //
+				.filter(Field_Is_Not_Synthentic.and(Field_Is_PublicStaticFinal)) //
 				.collect(Collectors.toList());
 
 		collect.forEach(s -> System.out.println("Field:" + s.getName() + " " + Modifier.isPublic(s.getModifiers())));
