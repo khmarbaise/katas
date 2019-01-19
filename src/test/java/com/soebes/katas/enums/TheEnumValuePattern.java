@@ -6,15 +6,15 @@ import java.util.stream.Collectors;
 public enum TheEnumValuePattern {
 
 	/**
-	 * FIRST 
+	 * FIRST
 	 */
-	FIRST(Values.FIRST), 
+	FIRST(Values.FIRST),
 	/**
-	 * SECOND 
+	 * SECOND
 	 */
-	SECOND(Values.SECOND), 
+	SECOND(Values.SECOND),
 	/**
-	 * THIRD. 
+	 * THIRD.
 	 */
 	THIRD(Values.THIRD);
 
@@ -42,21 +42,20 @@ public enum TheEnumValuePattern {
 
 	/**
 	 * @param value The {@link Values} which should be converted to the appropriate
-	 *             enum {@link TheEnumValuePattern}.
-	 * 
+	 *              enum {@link TheEnumValuePattern}.
 	 * @return a value of {@link TheEnumValuePattern}
 	 * @throws {@link IllegalArgumentException} in case of an non existing text.
 	 */
 	public static final TheEnumValuePattern fromValue(final String value) {
-		return Arrays.stream(TheEnumValuePattern.values()) //
-				.filter(s -> s.getValue().equals(value)) //
-				.findAny() //
-				.orElseThrow(() -> new IllegalArgumentException("The given.."));
+		return Arrays.stream(TheEnumValuePattern.values())
+		    .filter(s -> s.getValue().equals(value))
+		    .findAny()
+		    .orElseThrow(() -> new IllegalArgumentException("The given.."));
 	}
-	
+
 	public String validValues() {
 		return Arrays.stream(TheEnumValuePattern.values()) //
-				.map(s -> s.getValue()) //
-				.collect(Collectors.joining(",", "[", "]"));
+		    .map(s -> s.getValue()) //
+		    .collect(Collectors.joining(",", "[", "]"));
 	}
 }
