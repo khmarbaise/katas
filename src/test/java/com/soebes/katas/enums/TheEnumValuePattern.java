@@ -54,8 +54,8 @@ public enum TheEnumValuePattern {
 	}
 
 	public String validValues() {
-		return Arrays.stream(TheEnumValuePattern.values()) //
-		    .map(s -> s.getValue()) //
+		return Arrays.stream(TheEnumValuePattern.values())
+		    .map(s -> s.getValue())
 		    .collect(Collectors.joining(",", "[", "]"));
 	}
 }

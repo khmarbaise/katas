@@ -2,11 +2,14 @@ package com.soebes.katas.streams;
 
 import static java.util.Collections.unmodifiableList;
 import static java.util.stream.Collectors.toUnmodifiableList;
-import org.junit.jupiter.api.Test;
 
-import java.util.*;
-import java.util.stream.Collectors;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.List;
 import java.util.stream.Stream;
+
+import org.junit.jupiter.api.Test;
 
 
 public class StreamSecondTest {
@@ -27,7 +30,7 @@ public class StreamSecondTest {
     }
 
     @Test
-    void jdk8wayOfDoing() {
+    void jdk8wayOftDoing() {
         List<String> first = List.of("A", "B", "C");
         List<String> second = List.of("D", "E", "F");
         List<String> third = List.of("G", "H", "I");

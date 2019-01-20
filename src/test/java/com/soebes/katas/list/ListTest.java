@@ -26,7 +26,6 @@ class ListTest {
 	void firstTest() {
 		List<Integer> collect = rangeClosed.takeWhile(LESS_THAN_TEN.and(EVEN)).boxed().collect(Collectors.toList());
 		collect.forEach(s -> System.out.println("s: " + s));
-
 	}
 
 	@Test

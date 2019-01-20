@@ -15,7 +15,7 @@ class TheEnumValuePatternTest {
 
 	@Test
 	void testName() {
-//		Arrays.stream(TheEnumValuePattern.values()).filter(s -> s.);
+		// Arrays.stream(TheEnumValuePattern.values()).filter(s -> s.);
 	}
 
 	@Test
@@ -29,14 +29,14 @@ class TheEnumValuePatternTest {
 	void first() {
 		Field[] declaredFields = TheEnumValuePattern.Values.class.getDeclaredFields();
 
-		List<Field> collect = Arrays.stream(declaredFields) //
-				.filter(s -> !s.isSynthetic() && s.canAccess(null)) //
-				.collect(Collectors.toList());
+		List<Field> collect = Arrays.stream(declaredFields)
+		    .filter(s -> !s.isSynthetic() && s.canAccess(null))
+		    .collect(Collectors.toList());
 
 		collect.forEach(s -> {
 			try {
 				System.out.println(
-						"Field:" + s.getName() + " " + Modifier.isPublic(s.getModifiers()) + " V:" + s.get(null));
+				    "Field:" + s.getName() + " " + Modifier.isPublic(s.getModifiers()) + " V:" + s.get(null));
 			} catch (IllegalArgumentException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -59,11 +59,10 @@ class TheEnumValuePatternTest {
 		}
 		return result;
 	}
-	private final Predicate<Field> Field_Is_PublicStaticFinal = s -> //
-			Modifier.isPublic(s.getModifiers()) //
-		&&	Modifier.isStatic(s.getModifiers()) //
-		&&	Modifier.isFinal(s.getModifiers()) //
-	;
+
+	private final Predicate<Field> Field_Is_PublicStaticFinal = s -> Modifier.isPublic(s.getModifiers())
+	    && Modifier.isStatic(s.getModifiers())
+	    && Modifier.isFinal(s.getModifiers());
 
 	/**
 	 * Synthetic fields seemed to be generated during running of unit tests in
@@ -75,12 +74,13 @@ class TheEnumValuePatternTest {
 	void first_a() {
 		Field[] declaredFields = TheEnumValuePattern.Values.class.getDeclaredFields();
 
-		List<Field> collect = Arrays.stream(declaredFields) //
-				.filter(Field_Is_Not_Synthentic.and(Field_Is_PublicStaticFinal)) //
-				.collect(Collectors.toList());
+		List<Field> collect = Arrays.stream(declaredFields)
+		    .filter(Field_Is_Not_Synthentic.and(Field_Is_PublicStaticFinal))
+		    .collect(Collectors.toList());
 
-		collect.forEach(s -> System.out.println("Field:" + s.getName() + " " + Modifier.isPublic(s.getModifiers())));
-		
+		collect.forEach(
+		    s -> System.out.println("Field:" + s.getName() + " public static final:" + Field_Is_PublicStaticFinal.test(s)));
+
 	}
 
 	@Test
