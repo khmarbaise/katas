@@ -12,6 +12,7 @@ import java.util.Map.Entry;
 import java.util.function.Function;
 import java.util.regex.Pattern;
 import java.util.stream.Collector;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 class PatternStreamTest {
@@ -95,6 +96,7 @@ class PatternStreamTest {
                         .entrySet() //
                         .stream() //
                         .sorted( compare.reversed() ) //
+                        .collect(Collectors.toList())
                         .limit( 5 );
 
         top5.forEach( e -> {

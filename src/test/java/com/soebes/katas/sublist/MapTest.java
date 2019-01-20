@@ -16,20 +16,14 @@ public class MapTest {
 	void testName() {
 		Map<String, List<String>> mapList = new HashMap<>();
 
-		// mapList.computeIfPresent("TheFirstKey", );
-
 		mapList.computeIfAbsent("FirstMapKey", m -> new ArrayList<>()).add("EntryOne");
 
 		// if (!mapList.containsKey("First")) {
-		// List<String> subList = new ArrayList<>();
-		// subList.add("Second");
-		// mapList.put("First", subList);
+		//   List<String> subList = new ArrayList<>();
+		//   subList.add("Second");
+		//   mapList.put("First", subList);
 		// }
 
-		// mapList.computeIfPresent("FirstMapKey", (k, v) -> { v.add("EntrySecond");
-		// return v; });
-		// mapList.computeIfPresent("FirstMapKey", (k, v) -> { return v;
-		// }).add("EntrySecond");
 		mapList.computeIfPresent("FirstMapKey", (k, v) -> v).add("EntrySecond");
 
 		mapList.compute("FirstMapKey", (k, v) -> v == null ? new ArrayList<>() : v).add("EntryThird");
