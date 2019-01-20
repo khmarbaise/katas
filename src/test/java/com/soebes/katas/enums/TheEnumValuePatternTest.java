@@ -48,6 +48,17 @@ class TheEnumValuePatternTest {
 
 	}
 
+	private final String getValueOfField(Field f) {
+		String result = "";
+		try {
+			result = (String) f.get(null);
+		} catch (IllegalArgumentException e) {
+			e.printStackTrace();
+		} catch (IllegalAccessException e) {
+			e.printStackTrace();
+		}
+		return result;
+	}
 	private final Predicate<Field> Field_Is_PublicStaticFinal = s -> //
 			Modifier.isPublic(s.getModifiers()) //
 		&&	Modifier.isStatic(s.getModifiers()) //
