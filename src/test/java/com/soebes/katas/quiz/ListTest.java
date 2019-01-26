@@ -14,6 +14,6 @@ public class ListTest {
 		    .map(s -> s.toString())
 		    .collect(Collectors.joining());
 
-		System.out.println("Result:" + collect);
+//		System.out.println("Result:" + collect);
 	}
 }

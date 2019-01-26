@@ -26,8 +26,8 @@ public class AverageTest {
 		
 		IntUnaryOperator identity = IntUnaryOperator.identity();
 		
-		IntStream.generate(supplier).limit(10000L).forEach(s -> System.out.println(s));
-		LongStream.rangeClosed(1L, 100L).forEach(s -> System.out.println(s));
+//		IntStream.generate(supplier).limit(10000L).forEach(s -> System.out.println(s));
+//		LongStream.rangeClosed(1L, 100L).forEach(s -> System.out.println(s));
 
 		IntStream.rangeClosed(1, 20000)
 				 .mapToObj(i -> Integer.valueOf(i))

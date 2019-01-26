@@ -1,7 +1,8 @@
 package com.soebes.katas.sublist;
 
-import static java.util.stream.Collectors.*;
-import org.junit.jupiter.api.Test;
+import static java.util.stream.Collectors.collectingAndThen;
+import static java.util.stream.Collectors.counting;
+import static java.util.stream.Collectors.groupingBy;
 
 import java.io.Serializable;
 import java.util.Comparator;
@@ -12,8 +13,9 @@ import java.util.Map.Entry;
 import java.util.function.Function;
 import java.util.regex.Pattern;
 import java.util.stream.Collector;
-import java.util.stream.Collectors;
 import java.util.stream.Stream;
+
+import org.junit.jupiter.api.Test;
 
 class PatternStreamTest {
 
@@ -84,8 +86,8 @@ class PatternStreamTest {
 //                                  Collectors.toMap( Map.Entry::getValue, Map.Entry::getKey ) 
 //                                  );
 
-        words.forEach((k, v) -> System.out.println(" k=" + k + " v=" + v));
-        System.out.println("Most frequent word:" + mostFrequentWord);
+//        words.forEach((k, v) -> System.out.println(" k=" + k + " v=" + v));
+//        System.out.println("Most frequent word:" + mostFrequentWord);
 //        .forEach( word -> System.out.println( word ) );
 
     
@@ -96,12 +98,11 @@ class PatternStreamTest {
                         .entrySet() //
                         .stream() //
                         .sorted( compare.reversed() ) //
-                        .collect(Collectors.toList())
                         .limit( 5 );
 
-        top5.forEach( e -> {
-            System.out.println( "Entry:" + e.getKey() + " v:" + e.getValue());
-        });
+//        top5.forEach( e -> {
+//            System.out.println( "Entry:" + e.getKey() + " v:" + e.getValue());
+//        });
 
 
         Map<String, Long> counter = new HashMap<>();

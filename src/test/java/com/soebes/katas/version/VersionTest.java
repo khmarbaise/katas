@@ -83,6 +83,5 @@ public class VersionTest
         collectVersionHigher.forEach( System.out::println );
         collectVersionLower.forEach( System.out::println );
  
-        
     }
 }

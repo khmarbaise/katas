@@ -41,7 +41,7 @@ public class FileStreamTest {
 
         limit.forEachOrdered(s -> System.out.println("Zeile: " + s));
 
-        collect.collect(toList());
+//        collect.collect(toList());
 
 //        FileSystem current = FileSystems.getDefault();
 //        current.getRootDirectories().forEach(s -> System.out.println("S:" + s));

@@ -8,7 +8,9 @@ public class BigIntegerTest {
 
     @Test
     void firstTest() {
-        BigInteger big = BigInteger.ONE.shiftLeft(82_589_933).subtract(BigInteger.ONE);
+    	//The following takes too long during a test.
+//        BigInteger big = BigInteger.ONE.shiftLeft(82_589_933).subtract(BigInteger.ONE);
+        BigInteger big = BigInteger.ONE.shiftLeft(10).subtract(BigInteger.ONE);
 
         // 2^4
         // 1 << 4 => 00001, 00010, 00100, 01000

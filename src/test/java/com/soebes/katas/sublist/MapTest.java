@@ -35,5 +35,8 @@ public class MapTest {
 		mapList.merge("ThirdsMapKey", new ArrayList<>(), (k, v) -> v).add("EntryThirdMapKey-One");
 		mapList.merge("ThirdsMapKey", new ArrayList<>(), (k, v) -> v).add("EntryThirdMapKey-Two");
 		mapList.entrySet().forEach(entry -> System.out.println("K:" + entry.getKey() + " V:" + entry.getValue()));
+
+//		mapList.computeIfAbsent("XX", throw new IllegalArgumentException("test"));
+
 	}
 }

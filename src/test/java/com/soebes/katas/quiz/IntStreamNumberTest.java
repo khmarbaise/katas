@@ -17,10 +17,10 @@ public class IntStreamNumberTest {
     void rangeClosed() {
         long count = IntStream.rangeClosed(1, 100)
                               .filter(i -> i % 2 != 0)
-                              .peek(s -> System.out.println("range: " + s))
+//                              .peek(s -> System.out.println("range: " + s))
                               .boxed()
                               .count();
-        System.out.println("Number of generated numbers: " + count);
+//        System.out.println("Number of generated numbers: " + count);
 
         BigInteger b = BigInteger.valueOf(2L);
 
@@ -35,7 +35,7 @@ public class IntStreamNumberTest {
                                .boxed()
                                .count();
 
-        System.out.println("Number of generated numbers: " + count1);
+//        System.out.println("Number of generated numbers: " + count1);
 
     }
 
@@ -44,7 +44,7 @@ public class IntStreamNumberTest {
         long count = IntStream.iterate(1, i -> i <= 100, i -> i + 2)
                               .boxed()
                               .count();
-        System.out.println("Number of generated numbers:" + count);
+//        System.out.println("Number of generated numbers:" + count);
     }
 
     static final BigInteger TWO = BigInteger.valueOf( 2 );
@@ -65,7 +65,7 @@ public class IntStreamNumberTest {
 
 
 //        IntStream.iterate(3, i -> i<= p, i -> i+1).collect(Collectors.reducing(FOUR, k -> k.multiply(k).subtract(TWO).mod(m_p)));
-        System.out.println("M_P: "+ m_p + " s=" + s);
+//        System.out.println("M_P: "+ m_p + " s=" + s);
     }
 
 

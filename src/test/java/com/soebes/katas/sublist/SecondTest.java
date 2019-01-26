@@ -7,17 +7,15 @@ import java.util.stream.LongStream;
 import org.junit.jupiter.api.Test;
 
 
-class SecondTest
-{
+class SecondTest {
 
     @Test
     void testName()
-        throws Exception
-    {
+            throws Exception {
         HashMap<String, Long> x = new HashMap<>();
 
-        LongStream.range( 1, 100L ).forEach( // Long m
-                 m -> x.putIfAbsent( String.valueOf( m ), m ) );
+        LongStream.range(1, 100L).forEach( // Long m
+                m -> x.putIfAbsent(String.valueOf(m), m));
 
 //	for (long m = 1; m < 100; m++) {
 //	    String ms = String.valueOf(m);
@@ -25,19 +23,18 @@ class SecondTest
 //		x.put(ms, m);
 //	    }
 //	}
-        
-        x.entrySet() //
-         .stream() //
-         .forEach( //
-                   entry -> System.out.println( "K:" + entry.getKey() + " V:" + entry.getValue() ) );
-        
+
+//        x.entrySet() //
+//         .stream() //
+//         .forEach( //
+//                   entry -> System.out.println( "K:" + entry.getKey() + " V:" + entry.getValue() ) );
+
     }
 
     @Test
-    void secondTest()
-    {
+    void secondTest() {
         HashSet<String> x = new HashSet<>();
-        x.removeIf( f -> f.contains( "x" ) );
+        x.removeIf(f -> f.contains("x"));
     }
 
 }
