@@ -6,6 +6,7 @@ import java.io.ObjectStreamConstants;
 import java.math.BigInteger;
 import java.util.LongSummaryStatistics;
 import java.util.Optional;
+import java.util.function.BinaryOperator;
 import java.util.function.LongSupplier;
 import java.util.stream.Collectors;
 import java.util.stream.DoubleStream;
@@ -63,11 +64,13 @@ public class IntStreamNumberTest {
             s = s.multiply( s ).subtract( TWO ).mod( m_p );
         }
 
-
 //        IntStream.iterate(3, i -> i<= p, i -> i+1).collect(Collectors.reducing(FOUR, k -> k.multiply(k).subtract(TWO).mod(m_p)));
 //        System.out.println("M_P: "+ m_p + " s=" + s);
     }
 
+    private String getStrings() {
+        return "XX";
+    }
 
     @Test
     void anotherTest() {
@@ -78,5 +81,11 @@ public class IntStreamNumberTest {
                                                .mapToObj(BigInteger::valueOf)
                                                .reduce(FOUR, (s1, s2) -> s1.multiply(s1).subtract(TWO).mod(m_p));
         System.out.println(" s=" + reduce);
+    }
+
+    @Test
+    void reduceTest() {
+        IntStream.rangeClosed(1, 200).boxed().reduce(Integer::sum);
+
     }
 }

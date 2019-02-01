@@ -1,8 +1,10 @@
 package com.soebes.katas.enums;
 
-import org.junit.jupiter.api.Test;
-
 import java.util.EnumSet;
+
+import org.junit.jupiter.api.Test;
+import org.openjdk.jol.info.ClassLayout;
+import org.openjdk.jol.vm.VM;
 
 class EnumsTest
 {
@@ -13,8 +15,29 @@ class EnumsTest
         C,
         D,
         E,
-        F
+        F,
+        G,
+        H,
+        I,
+        J,
+        K,
+        L,
+        M,
+        N,
+        O,
+        P,
+        Q
     }
+    
+		Integer[] type = {
+		    1,
+		    2,
+		    3,
+		    4,
+		    5
+		};
+    
+	EnumSet<FirstEnum> enumSet = EnumSet.of(FirstEnum.A, FirstEnum.C, FirstEnum.F, FirstEnum.B);
     
     void xyz (EnumSet<FirstEnum> par) {
         par.forEach( System.out::println );
@@ -28,6 +51,7 @@ class EnumsTest
         
     }
 
+    
     @Test
     void enumSetOf() {
 
@@ -46,6 +70,17 @@ class EnumsTest
         EnumSet<FirstEnum> c = EnumSet.of(FirstEnum.C);
         System.out.println(" isEmpty:" + noneOf.isEmpty());
         System.out.println(" isEmpty:" + firstEnums.isEmpty());
-
+        
     }
+    
+    @Test
+		void memoryTest() {
+    	 System.out.println("Details:" + VM.current().details());
+    	 String s = ClassLayout.parseClass(FirstEnum.class).toPrintable();
+    	 System.out.println("Size FirstEnum:" + s);
+    	 String s1 = ClassLayout.parseInstance(type).toPrintable();
+    	 System.out.println("Size Type:" + s1);
+    	 String s2 = ClassLayout.parseInstance(enumSet).toPrintable();
+    	 System.out.println("Size EnumSet:" + s2);
+		}
 }

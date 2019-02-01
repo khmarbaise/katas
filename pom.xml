@@ -18,7 +18,7 @@
 
 
   <properties>
-  	<maven.compiler.release>10</maven.compiler.release>
+    <maven.compiler.release>10</maven.compiler.release>
   </properties>
   <dependencyManagement>
     <dependencies>
@@ -57,6 +57,11 @@
       <artifactId>mockito-core</artifactId>
       <version>2.23.0</version>
     </dependency>
+    <dependency>
+      <groupId>org.openjdk.jol</groupId>
+      <artifactId>jol-core</artifactId>
+      <version>0.9</version>
+    </dependency>
   </dependencies>
 
   <build>
@@ -66,7 +71,7 @@
           <groupId>de.sormuras.junit</groupId>
           <artifactId>junit-platform-maven-plugin</artifactId>
           <version>1.0.0-M5</version>
-<!--           <extensions>true</extensions> Necessary to execute it in 'test' phase. -->
+          <!-- <extensions>true</extensions> Necessary to execute it in 'test' phase. -->
         </plugin>
         <plugin>
           <artifactId>maven-surefire-plugin</artifactId>
@@ -74,15 +79,15 @@
         </plugin>
       </plugins>
     </pluginManagement>
-      <plugins>
-          <plugin>
-              <groupId>org.apache.maven.plugins</groupId>
-              <artifactId>maven-compiler-plugin</artifactId>
-            <configuration>
-              <source>10</source>
-              <target>10</target>
-            </configuration>
-          </plugin>
-      </plugins>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>10</source>
+          <target>10</target>
+        </configuration>
+      </plugin>
+    </plugins>
   </build>
 </project>
