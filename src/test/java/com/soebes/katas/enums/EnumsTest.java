@@ -6,8 +6,7 @@ import org.junit.jupiter.api.Test;
 import org.openjdk.jol.info.ClassLayout;
 import org.openjdk.jol.vm.VM;
 
-class EnumsTest
-{
+class EnumsTest {
 
     enum FirstEnum {
         A,
@@ -28,34 +27,33 @@ class EnumsTest
         P,
         Q
     }
-    
-		Integer[] type = {
-		    1,
-		    2,
-		    3,
-		    4,
-		    5
-		};
-    
-	EnumSet<FirstEnum> enumSet = EnumSet.of(FirstEnum.A, FirstEnum.C, FirstEnum.F, FirstEnum.B);
-    
-    void xyz (EnumSet<FirstEnum> par) {
-        par.forEach( System.out::println );
+
+    Integer[] type = {
+            1,
+            2,
+            3,
+            4,
+            5
+    };
+
+    EnumSet<FirstEnum> enumSet = EnumSet.of(FirstEnum.A, FirstEnum.C, FirstEnum.F, FirstEnum.B);
+
+    void xyz(EnumSet<FirstEnum> par) {
+        par.forEach(System.out::println);
     }
 
     @Test
-    void testName()
-    {
-        EnumSet<FirstEnum> setup = EnumSet.of( FirstEnum.A, FirstEnum.B, FirstEnum.F );
+    void testName() {
+        EnumSet<FirstEnum> setup = EnumSet.of(FirstEnum.A, FirstEnum.B, FirstEnum.F);
         xyz(setup);
-        
+
     }
 
-    
+
     @Test
     void enumSetOf() {
 
-        EnumSet<FirstEnum> noneOf = EnumSet.noneOf( FirstEnum.class );
+        EnumSet<FirstEnum> noneOf = EnumSet.noneOf(FirstEnum.class);
 
         EnumSet<FirstEnum> firstEnums = EnumSet.allOf(FirstEnum.class);
 
@@ -70,17 +68,17 @@ class EnumsTest
         EnumSet<FirstEnum> c = EnumSet.of(FirstEnum.C);
         System.out.println(" isEmpty:" + noneOf.isEmpty());
         System.out.println(" isEmpty:" + firstEnums.isEmpty());
-        
+
     }
-    
+
     @Test
-		void memoryTest() {
-    	 System.out.println("Details:" + VM.current().details());
-    	 String s = ClassLayout.parseClass(FirstEnum.class).toPrintable();
-    	 System.out.println("Size FirstEnum:" + s);
-    	 String s1 = ClassLayout.parseInstance(type).toPrintable();
-    	 System.out.println("Size Type:" + s1);
-    	 String s2 = ClassLayout.parseInstance(enumSet).toPrintable();
-    	 System.out.println("Size EnumSet:" + s2);
-		}
+    void memoryTest() {
+        System.out.println("Details:" + VM.current().details());
+        String s = ClassLayout.parseClass(FirstEnum.class).toPrintable();
+        System.out.println("Size FirstEnum:" + s);
+        String s1 = ClassLayout.parseInstance(type).toPrintable();
+        System.out.println("Size Type:" + s1);
+        String s2 = ClassLayout.parseInstance(enumSet).toPrintable();
+        System.out.println("Size EnumSet:" + s2);
+    }
 }
