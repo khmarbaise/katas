@@ -1,5 +1,6 @@
 package com.soebes.katas.enums;
 
+import static java.util.function.Predicate.not;
 import static org.assertj.core.api.Assertions.assertThat;
 
 import java.lang.reflect.Field;
@@ -60,26 +61,29 @@ class TheEnumValuePatternTest {
 		return result;
 	}
 
-	private final Predicate<Field> Field_Is_PublicStaticFinal = s -> Modifier.isPublic(s.getModifiers())
-	    && Modifier.isStatic(s.getModifiers())
-	    && Modifier.isFinal(s.getModifiers());
+	private final Predicate<Field> isStatic = s -> Modifier.isStatic(s.getModifiers());
+	private final Predicate<Field> isFinal = s -> Modifier.isFinal(s.getModifiers());
+	private final Predicate<Field> isPublic = s -> Modifier.isPublic(s.getModifiers());
 
 	/**
 	 * Synthetic fields seemed to be generated during running of unit tests in
 	 * relationship with JaCoCo code coverage tool.
 	 */
-	private final Predicate<Field> Field_Is_Not_Synthentic = s -> !s.isSynthetic();
+	private final Predicate<Field> isSynthentic = s -> s.isSynthetic();
+
+	private final Predicate<Field> isValidField = not(isSynthentic).and(isPublic).and(isStatic).and(isFinal);
 
 	@Test
 	void first_a() {
 		Field[] declaredFields = TheEnumValuePattern.Values.class.getDeclaredFields();
 
 		List<Field> collect = Arrays.stream(declaredFields)
-		    .filter(Field_Is_Not_Synthentic.and(Field_Is_PublicStaticFinal))
+			.filter(isValidField)
+			//.filter(isSynthentic.negate().and(isPublic.and(isStatic).and(isFinal)))
 		    .collect(Collectors.toList());
 
 		collect.forEach(
-		    s -> System.out.println("Field:" + s.getName() + " public static final:" + Field_Is_PublicStaticFinal.test(s)));
+		    s -> System.out.println("Field:" + s.getName() + " public static final:" + isValidField.test(s)));
 
 	}
 

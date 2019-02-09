@@ -18,14 +18,14 @@
 
 
   <properties>
-    <maven.compiler.release>10</maven.compiler.release>
+    <maven.compiler.release>11</maven.compiler.release>
   </properties>
   <dependencyManagement>
     <dependencies>
       <dependency>
         <groupId>org.junit</groupId>
         <artifactId>junit-bom</artifactId>
-        <version>5.4.0-RC1</version>
+        <version>5.4.0</version>
         <type>pom</type>
         <scope>import</scope>
       </dependency>
