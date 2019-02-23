@@ -31,7 +31,7 @@ class TheEnumValuePatternTest {
 		Field[] declaredFields = TheEnumValuePattern.Values.class.getDeclaredFields();
 
 		List<Field> collect = Arrays.stream(declaredFields)
-		    .filter(s -> !s.isSynthetic() && s.canAccess(null))
+		    .filter(s -> s.isSynthetic() && s.canAccess(null))
 		    .collect(Collectors.toList());
 
 		collect.forEach(s -> {
