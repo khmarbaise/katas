@@ -1,8 +1,5 @@
 package com.soebes.katas.functions;
 
-import static java.util.stream.Collectors.*;
-import static org.assertj.core.api.Assertions.assertThat;
-import static org.junit.jupiter.api.Assertions.assertThrows;
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
@@ -16,6 +13,10 @@ import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.LongStream;
 import java.util.stream.Stream;
+
+import static java.util.stream.Collectors.*;
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class FunctionTest
 {
@@ -140,7 +141,7 @@ public class FunctionTest
         {
             forEachResult += value; 
         }
-        
+
         Double result = of.stream().mapToDouble( Double::valueOf ).sum();
         System.out.println( "result:" +  result);
         System.out.println( "forEachResult:" +  forEachResult);

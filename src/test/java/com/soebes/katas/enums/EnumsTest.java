@@ -1,5 +1,6 @@
 package com.soebes.katas.enums;
 
+import java.math.BigDecimal;
 import java.util.EnumSet;
 
 import org.junit.jupiter.api.Test;
@@ -73,12 +74,25 @@ class EnumsTest {
 
     @Test
     void memoryTest() {
-        System.out.println("Details:" + VM.current().details());
-        String s = ClassLayout.parseClass(FirstEnum.class).toPrintable();
-        System.out.println("Size FirstEnum:" + s);
-        String s1 = ClassLayout.parseInstance(type).toPrintable();
-        System.out.println("Size Type:" + s1);
-        String s2 = ClassLayout.parseInstance(enumSet).toPrintable();
-        System.out.println("Size EnumSet:" + s2);
+//        System.out.println("Details:" + VM.current().details());
+//        String s = ClassLayout.parseClass(FirstEnum.class).toPrintable();
+//        System.out.println("Size FirstEnum:" + s);
+//        String s1 = ClassLayout.parseInstance(type).toPrintable();
+//        System.out.println("Size Type:" + s1);
+//        String s2 = ClassLayout.parseInstance(enumSet).toPrintable();
+//        System.out.println("Size EnumSet:" + s2);
+
+        Long longValue = Long.valueOf(200L);
+        String longInfos = ClassLayout.parseInstance(longValue).toPrintable();
+        System.out.println("Size Long:" + longInfos);
+
+        long longPrimitive = 200L;
+        String longPrimitiveInfos = ClassLayout.parseInstance(longPrimitive).toPrintable();
+        System.out.println("Size Long primitive:" + longPrimitiveInfos);
+
+        BigDecimal bd = BigDecimal.valueOf(200L);
+        String bdInfos = ClassLayout.parseInstance(bd).toPrintable();
+        System.out.println("Size BigDecimal:" + bdInfos);
+
     }
 }

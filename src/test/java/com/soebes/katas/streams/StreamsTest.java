@@ -17,14 +17,14 @@ public class StreamsTest {
 		System.out.println("Path:" + path.toAbsolutePath());
 
 		Files.lines(path).forEachOrdered(it -> System.out.println(it));
-//		try (Stream<String> lines = Files.lines(path)) {
+		try (Stream<String> lines = Files.lines(path)) {
 //			lines.forEachOrdered(it -> System.out.println(it));
 			
-//			Optional<String> hasPassword = lines.filter(s -> s.contains("password")).findFirst();
-//			if (hasPassword.isPresent()) {
-//				System.out.println(hasPassword.get());
-//			}
-//		}
+			Optional<String> hasPassword = lines.filter(s -> s.contains("password")).findFirst();
+			if (hasPassword.isPresent()) {
+				System.out.println(hasPassword.get());
+			}
+		}
 
 	}
 

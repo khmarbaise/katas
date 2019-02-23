@@ -9,6 +9,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import org.junit.jupiter.api.Test;
 
@@ -30,7 +31,7 @@ class TheEnumValuePatternTest {
 	void first() {
 		Field[] declaredFields = TheEnumValuePattern.Values.class.getDeclaredFields();
 
-		List<Field> collect = Arrays.stream(declaredFields)
+		List<Field> collect = Stream.of(declaredFields)
 		    .filter(s -> s.isSynthetic() && s.canAccess(null))
 		    .collect(Collectors.toList());
 
@@ -79,7 +80,6 @@ class TheEnumValuePatternTest {
 
 		List<Field> collect = Arrays.stream(declaredFields)
 			.filter(isValidField)
-			//.filter(isSynthentic.negate().and(isPublic.and(isStatic).and(isFinal)))
 		    .collect(Collectors.toList());
 
 		collect.forEach(

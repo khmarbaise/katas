@@ -2,6 +2,7 @@ package com.soebes.katas.enums;
 
 import java.util.Arrays;
 import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 public enum TheEnumValuePattern {
 
@@ -54,7 +55,7 @@ public enum TheEnumValuePattern {
 	}
 
 	public String validValues() {
-		return Arrays.stream(TheEnumValuePattern.values())
+		return Stream.of(TheEnumValuePattern.values())
 		    .map(s -> s.getValue())
 		    .collect(Collectors.joining(",", "[", "]"));
 	}
