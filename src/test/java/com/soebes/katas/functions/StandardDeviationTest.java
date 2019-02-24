@@ -34,7 +34,6 @@ public class StandardDeviationTest {
          */
         @Override
         public void accept(BigInteger value) {
-            System.out.println("accept:" + value);
             count = count.add(BigInteger.ONE);
             sum = sum.add(value);
 
@@ -43,7 +42,6 @@ public class StandardDeviationTest {
         }
 
         public void combine(BigIntegerSummaryStatistics other) {
-            System.out.println("combine:" + other);
             count = count.add(other.count);
             sum = sum.add(other.sum);
 
