@@ -11,7 +11,5 @@ public class ByteTest {
         int anInt = ByteBuffer.wrap(new byte[]{0, 1, 0, 0}).getInt();
         System.out.println("anInt:" + anInt);
 
-        javax.crypto.spec.DHPublicKeySpec
-
     }
 }

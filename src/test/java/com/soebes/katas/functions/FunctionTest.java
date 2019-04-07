@@ -155,7 +155,7 @@ public class FunctionTest
         System.out.println( "first: " + first + " firstInverted:" + firstInverted );
         
         short shortFirst = Short.MIN_VALUE;
-        short shortFirstInverted = (short)-shortFirst;
+        short shortFirstInverted = (short) -shortFirst;
         
         System.out.println( "shortFirst:" + shortFirst + " shortFirstInverted:" + shortFirstInverted );
 

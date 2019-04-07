@@ -2,6 +2,8 @@ package com.soebes.katas.version;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.concurrent.locks.Lock;
+import java.util.concurrent.locks.ReentrantReadWriteLock;
 import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.regex.Pattern;
@@ -74,6 +76,7 @@ public class VersionTest
     @Test
     void test1()
     {
+
         String versionLower = "1.2.6";
         String versionHigher = "1.3.1";
 
@@ -81,6 +84,7 @@ public class VersionTest
         List<String> collectVersionLower = SPLIT_PATTERN.splitAsStream( versionLower ).collect( Collectors.toList() );
 
         collectVersionHigher.forEach( System.out::println );
+        System.out.println("-----------------");
         collectVersionLower.forEach( System.out::println );
  
     }
