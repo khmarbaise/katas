@@ -113,7 +113,6 @@ public class BitCountingTest {
     @Test
     void binaryStringTest() {
         long value = 0b1011;
-        System.out.println("value:" + value);
         String result = binaryString(value);
 
         assertThat(result).isEqualTo("0000000000000000000000000000000000000000000000000000000000001011");
