@@ -59,6 +59,8 @@ public class BitCountingTest {
         long x = Long.MAX_VALUE / 2 + 1;
         long y = Long.MAX_VALUE / 2;
 
+        Long.signum(x);
+
         long r = x + y;
 
         System.out.println("x:" + x + " binary:" + Long.toBinaryString(x));
@@ -73,5 +75,70 @@ public class BitCountingTest {
         if (((x ^ r) & (y ^ r)) < 0) {
             throw new ArithmeticException("long overflow");
         }
+
+        long a1 =  0x1;
+        long a2 =  0x80000000L;
+        System.out.println("a1: " + Long.toBinaryString(a1));
+        System.out.println("a2: " + Long.toBinaryString(a2));
+
+
+        long shifted_1 = a1 >> 1;
+        System.out.println("       a1: " + Long.toBinaryString(a1));
+        System.out.println("shifted_1:" + shifted_1 + " x:" + Long.toBinaryString(shifted_1));
+        long shifted_2 = a2 >> 1;
+
+        System.out.println("       a2: " + Long.toBinaryString(a2));
+        System.out.println("shifted_2: " + Long.toBinaryString(shifted_2));
+
+        long unsigned_shift = 0x2;
+        long shifted_unsigned_shift = unsigned_shift >>> 1;
+        long shifted_signed_shift = unsigned_shift >> 1;
+        System.out.println("Unsigned shift: " + Long.toBinaryString(unsigned_shift));
+        System.out.println("Unsigned shift: " + Long.toBinaryString(shifted_unsigned_shift));
+        System.out.println("Unsigned shift: " + Long.toBinaryString(shifted_signed_shift));
+
+    }
+
+    String binaryString(final long value) {
+        char[] characters = new char[64];
+        long temp = value;
+        for(int i=0; i<64; i++) {
+            long digit = temp & 0x1;
+            characters[63-i] = Character.valueOf((char) (48+digit));
+            temp = temp / 2;
+        }
+        return new String(characters);
+    }
+
+    @Test
+    void binaryStringTest() {
+        long value = 0b1011;
+        System.out.println("value:" + value);
+        String result = binaryString(value);
+
+        assertThat(result).isEqualTo("0000000000000000000000000000000000000000000000000000000000001011");
+    }
+
+    @Test
+    void signTest() {
+        long a1 = 0x8888000000000000L;
+
+        long t1 = a1 >> 63;
+        long t2 = -a1 >>> 63;
+
+        long exp = t1 | t2;
+
+        long x1 = a1 >> 20;
+        long x2 = a1 >>> 20;
+        System.out.println("a1:" + Long.toBinaryString(a1) + " a1:" + a1);
+        System.out.println("t1:" + Long.toBinaryString(t1) + " t1:" + t1);
+        System.out.println("t2:" + Long.toBinaryString(t2) + " t2:" + t2);
+        System.out.println("exp:" + Long.toBinaryString(exp) + " exp:" + ((int)exp));
+        System.out.println("x1:" + Long.toBinaryString(x1) + " x1:" + x1);
+        System.out.println("x2:" + Long.toBinaryString(x2) + " x2:" + x2);
+
+        System.out.println("a1:" + binaryString(a1));
+        System.out.println("x2:" + binaryString(x2));
+        //((i >> 63) | (-i >>> 63));
     }
 }
