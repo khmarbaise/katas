@@ -49,6 +49,7 @@ public class MostFrequentlyUsedWordsInATextTest {
         public List<String> top3() {
             return PATTERN.splitAsStream(this.text)
                     .map(String::toLowerCase)
+                    .filter(s -> s.length() > 0)
                     .collect(groupingBy(word -> word, counting()))
                     .entrySet()
                     .stream()
@@ -83,7 +84,6 @@ public class MostFrequentlyUsedWordsInATextTest {
         MostFrequentlyUsedWordsInAText instance = new MostFrequentlyUsedWordsInAText("Word Word Word");
         assertThat(instance.top3()).isEqualTo(List.of("word"));
     }
-
 
     @Test
     void shouldReturnEmptyListIfNoWordsGiven() {
