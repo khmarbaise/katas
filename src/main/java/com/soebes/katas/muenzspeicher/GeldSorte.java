@@ -2,7 +2,7 @@ package com.soebes.katas.muenzspeicher;
 
 
 /**
- * Die Klasse GeldSort enthält einen Vorrat von Münzen bzw.
+ * Die Klasse GeldSorte enthält einen Vorrat von Münzen bzw.
  * Scheinen.
  * Der parameter cent bestimmt wieviel Cent die jeweilige 
  * Geldsorte hat.
