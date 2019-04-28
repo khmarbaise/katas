@@ -16,7 +16,7 @@ public class OnesAndZerosTest {
     static int[] NINE = {1, 0, 0, 1};
     static int[] TEN = {1, 0, 1, 0};
 
-    public int convertArrayToInteger(int[] binaryArray) {
+    int convertArrayToInteger(int[] binaryArray) {
         int result = 0;
         for (int i = 0; i < binaryArray.length; i++) {
             result = result * 2 + binaryArray[i];
@@ -24,15 +24,9 @@ public class OnesAndZerosTest {
         return result;
     }
 
-    //    public int convert(int[] binaryArray) {
-//        return Stream.of(binaryArray).reduce(
-//                (x, y) -> x * 2 + y).get();
-//    }
-//
-    public int convert(List<Integer> binaryArray) {
+    int convert(List<Integer> binaryArray) {
         return binaryArray.stream()
-                .reduce(0, (acc, y) -> acc * 2 + y
-        );
+                .reduce(0, (acc, y) -> acc * 2 + y);
     }
 
     @Test
