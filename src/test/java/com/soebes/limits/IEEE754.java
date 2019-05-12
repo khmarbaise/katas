@@ -143,7 +143,6 @@ public class IEEE754 {
         int exponent = (rawBits & FloatConsts.EXP_BIT_MASK) >>
                 (FloatConsts.SIGNIFICAND_WIDTH - 1);
 
-
         System.out.println("Sign:" + signOfFloat);
         System.out.println("significant Bits: " + toBinGrouped(significantBits));
         System.out.println("             Raw: " + toBinGrouped(rawBits));
