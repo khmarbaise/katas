@@ -27,11 +27,11 @@ public class TraderTest {
 	@Test
 	void quiz55_1() {
 		List<Transaction> sorted = transactions.stream()
-		    .filter(s -> s.getYear() == 2011)
-		    .sorted(comparingInt(Transaction::getValue))
-		    .collect(toList());
+											   .filter(s -> s.getYear() == 2011)
+											   .sorted(comparingInt(Transaction::getValue))
+											   .collect(toList());
 		sorted.forEach(s -> System.out.println(" " + s.getTrader()
-		    .getName() + " Value:" + s.getValue()));
+													  .getName() + " Value:" + s.getValue()));
 	}
 
 	@Test

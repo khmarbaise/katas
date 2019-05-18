@@ -124,6 +124,25 @@ public class IEEE754 {
         }
     }
 
+    @Test
+    void multiply() {
+        Integer nI = -8;
+        System.out.println("       Integer:" + toBinGrouped(nI) + " R:" + nI);
+        Integer nD = nI >> 3;
+        System.out.println("Result Integer:" + toBinGrouped(nD) + " R:" + nD);
+        Integer nM = nI << 2;
+        System.out.println("Result Integer:" + toBinGrouped(nM) + " R:" + nM);
+
+    }
+
+    @Test
+    void writeIntegerAsBinary() {
+        System.out.println();
+        Integer positiveInteger = 16;
+        Integer negativeInteger = -16;
+        System.out.println("Integer   16:" + toBinGrouped(positiveInteger));
+        System.out.println("Integer  -16:" + toBinGrouped(negativeInteger));
+    }
 
     @Test
     void firstTest() {
@@ -145,5 +164,6 @@ public class IEEE754 {
         System.out.println("significant Bits: " + toBinGrouped(significantBits));
         System.out.println("             Raw: " + toBinGrouped(rawBits));
         System.out.println("        Exponent: " + toBinGrouped((byte) exponent));
+
     }
 }

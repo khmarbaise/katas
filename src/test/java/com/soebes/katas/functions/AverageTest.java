@@ -1,13 +1,12 @@
 package com.soebes.katas.functions;
 
-import java.util.List;
+import org.junit.jupiter.api.Test;
+
+import java.math.BigInteger;
 import java.util.function.IntSupplier;
 import java.util.function.IntUnaryOperator;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
-import java.util.stream.LongStream;
-
-import org.junit.jupiter.api.Test;
 
 public class AverageTest {
 

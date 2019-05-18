@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class BitCountingTest {
+class BitCountingTest {
 
     public int countBits(final int value) {
         int result = 0;
@@ -139,5 +139,6 @@ public class BitCountingTest {
         System.out.println("a1:" + binaryString(a1));
         System.out.println("x2:" + binaryString(x2));
         //((i >> 63) | (-i >>> 63));
+
     }
 }
