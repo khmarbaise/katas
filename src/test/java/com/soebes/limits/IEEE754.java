@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
 import java.nio.charset.StandardCharsets;
+import java.util.stream.IntStream;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -165,5 +166,98 @@ public class IEEE754 {
         System.out.println("             Raw: " + toBinGrouped(rawBits));
         System.out.println("        Exponent: " + toBinGrouped((byte) exponent));
 
+    }
+
+
+
+
+
+
+
+
+    @Test
+    void compareFloatExpected() {
+        float a = 1.1f + 2.2f;
+        float b = 3.3f;
+        assertThat(a).isEqualTo(b);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    @Test
+    void theResultShouldBeOne() {
+        float f = 0.1f;
+
+        float total = 0;
+
+        for (int i = 0; i < 10; ++i) {
+            total += f;
+        }
+
+        assertThat(total).isEqualTo(1.0f);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    @Test
+    void theResultShouldAlsoBeOne() {
+        float f = 0.1f;
+        float sum = 0;
+
+        for (int i = 0; i < 10; ++i) {
+            sum += f;
+        }
+
+        if (sum == 1.0f) {
+            System.out.println("GLEICH.");
+        }
+        else {
+            System.out.println("***ungleich***");
+        }
     }
 }
