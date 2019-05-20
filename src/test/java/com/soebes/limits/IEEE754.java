@@ -1,11 +1,12 @@
 package com.soebes.limits;
 
+import org.assertj.core.data.Offset;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
 import java.nio.charset.StandardCharsets;
-import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -195,6 +196,30 @@ public class IEEE754 {
 
 
 
+    @Test
+    void compareFloatExpectedWithoutAssertJ() {
+        float a = 1.1f + 2.2f;
+        float b = 3.3f;
+        if (a == b) {
+            System.out.println("EQUAL");
+        } else {
+            System.out.println("NOT EQUAL");
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -259,5 +284,102 @@ public class IEEE754 {
         else {
             System.out.println("***ungleich***");
         }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    @Test
+    void selfCompare() {
+        float a = 18.4f;
+        float b = 18.4f;
+        assertThat(a).isEqualTo(b);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    @Test
+    void selfCompareResult() {
+        float a = 18.4f;
+        float b = 18.2f + 0.2f;
+        assertThat(a).isEqualTo(b);
+    }
+
+
+    @Test
+    void summarizingFloats() {
+
+        float[] elements = {
+                0.23f,
+                1_000_000f,
+        };
+
+        float result = 0.0f;
+        for (float item : elements) {
+            result += item;
+        }
+        System.out.println(" Result: " + result);
+    }
+
+
+    @Test
+    void summarizingDouble() {
+        double[] elements = {
+                0.23,
+                1_000_000_000_000_000d,
+        };
+
+        double result = 0.0f;
+        for (double item : elements) {
+            result += item;
+        }
+        System.out.println("Result: " + result);
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    @Test
+    void name() {
+        var a = 32769;
+        var b = 32766;
+
+        var result = a + b;
+
+        System.out.println("result: '" + result + "'");
     }
 }
