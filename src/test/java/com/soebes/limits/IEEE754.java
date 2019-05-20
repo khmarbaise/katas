@@ -10,7 +10,7 @@ import java.util.stream.Stream;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class IEEE754 {
+class IEEE754 {
     String toBinGrouped(byte l) {
         byte[] result = new byte[8 + 1];
 
@@ -114,7 +114,7 @@ public class IEEE754 {
         }
 
         @Test
-        void longMaxValue() {
+        void byteMaxValue() {
             byte bin = Byte.MAX_VALUE;
             assertThat(toBinGrouped(bin)).isEqualTo("0111 1111");
         }
