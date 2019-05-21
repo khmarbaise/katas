@@ -382,4 +382,15 @@ class IEEE754 {
 
         System.out.println("result: '" + result + "'");
     }
+
+    @Test
+    void overflowTest() {
+        int i1 = Integer.MAX_VALUE;
+        int i2 = Integer.MAX_VALUE;
+
+        int result = i1 + i2;
+        System.out.println("    i1:" + i1 );
+        System.out.println("    i2:" + i2 );
+        System.out.println("result:" + result);
+    }
 }
