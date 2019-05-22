@@ -176,12 +176,27 @@ class IEEE754 {
 
 
 
+
+
+
+
+
+
     @Test
     void compareFloatExpected() {
         float a = 1.1f + 2.2f;
         float b = 3.3f;
         assertThat(a).isEqualTo(b);
     }
+
+
+
+
+
+
+
+
+
 
 
 
@@ -269,6 +284,11 @@ class IEEE754 {
 
 
 
+
+
+
+
+
     @Test
     void theResultShouldAlsoBeOne() {
         float f = 0.1f;
@@ -285,6 +305,20 @@ class IEEE754 {
             System.out.println("***ungleich***");
         }
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -322,12 +356,48 @@ class IEEE754 {
 
 
 
+
+
+
+
+
+
+
+
+
+
+
     @Test
     void selfCompareResult() {
         float a = 18.4f;
         float b = 18.2f + 0.2f;
         assertThat(a).isEqualTo(b);
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
     @Test
