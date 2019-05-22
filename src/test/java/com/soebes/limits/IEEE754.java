@@ -1,12 +1,10 @@
 package com.soebes.limits;
 
-import org.assertj.core.data.Offset;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
 import java.nio.charset.StandardCharsets;
-import java.util.stream.Stream;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -170,45 +168,12 @@ class IEEE754 {
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
     @Test
     void compareFloatExpected() {
         float a = 1.1f + 2.2f;
         float b = 3.3f;
         assertThat(a).isEqualTo(b);
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     @Test
@@ -221,35 +186,6 @@ class IEEE754 {
             System.out.println("NOT EQUAL");
         }
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     @Test
@@ -266,29 +202,6 @@ class IEEE754 {
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     @Test
     void theResultShouldAlsoBeOne() {
         float f = 0.1f;
@@ -300,37 +213,10 @@ class IEEE754 {
 
         if (sum == 1.0f) {
             System.out.println("GLEICH.");
-        }
-        else {
+        } else {
             System.out.println("***ungleich***");
         }
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     @Test
@@ -341,63 +227,12 @@ class IEEE754 {
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
     @Test
     void selfCompareResult() {
         float a = 18.4f;
         float b = 18.2f + 0.2f;
         assertThat(a).isEqualTo(b);
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
     @Test
@@ -431,18 +266,6 @@ class IEEE754 {
     }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
     @Test
     void name() {
         var a = 32769;
@@ -459,8 +282,8 @@ class IEEE754 {
         int i2 = Integer.MAX_VALUE;
 
         int result = i1 + i2;
-        System.out.println("    i1:" + i1 );
-        System.out.println("    i2:" + i2 );
+        System.out.println("    i1:" + i1);
+        System.out.println("    i2:" + i2);
         System.out.println("result:" + result);
     }
 }
