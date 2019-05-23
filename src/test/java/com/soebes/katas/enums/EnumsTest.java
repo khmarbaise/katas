@@ -94,5 +94,9 @@ class EnumsTest {
         String bdInfos = ClassLayout.parseInstance(bd).toPrintable();
         System.out.println("Size BigDecimal:" + bdInfos);
 
+        Double d = Double.valueOf(12.3d);
+        String dInfos = ClassLayout.parseInstance(d).toPrintable();
+        System.out.println("Size Double:" + dInfos);
+
     }
 }

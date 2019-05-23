@@ -2,8 +2,9 @@ package com.soebes.katas.enums;
 
 import org.junit.jupiter.api.Test;
 
-import java.util.*;
-import java.util.stream.Collectors;
+import java.util.ArrayList;
+import java.util.EnumSet;
+import java.util.Set;
 import java.util.stream.Stream;
 
 import static java.util.Collections.synchronizedSet;
@@ -37,17 +38,18 @@ public class EnumSetStreamTest {
     void firstTest() {
         int bitValue = 0x02 | 0x04 | 0x10;
         var result = Stream.of(BitValues.values())
-                                          .filter(item -> (item.getBitMask() & bitValue) != 0)
-                                          .collect(toCollection(() -> EnumSet.noneOf(BitValues.class)));
+                           .filter(item -> (item.getBitMask() & bitValue) != 0)
+                           .collect(toCollection(() -> EnumSet.noneOf(BitValues.class)));
 
         result.forEach(item -> System.out.println("Item: " + item));
     }
+
     @Test
     void firstWithSynchronizedTest() {
         int bitValue = 0x02 | 0x04 | 0x10;
         var result = Stream.of(BitValues.values())
-                                          .filter(item -> (item.getBitMask() & bitValue) != 0)
-                                          .collect(toCollection(() -> synchronizedSet(EnumSet.noneOf(BitValues.class))));
+                           .filter(item -> (item.getBitMask() & bitValue) != 0)
+                           .collect(toCollection(() -> synchronizedSet(EnumSet.noneOf(BitValues.class))));
 
         result.forEach(item -> System.out.println("Item: " + item));
     }
@@ -69,8 +71,8 @@ public class EnumSetStreamTest {
     void thirdTest() {
         int bitValue = 0x02 | 0x04 | 0x10;
         var result = Stream.of(BitValues.values())
-                                          .filter(item -> (item.getBitMask() & bitValue) != 0)
-                                          .collect(toCollection(() -> new ArrayList<>()));
+                           .filter(item -> (item.getBitMask() & bitValue) != 0)
+                           .collect(toCollection(() -> new ArrayList<>()));
 
         result.forEach(item -> System.out.println("Item: " + item));
         System.out.println(result.getClass().getCanonicalName());
