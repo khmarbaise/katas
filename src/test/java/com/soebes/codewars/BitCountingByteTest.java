@@ -8,7 +8,7 @@ import java.math.BigInteger;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class BitCountingByteTest {
+class BitCountingByteTest {
     public static final byte MASK = -0b1000_0000;
 
     @Test

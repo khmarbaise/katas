@@ -5,7 +5,9 @@ import static org.junit.jupiter.api.Assumptions.assumeTrue;
 
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.condition.EnabledOnJre;
+import org.junit.jupiter.api.condition.EnabledOnOs;
 import org.junit.jupiter.api.condition.JRE;
+import org.junit.jupiter.api.condition.OS;
 
 class AssumptionTest
 {
@@ -21,6 +23,12 @@ class AssumptionTest
     void thisTestIsRunningOnlyOnJDK11()
     {
         assertThat( true ).isTrue();
+    }
+
+    @Test
+    @EnabledOnOs(OS.WINDOWS)
+    void runningOnWindowsOnly() {
+        assertThat("This is the string").isEqualTo("XX");
     }
 
     @Test

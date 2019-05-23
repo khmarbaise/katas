@@ -3,25 +3,15 @@ package com.soebes.katas.functions;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.LongSummaryStatistics;
+import java.util.function.Consumer;
 import java.util.stream.LongStream;
 
 import org.junit.jupiter.api.Test;
 
 public class StandardDeviationTest {
 
-    @FunctionalInterface
-    public interface BigIntegerConsumer {
-        /**
-         * Performs this operation on the given argument.
-         *
-         * @param value the input argument
-         */
-        void accept(BigInteger value);
-
-    }
-
     public class BigIntegerSummaryStatistics
-            implements BigIntegerConsumer {
+            implements Consumer<BigInteger> {
         private BigInteger count = BigInteger.ZERO;
         private BigInteger sum = BigInteger.ZERO;
         private BigInteger min = null;
@@ -105,13 +95,13 @@ public class StandardDeviationTest {
     @Test
     void standardDeviationBigInteger() {
         BigIntegerSummaryStatistics collect =
-                LongStream.rangeClosed(10, 12)
+                LongStream.rangeClosed(10, 10_000_000)
                           .mapToObj(m -> BigInteger.valueOf(m))
                           .collect(BigIntegerSummaryStatistics::new,
                                   BigIntegerSummaryStatistics::accept,
                                   BigIntegerSummaryStatistics::combine);
 
-        System.out.println("Result BigIntegerSummaryStatistics:" + collect);
+        System.out.println("Result BigDecimalSummaryStatistics:" + collect);
 
     }
 

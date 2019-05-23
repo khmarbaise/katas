@@ -5,6 +5,7 @@ import org.junit.jupiter.api.Test;
 import java.util.ArrayList;
 import java.util.EnumSet;
 import java.util.Set;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 import static java.util.Collections.synchronizedSet;
@@ -14,6 +15,7 @@ import static java.util.stream.Collectors.toSet;
 public class EnumSetStreamTest {
 
     public enum BitValues {
+        Bit_None(0x00),
         Bit_0(0x01),
         Bit_1(0x02),
         Bit_2(0x04),
@@ -38,6 +40,7 @@ public class EnumSetStreamTest {
     void firstTest() {
         int bitValue = 0x02 | 0x04 | 0x10;
         var result = Stream.of(BitValues.values())
+                           .skip(1)
                            .filter(item -> (item.getBitMask() & bitValue) != 0)
                            .collect(toCollection(() -> EnumSet.noneOf(BitValues.class)));
 
@@ -48,6 +51,7 @@ public class EnumSetStreamTest {
     void firstWithSynchronizedTest() {
         int bitValue = 0x02 | 0x04 | 0x10;
         var result = Stream.of(BitValues.values())
+                           .skip(1)
                            .filter(item -> (item.getBitMask() & bitValue) != 0)
                            .collect(toCollection(() -> synchronizedSet(EnumSet.noneOf(BitValues.class))));
 
@@ -59,6 +63,7 @@ public class EnumSetStreamTest {
         int bitValue = 0x02 | 0x04 | 0x10;
         Set<BitValues> result = Stream
                 .of(BitValues.values())
+                .skip(1)
                 .filter(item -> (item.getBitMask() & bitValue) != 0)
                 .collect(toSet());
 
@@ -71,6 +76,7 @@ public class EnumSetStreamTest {
     void thirdTest() {
         int bitValue = 0x02 | 0x04 | 0x10;
         var result = Stream.of(BitValues.values())
+                           .skip(1)
                            .filter(item -> (item.getBitMask() & bitValue) != 0)
                            .collect(toCollection(() -> new ArrayList<>()));
 
@@ -78,5 +84,13 @@ public class EnumSetStreamTest {
         System.out.println(result.getClass().getCanonicalName());
     }
 
+    @Test
+    void xxx() {
 
+        var result = Stream.of(BitValues.values())
+                           .dropWhile(item -> item.getBitMask() == 0)
+                           .collect(Collectors.toCollection(() -> EnumSet.noneOf(BitValues.class)));
+
+        System.out.println(result);
+    }
 }
