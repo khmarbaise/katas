@@ -56,15 +56,25 @@ public class IQ1 {
         BitSet bs_first = new BitSet();
         BitSet bs_second = new BitSet();
 
-        bs_first.set(1);
+        bs_first.set(0);
         bs_first.set(3);
 
-        bs_second.set(1);
+        System.out.println("bs_first:");
+        bs_first.stream().forEach(s -> System.out.println("s = " + s));
+        
+        
+        bs_second.set(0);
         bs_second.set(4);
 
+        System.out.println("bs_second");
+        bs_second.stream().forEach(s -> System.out.println("s = " + s));
         boolean intersects = bs_second.intersects(bs_first);
         System.out.println("intersects:" + intersects);
 
+
+        bs_second.and(bs_first);
+        System.out.println("bs_scond.and(bs_first)");
+        bs_second.stream().forEach(s -> System.out.println("s = " + s));
     }
 
     @Test
@@ -92,5 +102,8 @@ public class IQ1 {
         bs.flip(1);
         System.out.println("After");
         bs.stream().forEach(s -> System.out.println("s = " + s));
+
     }
+
+
 }
