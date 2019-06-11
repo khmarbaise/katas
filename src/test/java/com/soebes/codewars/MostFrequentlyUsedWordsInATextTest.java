@@ -1,6 +1,8 @@
 package com.soebes.codewars;
 
 import org.junit.jupiter.api.Test;
+import org.junit.platform.commons.logging.Logger;
+import org.junit.platform.commons.logging.LoggerFactory;
 
 import java.io.Serializable;
 import java.util.Comparator;
@@ -13,6 +15,12 @@ import static java.util.stream.Collectors.counting;
 import static java.util.stream.Collectors.groupingBy;
 import static org.assertj.core.api.Assertions.assertThat;
 
+/**
+ * @author khmarbaise
+ *
+ * {@link XYT}.
+ * 
+ */
 public class MostFrequentlyUsedWordsInATextTest {
     public static final String GIVEN_TEXT = "In a village of La Mancha, " +
             "the name of which I have no desire to call to " +
@@ -24,6 +32,7 @@ public class MostFrequentlyUsedWordsInATextTest {
             "nights, scraps on Saturdays, lentils on Fridays, and a pigeon " +
             "or so extra on Sundays, made away with three-quarters of his income.";
 
+    private static final Logger LOG = LoggerFactory.getLogger(MostFrequentlyUsedWordsInATextTest.class);
 
     public static class MostFrequentlyUsedWordsInAText {
         private final String text;
@@ -50,15 +59,15 @@ public class MostFrequentlyUsedWordsInATextTest {
 
         public List<String> top3() {
             return PATTERN.splitAsStream(this.text)
-                    .map(String::toLowerCase)
-                    .filter(s -> s.length() > 0)
-                    .collect(groupingBy(word -> word, counting()))
-                    .entrySet()
-                    .stream()
-                    .sorted(comparingByValueReversed())
-                    .limit(3)
-                    .map(Map.Entry::getKey)
-                    .collect(Collectors.toList());
+                          .map(String::toLowerCase)
+                          .filter(s -> s.length() > 0)
+                          .collect(groupingBy(word -> word, counting()))
+                          .entrySet()
+                          .stream()
+                          .sorted(comparingByValueReversed())
+                          .limit(3)
+                          .map(Map.Entry::getKey)
+                          .collect(Collectors.toList());
         }
 
     }
@@ -86,7 +95,7 @@ public class MostFrequentlyUsedWordsInATextTest {
         MostFrequentlyUsedWordsInAText instance = new MostFrequentlyUsedWordsInAText("Word Word Word");
         assertThat(instance.top3()).isEqualTo(List.of("word"));
     }
-
+    
     @Test
     void shouldReturnEmptyListIfNoWordsGiven() {
         MostFrequentlyUsedWordsInAText instance = new MostFrequentlyUsedWordsInAText("");

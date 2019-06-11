@@ -1,12 +1,12 @@
 package com.soebes.katas.polynoms;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 
-import org.junit.jupiter.api.Test;
+import static org.assertj.core.api.Assertions.assertThat;
 
-public class NewTest
+class NewTest
 {
 
     // Write a function to make a derivation of a polynomial
@@ -19,7 +19,7 @@ public class NewTest
     // 2. exponents only positive? So we start index 0 ?
     //
     @Test
-    public void derivationOfConstant()
+    void derivationOfConstant()
     {
         // Something Like: f(x) = 3 * X ^ 0
         // f´(x) = 0
@@ -29,7 +29,7 @@ public class NewTest
     }
 
     @Test
-    public void derivationOfFirstFactor()
+    void derivationOfFirstFactor()
     {
         // Something Like: f(x) = 2 * X + 7;
         // f´(x) = 2
@@ -39,7 +39,7 @@ public class NewTest
     }
 
     @Test
-    public void derivationOfTwoFactors()
+    void derivationOfTwoFactors()
     {
         // Something Like: f(x) = 3 * X ^ 2 + 2 * X + 7;
         // f´(x) = 2 * 3 * X^1 + 2
@@ -49,7 +49,7 @@ public class NewTest
     }
 
     @Test
-    public void derivationOfThreeFactors()
+    void derivationOfThreeFactors()
     {
         // Something Like: f(x) = 9 * X^3 + 6 * X ^ 2 + 2 * X + 7;
         // f´(x) = 9 * 3 * X ^ 2 + 6 * 2 * X + 2
@@ -88,7 +88,7 @@ public class NewTest
     }
 
     @Test
-    public void testName()
+    void testName()
     {
         final ArrayList<Integer> a = new ArrayList<Integer>() {{ add (1); add (2); add (3); add (4); }};
         final ArrayList<Integer> b = new ArrayList<Integer>() {{ add (5); add (6); add (7); add (8); }};

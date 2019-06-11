@@ -1,5 +1,6 @@
 package com.soebes.experiments;
 
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
 import java.util.stream.IntStream;
@@ -21,6 +22,7 @@ class CountingTest {
     }
 
     @Test
+    @DisplayName("Das ist ein Test")
     void firstTest() {
         int counting = counting(10);
         assertThat(counting).isEqualTo(450);

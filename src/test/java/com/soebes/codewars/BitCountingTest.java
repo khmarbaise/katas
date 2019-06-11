@@ -76,8 +76,8 @@ class BitCountingTest {
             throw new ArithmeticException("long overflow");
         }
 
-        long a1 =  0x1;
-        long a2 =  0x80000000L;
+        long a1 = 0x1;
+        long a2 = 0x80000000L;
         System.out.println("a1: " + Long.toBinaryString(a1));
         System.out.println("a2: " + Long.toBinaryString(a2));
 
@@ -102,9 +102,9 @@ class BitCountingTest {
     String binaryString(final long value) {
         char[] characters = new char[64];
         long temp = value;
-        for(int i=0; i<64; i++) {
+        for (int i = 0; i < 64; i++) {
             long digit = temp & 0x1;
-            characters[63-i] = Character.valueOf((char) (48+digit));
+            characters[63 - i] = Character.valueOf((char) (48 + digit));
             temp = temp / 2;
         }
         return new String(characters);
@@ -132,7 +132,7 @@ class BitCountingTest {
         System.out.println("a1:" + Long.toBinaryString(a1) + " a1:" + a1);
         System.out.println("t1:" + Long.toBinaryString(t1) + " t1:" + t1);
         System.out.println("t2:" + Long.toBinaryString(t2) + " t2:" + t2);
-        System.out.println("exp:" + Long.toBinaryString(exp) + " exp:" + ((int)exp));
+        System.out.println("exp:" + Long.toBinaryString(exp) + " exp:" + ((int) exp));
         System.out.println("x1:" + Long.toBinaryString(x1) + " x1:" + x1);
         System.out.println("x2:" + Long.toBinaryString(x2) + " x2:" + x2);
 

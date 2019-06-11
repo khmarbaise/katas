@@ -8,7 +8,7 @@ import static org.mockito.Mockito.verify;
 
 class FirstVerifyMockTest {
 
-    public class XYZ {
+    class XYZ {
         public void method() {
             System.out.println("Hello World.");
         }
@@ -20,6 +20,5 @@ class FirstVerifyMockTest {
 
         verify(mock, Mockito.atLeastOnce()).method();
     }
-    // verifyThat( recorderService).called().once().secondListener();
 
 }
