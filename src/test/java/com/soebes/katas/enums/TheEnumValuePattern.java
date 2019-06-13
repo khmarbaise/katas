@@ -47,7 +47,7 @@ public enum TheEnumValuePattern {
 	 * @return a value of {@link TheEnumValuePattern}
 	 * @throws {@link IllegalArgumentException} in case of an non existing text.
 	 */
-	public static final TheEnumValuePattern fromValue(final String value) {
+	public static TheEnumValuePattern fromValue(final String value) {
 		return Arrays.stream(TheEnumValuePattern.values())
 		    .filter(s -> s.getValue().equals(value))
 		    .findAny()

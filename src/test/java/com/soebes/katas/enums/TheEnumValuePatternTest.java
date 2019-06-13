@@ -50,7 +50,7 @@ class TheEnumValuePatternTest {
 
 	}
 
-	private final String getValueOfField(Field f) {
+	private String getValueOfField(Field f) {
 		String result = "";
 		try {
 			result = (String) f.get(null);

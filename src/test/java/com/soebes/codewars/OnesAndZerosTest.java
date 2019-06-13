@@ -6,7 +6,7 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class OnesAndZerosTest {
+class OnesAndZerosTest {
 
     static int[] ONE = {0, 0, 0, 1};
     static int[] TWO = {0, 0, 1, 0};

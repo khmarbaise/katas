@@ -8,7 +8,7 @@ import java.util.function.IntUnaryOperator;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
-public class AverageTest {
+class AverageTest {
 
 	IntSupplier supplier = new IntSupplier() {
 		private int nextInt = 0;

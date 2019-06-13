@@ -16,7 +16,6 @@
   <version>1.0-SNAPSHOT</version>
   <name>Code-Katas</name>
 
-
   <properties>
     <maven.compiler.release>11</maven.compiler.release>
     <maven.compiler.target>11</maven.compiler.target>
@@ -25,11 +24,11 @@
   <dependencyManagement>
     <dependencies>
       <dependency>
-        <groupId>org.junit</groupId>
-        <artifactId>junit-bom</artifactId>
-        <version>5.4.2</version>
-        <type>pom</type>
-        <scope>import</scope>
+         <groupId>org.junit</groupId>
+         <artifactId>junit-bom</artifactId>
+         <version>5.4.2</version>
+         <scope>import</scope>
+         <type>pom</type>
       </dependency>
     </dependencies>
   </dependencyManagement>
@@ -58,7 +57,8 @@
     <dependency>
       <groupId>org.mockito</groupId>
       <artifactId>mockito-core</artifactId>
-      <version>2.24.0</version>
+      <version>2.28.2</version>
+      <scope>test</scope>
     </dependency>
     <dependency>
       <groupId>org.openjdk.jol</groupId>
@@ -78,7 +78,7 @@
 <!--        </plugin>-->
         <plugin>
           <artifactId>maven-surefire-plugin</artifactId>
-          <version>2.22.1</version>
+          <version>2.22.2</version>
         </plugin>
       </plugins>
     </pluginManagement>

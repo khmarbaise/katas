@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class MumblingTest {
+class MumblingTest {
 
 //    accum("abcd") -> "A-Bb-Ccc-Dddd"
 //    accum("RqaEzty") -> "R-Qq-Aaa-Eeee-Zzzzz-Tttttt-Yyyyyyy"
