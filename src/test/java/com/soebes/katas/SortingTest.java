@@ -25,9 +25,15 @@ class SortingTest {
      */
     @Test
     void firstTest() {
-        List<String> collect = GIVEN_LIST.stream().sorted(resultComparator_v2).collect(Collectors.toList());
-        assertThat(collect).containsSequence("FAILURE", "UNSTABLE", "UNKNOWN", "UNKNOWN", "SUCCESS", "SUCCESS");
+        List<String> collect = GIVEN_LIST
+                .stream()
+                .sorted(resultComparator_v2)
+                .collect(Collectors.toList());
+    assertThat(collect).containsSequence("FAILURE", "UNSTABLE", "UNKNOWN", "UNKNOWN", "SUCCESS", "SUCCESS");
 
-        collect.forEach(item -> System.out.println("Item: " + item));
+        collect
+                .stream()
+                .map(item -> "Item: " + item)
+                .forEach(System.out::println);
     }
 }

@@ -1,4 +1,4 @@
-package com.soebes;
+package com.soebes.playground;
 
 import java.io.IOException;
 import java.io.ObjectInputStream;
@@ -44,5 +44,4 @@ public class DataHolder implements Serializable {
         byteValue = in.readByte();
         shortValue = in.readShort();
     }
-
 }
