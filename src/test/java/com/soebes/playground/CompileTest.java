@@ -14,6 +14,11 @@ import java.util.stream.IntStream;
 class CompileTest {
 
     @Test
+    void this_is_the_first_test_i_wrote() {
+
+    }
+
+    @Test
     void firstTest() {
 
         List<Integer> numbers = new ArrayList<Integer>();
