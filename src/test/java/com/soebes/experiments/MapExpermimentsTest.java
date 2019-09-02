@@ -12,15 +12,15 @@ class MapExpermimentsTest {
 
     @Test
     void firstTest() {
-        Map<String, Integer> mapOfDatae = Map.ofEntries(
+        Map<String, Integer> mapOfData = Map.ofEntries(
                 entry("first", Integer.valueOf(1)),
                 entry("second", Integer.valueOf(2))
         );
 
-        if (!mapOfDatae.containsKey("first")) {
+        if (!mapOfData.containsKey("first")) {
             throw new IllegalArgumentException("Failed to find.");
         }
-        Integer element = mapOfDatae.get("firest");
+        Integer element = mapOfData.get("firest");
 
     }
 
