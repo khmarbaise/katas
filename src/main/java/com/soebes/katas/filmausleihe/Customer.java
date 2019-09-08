@@ -3,7 +3,7 @@ package com.soebes.katas.filmausleihe;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Customer {
+class Customer {
 
     private Person person;
     private List<Rental> rentals;
