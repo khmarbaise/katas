@@ -1,9 +1,9 @@
 package com.soebes.katas.sublist;
 
+import org.junit.jupiter.api.Test;
+
 import java.util.Objects;
 import java.util.function.Function;
-
-import org.junit.jupiter.api.Test;
 
 public class PlayWithComparator2Test
 {
@@ -21,7 +21,7 @@ public class PlayWithComparator2Test
     public interface PersonComparator<T>
     {
         int compare( T t1, T t2 );
-        
+
         // PECS =>
         // producer: ? extends T
         // consumer: ? super T
@@ -62,9 +62,9 @@ public class PlayWithComparator2Test
     @Test
     void testName()
     {
-        PersonComparator<Person> comp = PersonComparator.comparing(Person::getLastName) //
-                                                        .thenComparing(Person::getFirstName)
-                                                        .thenComparing(Person::getAge);
+        PersonComparator<Person> comp = PersonComparator.comparing(Person::getLastName)
+          .thenComparing(Person::getFirstName)
+          .thenComparing(Person::getAge);
 
         System.out.println( "Michael  :" + michael );
         System.out.println( "Jarmaine :" + jarmaine );

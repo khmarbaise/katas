@@ -12,4 +12,16 @@ public class ByteTest {
         System.out.println("anInt:" + anInt);
 
     }
+    @Test
+    void byteBufferWrap_number_one() {
+        int anInt = ByteBuffer.wrap(new byte[]{1, 0, 0, 0}).getInt();
+        System.out.println("anInt:" + anInt);
+
+    }
+    @Test
+    void byteBufferWrap_number_two() {
+        int anInt = ByteBuffer.wrap(new byte[]{0, 0, 1, 0}).getInt();
+        System.out.println("anInt:" + anInt);
+
+    }
 }
