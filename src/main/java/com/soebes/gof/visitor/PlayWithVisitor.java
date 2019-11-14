@@ -41,6 +41,7 @@ public class PlayWithVisitor {
 
 
     renault.accept(visitor);
-    System.out.println("visitor = " + visitor.getVisited());
+    String visited = visitor.getVisited();
+    System.out.println("visitor = " + visited);
   }
 }
