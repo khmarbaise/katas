@@ -10,12 +10,13 @@ public class Wheel {
     this.location = location;
   }
 
+  public <R> R accept(Visitor<R> visitor) {
+    return visitor.visit(this);
+  }
+
   @Override
   public String toString() {
     return "Wheel(" + location + ")";
   }
 
-  public void accept(Visitor visitor) {
-    visitor.visit(this);
-  }
 }

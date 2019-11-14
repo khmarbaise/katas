@@ -5,43 +5,42 @@ import com.soebes.gof.visitor.model.Car;
 import com.soebes.gof.visitor.model.Engine;
 import com.soebes.gof.visitor.model.Wheel;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 public class PlayWithVisitor {
 
   public static void main(String[] args) {
 
     Car renault = new Car();
 
-    var visitor = new Visitor() {
-      private String visited = "";
-
+    var visitor = new Visitor<String>() {
       @Override
-      public void visit(Car car) {
-        this.visited += "Visited car:" + car;
+      public String visit(Car car) {
+        return "Visited car:" + car;
       }
 
       @Override
-      public void visit(Body body) {
-        this.visited += "Visited body:" + body;
+      public String visit(Body body) {
+        return "Visited body:" + body;
       }
 
       @Override
-      public void visit(Engine engine) {
-        this.visited += "Visited engine:" + engine;
+      public String visit(Engine engine) {
+        return "Visited engine:" + engine;
       }
 
       @Override
-      public void visit(Wheel wheel) {
-        this.visited += "Visited wheel:" + wheel;
-      }
-
-      public String getVisited() {
-        return this.visited;
+      public String visit(Wheel wheel) {
+        return "Visited wheel:" + wheel;
       }
     };
 
+    String accept = renault.accept(visitor, Collectors.joining(" -- "));
+    System.out.println("accept = " + accept);
 
-    renault.accept(visitor);
-    String visited = visitor.getVisited();
-    System.out.println("visitor = " + visited);
+    List<String> resultList = renault.accept(visitor, Collectors.toList());
+    resultList.forEach(System.out::println);
   }
+
 }

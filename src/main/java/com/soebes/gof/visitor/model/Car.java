@@ -2,7 +2,8 @@ package com.soebes.gof.visitor.model;
 
 import com.soebes.gof.visitor.Visitor;
 
-import java.util.List;
+import java.util.stream.Collector;
+import java.util.stream.Stream;
 
 import static com.soebes.gof.visitor.model.Location.*;
 
@@ -10,8 +11,23 @@ public class Car {
 
   private Body body = new Body();
   private Engine engine = new Engine();
-  private List<Wheel> wheels = List.of(new Wheel(FrontLeft), new Wheel(FrontRight), new Wheel(BackLeft),
-    new Wheel(BackRight));
+  private Wheel[] wheels = {new Wheel(FrontLeft), new Wheel(FrontRight), new Wheel(BackLeft), new Wheel(BackRight)};
+
+  public <R, RR> RR accept(Visitor<R> visitor, Collector<? super R, ?, RR> collector) {
+    R r1 = this.body.accept(visitor);
+    R r2 = this.engine.accept(visitor);
+    R rw0 = this.wheels[0].accept(visitor);
+    R rw1 = this.wheels[1].accept(visitor);
+    R rw2 = this.wheels[2].accept(visitor);
+    R rw3 = this.wheels[3].accept(visitor);
+    R rself = accept(visitor);
+    return Stream.of(r1, r2, rw0, rw1, rw2, rw3, rself).collect(collector);
+  }
+
+  private <R> R accept(Visitor<R> visitor) {
+    return visitor.visit(this);
+  }
+
 
   public Body getBody() {
     return body;
@@ -21,19 +37,9 @@ public class Car {
     return engine;
   }
 
-  public List<Wheel> getWheels() {
-    return wheels;
-  }
-
   @Override
   public String toString() {
     return "Car";
   }
 
-  public void accept(Visitor visitor) {
-    this.body.accept(visitor);
-    this.engine.accept(visitor);
-    this.wheels.stream().forEach(wheel -> wheel.accept(visitor));
-    visitor.visit(this);
-  }
 }

@@ -5,14 +5,14 @@ import com.soebes.gof.visitor.model.Car;
 import com.soebes.gof.visitor.model.Engine;
 import com.soebes.gof.visitor.model.Wheel;
 
-public interface Visitor {
+public interface Visitor<R> {
 
-  void visit(Car car);
+  R visit(Car car);
 
-  void visit(Body body);
+  R visit(Body body);
 
-  void visit(Engine engine);
+  R visit(Engine engine);
 
-  void visit(Wheel wheel);
+  R visit(Wheel wheel);
 
 }
