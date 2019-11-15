@@ -5,8 +5,9 @@ import com.soebes.gof.visitor.model.Car;
 import com.soebes.gof.visitor.model.Engine;
 import com.soebes.gof.visitor.model.Wheel;
 
-import java.util.List;
-import java.util.stream.Collectors;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.function.Function;
 
 public class PlayWithVisitor {
 
@@ -14,33 +15,25 @@ public class PlayWithVisitor {
 
     Car renault = new Car();
 
-    var visitor = new Visitor<String>() {
-      @Override
-      public String visit(Car car) {
-        return "Visited car:" + car;
-      }
+    Map<Class<?>, Function<Object, String>> registry = new HashMap<>();
 
-      @Override
-      public String visit(Body body) {
-        return "Visited body:" + body;
-      }
-
-      @Override
-      public String visit(Engine engine) {
-        return "Visited engine:" + engine;
-      }
-
-      @Override
-      public String visit(Wheel wheel) {
-        return "Visited wheel:" + wheel;
-      }
+    VisitorInitializer<String> visitorInitializer = builder -> {
+      builder.register(Car.class, car -> "Visited car " + car);
+      builder.register(Body.class, body -> "Visited body " + body);
+      builder.register(Engine.class, engine -> "Visited engine " + engine);
+      builder.register(Wheel.class, wheel -> "Visited wheel " + wheel);
     };
 
-    String accept = renault.accept(visitor, Collectors.joining(" -- "));
-    System.out.println("accept = " + accept);
+    VisitorBuilder<String> visitorBuilder = (type, function) -> registry.put(type, function);
+    visitorInitializer.init(visitorBuilder);
+    Visitor<String> visitor = o -> registry.get(o.getClass()).apply(o);
 
-    List<String> resultList = renault.accept(visitor, Collectors.toList());
-    resultList.forEach(System.out::println);
+    String visit = visitor.visit(renault);
+    System.out.println("visit = " + visit);
+
+    String visit1 = visitor.visit(renault.getBody());
+    System.out.println("visit1 = " + visit1);
+
   }
 
 }

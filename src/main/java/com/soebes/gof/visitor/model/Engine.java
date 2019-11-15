@@ -1,16 +1,11 @@
 package com.soebes.gof.visitor.model;
 
-import com.soebes.gof.visitor.Visitor;
+import java.util.StringJoiner;
 
 public class Engine {
 
-  public <R> R accept(Visitor<R> visitor) {
-    return visitor.visit(this);
-  }
-
   @Override
   public String toString() {
-    return "Engine";
+    return new StringJoiner(", ", Engine.class.getSimpleName() + "[", "]").toString();
   }
-
 }

@@ -1,6 +1,6 @@
 package com.soebes.gof.visitor.model;
 
-import com.soebes.gof.visitor.Visitor;
+import java.util.StringJoiner;
 
 public class Wheel {
 
@@ -10,13 +10,8 @@ public class Wheel {
     this.location = location;
   }
 
-  public <R> R accept(Visitor<R> visitor) {
-    return visitor.visit(this);
-  }
-
   @Override
   public String toString() {
-    return "Wheel(" + location + ")";
+    return new StringJoiner(", ", Wheel.class.getSimpleName() + "[", "]").add("location=" + location).toString();
   }
-
 }
