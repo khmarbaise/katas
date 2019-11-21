@@ -17,12 +17,12 @@ public class PlayWithVisitor {
 
     Map<Class<?>, Function<Object, String>> registry = new HashMap<>();
 
-    VisitorBuilder<String> biConsumer = (type, function) -> registry.put(type, function);
+    VisitorBuilder<String> visitorBuilder = (type, function) -> registry.put(type, function);
 
-    biConsumer.accept(Car.class, car -> "Visited car " + car);
-    biConsumer.accept(Body.class, body -> "Visited body " + body);
-    biConsumer.accept(Engine.class, engine -> "Visited engine " + engine);
-    biConsumer.accept(Wheel.class, wheel -> "Visited wheel " + wheel);
+    visitorBuilder.register(Car.class, car -> "Visited car " + car);
+    visitorBuilder.register(Body.class, body -> "Visited body " + body);
+    visitorBuilder.register(Engine.class, engine -> "Visited engine " + engine);
+    visitorBuilder.register(Wheel.class, wheel -> "Visited wheel " + wheel);
 
     Visitor<String> visitor = o -> registry.get(o.getClass()).apply(o);
 
