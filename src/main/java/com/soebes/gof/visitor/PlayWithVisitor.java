@@ -7,7 +7,6 @@ import com.soebes.gof.visitor.model.Wheel;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.function.Consumer;
 import java.util.function.Function;
 
 public class PlayWithVisitor {
@@ -20,14 +19,14 @@ public class PlayWithVisitor {
 
     VisitorBuilder<String> visitorBuilder = (type, function) -> registry.put(type, function);
 
-    Consumer<VisitorBuilder<String>> consumer = builder -> {
+    VisitorInitializer<String> visitorInitializer = builder -> {
       builder.register(Car.class, car -> "Visited car " + car);
       builder.register(Body.class, body -> "Visited body " + body);
       builder.register(Engine.class, engine -> "Visited engine " + engine);
       builder.register(Wheel.class, wheel -> "Visited wheel " + wheel);
     };
 
-    consumer.accept(visitorBuilder);
+    visitorInitializer.init(visitorBuilder);
     Visitor<String> visitor = o -> registry.get(o.getClass()).apply(o);
 
     String visit = visitor.visit(renault);
