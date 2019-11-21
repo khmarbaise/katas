@@ -17,19 +17,15 @@ public class PlayWithVisitor {
 
     Map<Class<?>, Function<Object, String>> registry = new HashMap<>();
 
-    VisitorInitializer<String> visitorInitializer = builder -> {
-      builder.register(Car.class, car -> "Visited car " + car);
-      builder.register(Body.class, body -> "Visited body " + body);
-      builder.register(Engine.class, engine -> "Visited engine " + engine);
-      builder.register(Wheel.class, wheel -> "Visited wheel " + wheel);
-    };
+    registry.put(Car.class, car -> "Visited car " + car);
+    registry.put(Body.class, body -> "Visited body " + body);
+    registry.put(Engine.class, engine -> "Visited engine " + engine);
+    registry.put(Wheel.class, wheel -> "Visited wheel " + wheel);
 
-    VisitorBuilder<String> visitorBuilder = (type, function) -> registry.put(type, function);
-    visitorInitializer.init(visitorBuilder);
     Visitor<String> visitor = o -> registry.get(o.getClass()).apply(o);
 
     String visit = visitor.visit(renault);
-    System.out.println("visit = " + visit);
+    System.out.println("renault  = " + visit);
 
     String visit1 = visitor.visit(renault.getBody());
     System.out.println("visit1 = " + visit1);
