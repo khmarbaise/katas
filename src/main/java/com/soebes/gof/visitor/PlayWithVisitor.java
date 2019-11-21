@@ -7,7 +7,6 @@ import com.soebes.gof.visitor.model.Wheel;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.function.BiConsumer;
 import java.util.function.Function;
 
 public class PlayWithVisitor {
@@ -18,7 +17,7 @@ public class PlayWithVisitor {
 
     Map<Class<?>, Function<Object, String>> registry = new HashMap<>();
 
-    BiConsumer<Class<?>, Function<Object, String>> biConsumer = (type, function) -> registry.put(type, function);
+    VisitorBuilder<String> biConsumer = (type, function) -> registry.put(type, function);
 
     biConsumer.accept(Car.class, car -> "Visited car " + car);
     biConsumer.accept(Body.class, body -> "Visited body " + body);
