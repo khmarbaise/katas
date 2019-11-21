@@ -11,13 +11,17 @@ public class PlayWithVisitor {
 
     Car renault = new Car();
 
-
-    VisitorInitializer<String> visitorInitializer = builder -> {
-      builder.register(Car.class, car -> "Visited car " + car);
-      builder.register(Body.class, body -> "Visited body " + body);
-      builder.register(Engine.class, engine -> "Visited engine " + engine);
-      builder.register(Wheel.class, wheel -> "Visited wheel " + wheel);
-    };
+    //    VisitorInitializer<String> visitorInitializer = builder -> {
+    //      builder.register(Car.class, car -> "Visited car " + car);
+    //      builder.register(Body.class, body -> "Visited body " + body);
+    //      builder.register(Engine.class, engine -> "Visited engine " + engine);
+    //      builder.register(Wheel.class, wheel -> "Visited wheel " + wheel);
+    //    };
+    VisitorInitializer<String> visitorInitializer =
+      Visitor.<Car, String>forType(Car.class).execute((Car car) -> "Visited car " + car)
+        .forType(Body.class).execute((Body body) -> "Visited body " + body)
+        .forType(Engine.class).execute((Engine engine) -> "Visited engine " + engine)
+        .forType(Wheel.class).execute((Wheel wheel) -> "Visited wheel " + wheel);
 
     Visitor<String> visitor = Visitor.of(visitorInitializer);
 
