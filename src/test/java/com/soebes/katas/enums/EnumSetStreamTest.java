@@ -12,7 +12,7 @@ import static java.util.Collections.synchronizedSet;
 import static java.util.stream.Collectors.toCollection;
 import static java.util.stream.Collectors.toSet;
 
-public class EnumSetStreamTest {
+class EnumSetStreamTest {
 
     public enum BitValues {
         Bit_None(0x00),
@@ -27,7 +27,7 @@ public class EnumSetStreamTest {
 
         private final int bitMask;
 
-        private BitValues(int bitMask) {
+        BitValues(int bitMask) {
             this.bitMask = bitMask;
         }
 
