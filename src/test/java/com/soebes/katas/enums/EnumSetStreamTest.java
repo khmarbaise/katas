@@ -88,7 +88,7 @@ public class EnumSetStreamTest {
     void xxx() {
 
         var result = Stream.of(BitValues.values())
-                           .dropWhile(item -> item.getBitMask() == 0)
+                           .dropWhile(item -> item.getBitMask() <= 8)
                            .collect(Collectors.toCollection(() -> EnumSet.noneOf(BitValues.class)));
 
         System.out.println(result);

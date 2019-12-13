@@ -5,6 +5,10 @@ import com.soebes.gof.visitor.model.Car;
 import com.soebes.gof.visitor.model.Engine;
 import com.soebes.gof.visitor.model.Wheel;
 
+import java.util.Collections;
+import java.util.List;
+import java.util.stream.Collectors;
+
 public class PlayWithVisitor {
 
   public static void main(String[] args) {
@@ -31,6 +35,8 @@ public class PlayWithVisitor {
     String visit1 = visitor.visit(renault.getBody());
     System.out.println("visit1 = " + visit1);
 
+    List<Integer> integers = List.of(1, 2, 3);
+    integers.stream().map(s -> s).collect(Collectors.collectingAndThen(Collectors.toList(), Collections::unmodifiableList));
   }
 
 }

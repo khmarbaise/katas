@@ -11,7 +11,7 @@ import java.util.stream.Collectors;
 
 public class F1 {
 
-  private static final Predicate<Integer> IS_EVEN_NUMBER = (Integer s) -> s % 2 == 0;
+  private static final Predicate<Integer> IS_EVEN_NUMBER = s -> s % 2 == 0;
 
   //  public interface FunctionX<T, U> extends Function {
   //    default <V> Function<V, U> compose(Function<V, T> f) {
@@ -26,8 +26,6 @@ public class F1 {
     Function<Integer, Integer> square = x -> x * x;
     System.out.println(square.apply(triple.apply(2)));
   }
-
-  ;
 
   @Test
   public void secondTest() {
