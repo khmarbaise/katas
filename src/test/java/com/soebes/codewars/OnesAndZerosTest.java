@@ -73,7 +73,8 @@ class OnesAndZerosTest {
 
     @Test
     void convertShouldResultInNine() {
-        int i = convert(List.of(1, 0, 0, 1));
+        List<Integer> binaryArray = List.of(1, 0, 0, 1);
+        int i = convert(binaryArray);
         assertThat(i).isEqualTo(9);
     }
 
