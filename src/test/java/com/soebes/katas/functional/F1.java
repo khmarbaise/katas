@@ -11,8 +11,6 @@ import java.util.stream.Collectors;
 
 public class F1 {
 
-  private static final Predicate<Integer> IS_EVEN_NUMBER = s -> s % 2 == 0;
-
   //  public interface FunctionX<T, U> extends Function {
   //    default <V> Function<V, U> compose(Function<V, T> f) {
   //      return x -> apply(f.apply(x));
@@ -60,6 +58,9 @@ public class F1 {
       .collect(Collectors.joining(","));
     System.out.println("Collected:" + collected);
   }
+
+  private static final Predicate<Integer> IS_EVEN_NUMBER = s -> s % 2 == 0;
+
 
   public interface BinaryOperator extends Function<Integer, Function<Integer, Integer>> {
   }
