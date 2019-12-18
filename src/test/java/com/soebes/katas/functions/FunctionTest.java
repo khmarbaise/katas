@@ -14,7 +14,8 @@ import java.util.stream.Collectors;
 import java.util.stream.LongStream;
 import java.util.stream.Stream;
 
-import static java.util.stream.Collectors.*;
+import static java.util.stream.Collectors.summingLong;
+import static java.util.stream.Collectors.toList;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -107,7 +108,7 @@ public class FunctionTest {
     Long summV5 = la.longValue();
     System.out.println("Summ:" + summV5);
 
-    LongSummaryStatistics collect = LIST_OF_INTS.stream().collect(summarizingLong(i -> i.longValue()));
+    LongSummaryStatistics collect = LIST_OF_INTS.stream().collect(Collectors.summarizingLong(i -> i.longValue()));
     System.out.println("summarizingLong=" + collect);
     Long summV6 = collect.getSum();
 
