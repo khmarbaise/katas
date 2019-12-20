@@ -24,6 +24,7 @@ public class FunctionTest {
   public static Predicate<String> ONLY_A = s -> s.contains("A");
   public static Predicate<String> ONLY_B = s -> s.contains("B");
   static List<Integer> LIST_OF_INTS = List.of(1, 2, 5, 7, 8, 9, 10);
+
   List<String> LIST_OF_STRINGS = List.of("1", "2", "5", "7", "8", "9", "10");
 
   static String mapFunction(String in) {
