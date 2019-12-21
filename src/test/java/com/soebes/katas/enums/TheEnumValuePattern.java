@@ -21,7 +21,7 @@ public enum TheEnumValuePattern {
 
 	private final String value;
 
-	private TheEnumValuePattern(String value) {
+	TheEnumValuePattern(String value) {
 		this.value = value;
 	}
 
@@ -54,9 +54,9 @@ public enum TheEnumValuePattern {
 		    .orElseThrow(() -> new IllegalArgumentException("The given.."));
 	}
 
-	public String validValues() {
+	public static String validValues() {
 		return Stream.of(TheEnumValuePattern.values())
-		    .map(s -> s.getValue())
+		    .map(TheEnumValuePattern::getValue)
 		    .collect(Collectors.joining(",", "[", "]"));
 	}
 }
