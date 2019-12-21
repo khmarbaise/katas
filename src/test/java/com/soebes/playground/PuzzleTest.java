@@ -6,6 +6,7 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
+import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
 import java.nio.file.Files;
@@ -34,10 +35,10 @@ public class PuzzleTest {
 
     @Test
     void find_the_longest_line_in_file_variant_one() throws IOException, URISyntaxException {
-        final URL resource = this
+        final URI resource = this
                 .getClass()
-                .getResource("/test.txt");
-        final Stream<String> lines = Files.lines(Path.of(resource.toURI()));
+                .getResource("/test.txt").toURI();
+        final Stream<String> lines = Files.lines(Path.of(resource));
 
         final String max = lines
                 .max(comparingInt(String::length))

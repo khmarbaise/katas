@@ -2,6 +2,7 @@ package com.soebes.katas.sublist;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.Comparator;
 import java.util.Objects;
 import java.util.function.Function;
 
@@ -71,6 +72,11 @@ public class PlayWithComparator2Test
         System.out.println( "Rod     :" + rod );
         System.out.println( "Michael <-> rod      : " + comp.compare( michael, rod ) );
         System.out.println( "Michael <-> Jarmaine : " + comp.compare( michael, jarmaine ) );
+
+        Comparator<Person> personComparator = Comparator.comparing(Person::getLastName)
+          .thenComparing(Person::getFirstName)
+          .thenComparing(Person::getAge);
+
 
     }
 }
