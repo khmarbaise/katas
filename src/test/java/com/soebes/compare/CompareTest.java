@@ -9,10 +9,9 @@ import java.util.stream.IntStream;
 
 class CompareTest {
 
-  static <INPUT, RESULT extends Comparable<RESULT>> Comparator<INPUT> comparing(Function<INPUT, RESULT> keyExtractor) {
-    return (c1, c2) -> keyExtractor.apply(c1).compareTo(keyExtractor.apply(c2));
+  static <INPUT, RESULT extends Comparable<RESULT>> Comparator<INPUT> comparing(Function<INPUT, RESULT> keyExtactor) {
+    return (c1, c2) -> keyExtactor.apply(c1).compareTo(keyExtactor.apply(c2));
   }
-
 
   @Test
   void with_own_function() {
@@ -45,6 +44,15 @@ class CompareTest {
       .mapToObj(i -> new Point(i % 3, i / 3))
       .sorted(Comparator.comparing(p -> p.distance(origin)))
       .forEach(p -> System.out.println("p = " + p + " dist:" + p.distance(origin)));
+  }
+
+  @Test
+  void name_forth() {
+    Point origin = new Point(0, 0);
+    IntStream.rangeClosed(1, 500)
+      .mapToObj(i -> new Point(i % 3, i / 3))
+      .mapToDouble(p -> p.distance(origin))
+      .forEach(p -> System.out.println("dist:" + p));
   }
 
   public static class Point {
