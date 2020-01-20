@@ -1,8 +1,8 @@
 package com.soebes.katas.numeric;
 
-import java.math.BigDecimal;
-
 import org.junit.jupiter.api.Test;
+
+import java.math.BigDecimal;
 
 public class NumericTest
 {
@@ -22,7 +22,7 @@ public class NumericTest
 
     @Test
     public void compareBigDecimal() {
-        BigDecimal a = new BigDecimal(0.5d);
+        BigDecimal a = new BigDecimal(0.2d);
         BigDecimal b = new BigDecimal(String.valueOf(0.5d));
         BigDecimal c = new BigDecimal("0.5");
         BigDecimal d = new BigDecimal("0.50");
