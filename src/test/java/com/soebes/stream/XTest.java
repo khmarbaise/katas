@@ -46,7 +46,7 @@ class XTest {
 
   @Test
   void self_grouping_by() {
-    List<P> existingList = List.of(new P("C", 12), new P("A", 1), new P("B", 6), new P("A", 5), new P("C", 12),
+    List<P> existingList = List.of(new P("C", 12), new P("A", 1), new P("B", 6), new P("A", 5),
       new P("B", 5));
 
     List<P> duplicates = groupingBySelf(existingList, P::getName);
