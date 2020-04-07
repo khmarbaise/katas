@@ -9,9 +9,9 @@ import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 
-public class F1 {
+ class F1 {
 
-  //  public interface FunctionX<T, U> extends Function {
+  //   interface FunctionX<T, U> extends Function {
   //    default <V> Function<V, U> compose(Function<V, T> f) {
   //      return x -> apply(f.apply(x));
   //    }
@@ -19,14 +19,14 @@ public class F1 {
   Consumer<Integer> consumer;
 
   @Test
-  public void testName() {
+  void testName() {
     Function<Integer, Integer> triple = x -> x * 3;
     Function<Integer, Integer> square = x -> x * x;
     System.out.println(square.apply(triple.apply(2)));
   }
 
   @Test
-  public void secondTest() {
+   void secondTest() {
     BinaryOperator add = x -> y -> x + y;
     BinaryOperator mult = x -> y -> x * y;
     System.out.println("add:" + add.apply(1).apply(5));
@@ -34,7 +34,7 @@ public class F1 {
   }
 
   @Test
-  public void thirdTest() {
+   void thirdTest() {
     Function<Double, Double> f = x -> Math.PI / 2 - x;
     Function<Double, Double> sin = (Double t) -> Math.sin(t);
     Double cos = f.compose(sin).apply(2.0);
@@ -62,6 +62,6 @@ public class F1 {
   private static final Predicate<Integer> IS_EVEN_NUMBER = s -> s % 2 == 0;
 
 
-  public interface BinaryOperator extends Function<Integer, Function<Integer, Integer>> {
+   interface BinaryOperator extends Function<Integer, Function<Integer, Integer>> {
   }
 }

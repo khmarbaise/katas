@@ -9,7 +9,7 @@ class Customer {
     private List<Rental> rentals;
 
     public Customer() {
-        rentals = new ArrayList<Rental>();
+        rentals = new ArrayList<>();
     }
 
     public Person getPerson() {

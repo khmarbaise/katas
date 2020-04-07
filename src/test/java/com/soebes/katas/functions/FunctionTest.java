@@ -129,13 +129,17 @@ public class FunctionTest {
 
   @Test
   void averagingDouble() {
-    List<Double> of = List.of(9_999_999_999_999_999.0d, 1.0d, 3.141_59d, 2.718_28d);
+    List<Double> doubleStream = List.of(
+      9_999_999_999_999_999.0d,
+                          1.0d,
+                          3.141_59d,
+                          2.718_28d);
     double forEachResult = 0.0d;
-    for (Double value : of) {
+    for (Double value : doubleStream) {
       forEachResult += value;
     }
 
-    Double result = of.stream().mapToDouble(Double::valueOf).sum();
+    Double result = doubleStream.stream().mapToDouble(Double::valueOf).sum();
     System.out.println("result:" + result);
     System.out.println("forEachResult:" + forEachResult);
 

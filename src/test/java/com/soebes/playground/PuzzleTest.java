@@ -11,6 +11,7 @@ import java.net.URISyntaxException;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.List;
 import java.util.stream.Stream;
 
 import static java.util.Comparator.comparingInt;
@@ -57,5 +58,15 @@ public class PuzzleTest {
                 .reduce((acc, y) -> acc.length() > y.length() ? acc : y)
                 .get();
         System.out.println("max = " + max);
+    }
+
+    @Test
+    void another_test() {
+        List<String> arrayList = List.of("A", "B");
+        for (String item : arrayList) {
+            if (item == null) {
+
+            }
+        }
     }
 }

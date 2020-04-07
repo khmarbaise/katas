@@ -1,13 +1,14 @@
 package com.soebes.katas.quiz.pythagoras;
 
+import org.junit.jupiter.api.Test;
+
+import java.util.List;
 import java.util.function.BiFunction;
 import java.util.function.DoubleFunction;
 import java.util.function.Predicate;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 import java.util.stream.Stream;
-
-import org.junit.jupiter.api.Test;
 
 class PythagorasTest {
 
@@ -35,9 +36,11 @@ class PythagorasTest {
 
     @Test
     void thisIsAnotherTest() {
-        IntStream.rangeClosed(1, 1000)
-                .boxed()
-                .filter(EVEN.and(ODD))
-                .collect(Collectors.toList());
+        List<Integer> collect = IntStream.rangeClosed(1, 1000)
+          .boxed()
+          .filter(EVEN.and(ODD))
+          .collect(Collectors.toList());
+
+        collect.stream().forEach(integer -> System.out.println("integer = " + integer));
     }
 }
