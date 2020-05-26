@@ -8,8 +8,24 @@ import static java.util.stream.Collectors.joining;
 import static java.util.stream.Collectors.toList;
 
 class LineProcessingTest {
-
-
+  
+  @Test
+  void name() {
+    String s = "${test}";
+  
+    StringBuilder collect = s.codePoints()
+      .dropWhile(i -> i != '$')
+      .skip(1)
+      .dropWhile(i -> i != '{')
+      .skip(1)
+      .takeWhile(i -> i != '}')
+      .collect(StringBuilder::new, StringBuilder::appendCodePoint,
+        StringBuilder::append);
+  
+    System.out.println("collect = " + collect.toString());
+  
+  }
+  
   @Test
   void first() {
     var lines = List.of("---", "tag: [1]", "description: test", "---", "Line 1 " +
