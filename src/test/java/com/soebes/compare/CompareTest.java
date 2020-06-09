@@ -6,11 +6,22 @@ import java.util.Comparator;
 import java.util.StringJoiner;
 import java.util.function.Function;
 import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 class CompareTest {
 
   static <INPUT, RESULT extends Comparable<RESULT>> Comparator<INPUT> comparing(Function<INPUT, RESULT> keyExtactor) {
     return (c1, c2) -> keyExtactor.apply(c1).compareTo(keyExtactor.apply(c2));
+  }
+
+  @Test
+  void starting_stream() {
+
+    String name = "codefx";
+    name.codePoints().boxed().forEach(integer -> System.out.println("integer = " + integer));
+    Stream.of(name.codePoints()).forEach(intStream -> System.out.println("intStream = " + intStream));
+
+    name.chars().mapToObj(value -> (char)value).forEach(value -> System.out.println("value = " + value));
   }
 
   @Test
