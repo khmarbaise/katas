@@ -31,11 +31,11 @@ class StreamHelperTest {
   }
 
   // VARIANT 2:
-  public static <T> BinaryOperator<T> singleElement() {
-    return singleElementThrowing(IllegalArgumentException::new);
+  public static <T> BinaryOperator<T> intoSingleElement() {
+    return intoSingleElementThrowing(IllegalArgumentException::new);
   }
 
-  public static <T, E extends RuntimeException> BinaryOperator<T> singleElementThrowing(Supplier<E> exception) {
+  public static <T, E extends RuntimeException> BinaryOperator<T> intoSingleElementThrowing(Supplier<E> exception) {
     return (element, otherElement) -> {
       throw exception.get();
     };
@@ -63,7 +63,7 @@ class StreamHelperTest {
     void first_test() {
       assertThatCode(() -> FIRST_LIST_OF_STRING.stream()
           .filter(s -> s.equals("B"))
-          .reduce(singleElement()))
+          .reduce(intoSingleElement()))
           .doesNotThrowAnyException();
     }
 
@@ -72,14 +72,14 @@ class StreamHelperTest {
       assertThatExceptionOfType(DuplicateElementException.class)
           .isThrownBy(() -> SECOND_LIST_OF_STRING.stream()
               .filter(s -> s.equals("B"))
-              .reduce(singleElementThrowing(DuplicateElementException::new)));
+              .reduce(intoSingleElementThrowing(DuplicateElementException::new)));
     }
 
     @Test
     void name() {
       String b = FIRST_LIST_OF_STRING.stream()
           .filter(s -> s.equals("B"))
-          .reduce(singleElementThrowing(DuplicateElementException::new))
+          .reduce(intoSingleElementThrowing(DuplicateElementException::new))
           .orElseThrow(() -> new IllegalStateException("Does not exist"));
     }
   }
