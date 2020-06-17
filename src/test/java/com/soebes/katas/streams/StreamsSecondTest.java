@@ -13,17 +13,14 @@ class StreamsSecondTest {
 
 	@Test
 	void key_identity() {
-
 		// 0..10 =>
 		// k:0 v: 10*k
 		// k:1 v: 10*1
-
 		Map<Long, Long> result = IntStream.rangeClosed(0, 10)
 				.mapToObj(v -> Long.valueOf(v))
-				.collect(toMap(kmap -> kmap, vmap -> 10L * vmap));
+				.collect(toMap(Function.identity(), vmap -> 10L * vmap));
 
 		result.entrySet().forEach(e -> System.out.println("k:" + e.getKey() + " v:" + e.getValue()));
-
 	}
 
 	@Test
@@ -54,6 +51,11 @@ class StreamsSecondTest {
 		Function<K, K> identity = Function.identity();
 		return toMap((Function<T, K>) identity, valueMapper);
 	}
+	/*
+	    Collector<T, ?, Map<K,U>> toMap(Function<? super T, ? extends K> keyMapper,
+                                    Function<? super T, ? extends U> valueMapper) {
+
+	 */
 
 	public static <T, K, U> Collector<T, ?, Map<K, U>> toMapKey(Function<? super T, ? extends K> keyMapper) {
 		Function<U, U> identity = Function.identity();
