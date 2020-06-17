@@ -51,10 +51,13 @@ class StreamsSecondTest {
 	}
 
 	public static <T, K, U> Collector<T, ?, Map<K, U>> toMapValue(Function<? super T, ? extends U> valueMapper) {
-		return toMap ((Function<T, K>) Function.<K>identity(), valueMapper);
+		Function<K, K> identity = Function.identity();
+		return toMap((Function<T, K>) identity, valueMapper);
 	}
+
 	public static <T, K, U> Collector<T, ?, Map<K, U>> toMapKey(Function<? super T, ? extends K> keyMapper) {
-		return toMap (keyMapper, (Function<T,U>)Function.<U>identity());
+		Function<U, U> identity = Function.identity();
+		return toMap(keyMapper, (Function<T, U>) identity);
 	}
 
 }
