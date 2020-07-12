@@ -64,7 +64,7 @@ class FizzBuzzTest {
         }
 
         if (sb.length() == 0) {
-            sb.append(Integer.toString(i));
+            sb.append(i);
         }
 
         return sb.toString();

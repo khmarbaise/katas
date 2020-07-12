@@ -12,10 +12,10 @@ public class JavaKeepInsertionOrderTest {
 
   @Test
   void no_order() {
-    Map<String, Integer> collect = IntStream.range(0, 10).collect(HashMap::new,
-      // m.size() = 0, 1, 2, 3, 4...
-      (m, v) -> m.put(UUID.randomUUID().toString(), m.size()), (m, m2) -> {
-      });
+    Map<UUID, Integer> collect = IntStream.range(0, 10).collect(HashMap::new,
+        // m.size() = 0, 1, 2, 3, 4...
+        (m, v) -> m.put(UUID.randomUUID(), m.size()), (m, m2) -> {
+        });
 
     collect.forEach((k, v) -> System.out.println(k + ":" + v));
   }
@@ -23,9 +23,9 @@ public class JavaKeepInsertionOrderTest {
   @Test
   void keep_the_order() {
 
-    Map<String, Integer> collect = IntStream.range(0, 10)
-      .collect(LinkedHashMap::new, (m, v) -> m.put(UUID.randomUUID().toString(), m.size()), (m, m2) -> {
-      });
+    Map<UUID, Integer> collect = IntStream.range(0, 10)
+        .collect(LinkedHashMap::new, (m, v) -> m.put(UUID.randomUUID(), m.size()), (m, m2) -> {
+        });
 
     collect.forEach((k, v) -> System.out.println(k + ":" + v));
   }
