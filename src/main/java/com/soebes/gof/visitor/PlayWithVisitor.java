@@ -36,7 +36,7 @@ public class PlayWithVisitor {
     System.out.println("visit1 = " + visit1);
 
     List<Integer> integers = List.of(1, 2, 3);
-    integers.stream().map(s -> s).collect(Collectors.collectingAndThen(Collectors.toList(), Collections::unmodifiableList));
+    integers.stream().collect(Collectors.collectingAndThen(Collectors.toList(), Collections::unmodifiableList));
   }
 
 }
