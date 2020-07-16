@@ -1,11 +1,11 @@
 package com.soebes.katas.enums;
 
-import java.math.BigDecimal;
-import java.util.EnumSet;
-
 import org.junit.jupiter.api.Test;
 import org.openjdk.jol.info.ClassLayout;
-import org.openjdk.jol.vm.VM;
+
+import java.math.BigDecimal;
+import java.util.EnumSet;
+import java.util.List;
 
 class EnumsTest {
 
@@ -30,12 +30,16 @@ class EnumsTest {
     }
 
     Integer[] type = {
-            1,
-            2,
-            3,
-            4,
-            5
+        1,
+        2,
+        3,
+        4,
+        5
     };
+
+
+    List<String > CONSTANT = List.of("1", "2", "3");
+
 
     EnumSet<FirstEnum> enumSet = EnumSet.of(FirstEnum.A, FirstEnum.C, FirstEnum.F, FirstEnum.B);
 
@@ -98,5 +102,10 @@ class EnumsTest {
         String dInfos = ClassLayout.parseInstance(d).toPrintable();
         System.out.println("Size Double:" + dInfos);
 
+    }
+    @Test
+    void memory_for_constant() {
+        String longInfos = ClassLayout.parseInstance(CONSTANT).toPrintable();
+        System.out.println("Size Long:" + longInfos);
     }
 }
