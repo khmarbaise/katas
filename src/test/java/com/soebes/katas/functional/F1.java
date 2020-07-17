@@ -29,7 +29,7 @@ import java.util.stream.Collectors;
    void secondTest() {
     BinaryOperator add = x -> y -> x + y;
     BinaryOperator mult = x -> y -> x * y;
-    System.out.println("add:" + add.apply(1).apply(5));
+    System.out.println("addiere:" + add.apply(1).apply(5));
     System.out.println("mult:" + mult.apply(2).apply(5));
   }
 

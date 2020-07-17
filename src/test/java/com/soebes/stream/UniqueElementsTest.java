@@ -11,7 +11,7 @@ class UniqueElementsTest {
 
   @Test
   void name() {
-    // Short Circuit evaluation based on add behaviour.
+    // Short Circuit evaluation based on addiere behaviour.
     boolean b = Elements.stream().allMatch(ConcurrentHashMap.newKeySet()::add);
     System.out.println("b = " + b);
   }

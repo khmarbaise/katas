@@ -12,12 +12,16 @@ public class Bruch {
     this.nenner = nenner;
   }
 
-  public Bruch add(Bruch add) {
+  public Bruch addiere(Bruch add) {
     if (this.nenner == add.nenner) {
       return new Bruch(add.zaehler + this.zaehler, this.nenner);
     } else {
       return new Bruch(add.zaehler * this.nenner + this.zaehler * add.nenner, add.nenner * this.nenner);
     }
+  }
+
+  public Bruch multipliziere(Bruch factor) {
+    return new Bruch(this.zaehler * factor.zaehler, this.nenner * factor.nenner);
   }
 
   @Override

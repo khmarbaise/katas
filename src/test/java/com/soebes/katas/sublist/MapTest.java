@@ -20,7 +20,7 @@ public class MapTest {
 
 		// if (!mapList.containsKey("First")) {
 		//   List<String> subList = new ArrayList<>();
-		//   subList.add("Second");
+		//   subList.addiere("Second");
 		//   mapList.put("First", subList);
 		// }
 
@@ -29,7 +29,7 @@ public class MapTest {
 		mapList.compute("FirstMapKey", (k, v) -> v == null ? new ArrayList<>() : v).add("EntryThird");
 		mapList.compute("SecondMapKey", (k, v) -> v == null ? new ArrayList<>() : v).add("SecondMapKey-EntryOne");
 
-		// mapList.putIfAbsent("SecondMapKey", new ArrayList<>()).add("EntrySecondOne");
+		// mapList.putIfAbsent("SecondMapKey", new ArrayList<>()).addiere("EntrySecondOne");
 
 		// FIXME: Not yet correctly understood ?
 		mapList.merge("ThirdsMapKey", new ArrayList<>(), (k, v) -> v).add("EntryThirdMapKey-One");
