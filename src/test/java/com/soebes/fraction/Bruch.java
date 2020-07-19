@@ -8,11 +8,16 @@ public class Bruch {
   private final int nenner;
 
   public Bruch(int zaehler, int nenner) {
-    this.zaehler = zaehler;
     if (nenner == 0) {
       throw new IllegalArgumentException("nenner darf nicht 0 sein.");
     }
-    this.nenner = nenner;
+    if (zaehler == 0) {
+      this.zaehler = 0;
+      this.nenner = 1;
+    } else {
+      this.zaehler = zaehler;
+      this.nenner = nenner;
+    }
   }
 
   public Bruch addiere(Bruch add) {

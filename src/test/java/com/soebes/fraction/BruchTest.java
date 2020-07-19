@@ -20,6 +20,13 @@ class BruchTest {
   class Normalisieren {
 
     @Test
+    void normalisiere_0_x() {
+      Bruch unechterBruch = new Bruch(0, 6);
+      assertThat(unechterBruch.getZaehler()).isEqualTo(0);
+      assertThat(unechterBruch.getNenner()).isEqualTo(1);
+    }
+
+    @Test
     void normalisiere_unechten_bruch() {
       Bruch unechterBruch = new Bruch(4, 6);
       assertThat(unechterBruch.getZaehler()).isEqualTo(2);
