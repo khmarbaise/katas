@@ -4,8 +4,28 @@ import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.assertThatIllegalArgumentException;
 
 class BruchTest {
+
+  @Nested
+  class UngueltigeWerte {
+    @Test
+    void nenner_muss_ungleich_null_sein() {
+      assertThatIllegalArgumentException().isThrownBy(() -> new Bruch(1, 0)).withMessage("nenner darf nicht 0 sein.");
+    }
+  }
+
+  @Nested
+  class Normalisieren {
+
+    @Test
+    void normalisiere_unechten_bruch() {
+      Bruch unechterBruch = new Bruch(4, 6);
+      assertThat(unechterBruch.getZaehler()).isEqualTo(2);
+      assertThat(unechterBruch.getNenner()).isEqualTo(3);
+    }
+  }
 
   @Nested
   class Multiplikation {

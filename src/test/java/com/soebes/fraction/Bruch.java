@@ -9,6 +9,9 @@ public class Bruch {
 
   public Bruch(int zaehler, int nenner) {
     this.zaehler = zaehler;
+    if (nenner == 0) {
+      throw new IllegalArgumentException("nenner darf nicht 0 sein.");
+    }
     this.nenner = nenner;
   }
 
@@ -22,6 +25,14 @@ public class Bruch {
 
   public Bruch multipliziere(Bruch factor) {
     return new Bruch(this.zaehler * factor.zaehler, this.nenner * factor.nenner);
+  }
+
+  public int getZaehler() {
+    return zaehler;
+  }
+
+  public int getNenner() {
+    return nenner;
   }
 
   @Override
