@@ -1,5 +1,7 @@
 package com.soebes.bitcount;
 
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Nested;
 import org.junit.jupiter.api.Test;
 
@@ -70,6 +72,7 @@ class BitCountTest {
     }
   
     @Test
+    @Disabled("Runs too long!! Only from IDE")
     void name() {
       BigDecimal pow = BigDecimal.valueOf(2L).pow(16);
       System.out.println("pow = " + pow);
@@ -98,6 +101,7 @@ class BitCountTest {
     }
   
     @Test
+    @Disabled("Runs tooo loooooongggg...")
     void name() {
       BigDecimal pow = BigDecimal.valueOf(2L).pow(32);
       System.out.println("pow = " + pow);
@@ -129,6 +133,7 @@ class BitCountTest {
   }
   
   @Test
+  @Disabled("Runs tooooooo loooooongggggg")
   void short_percentag_of_numbers_integer() {
     BigDecimal pow = BigDecimal.valueOf(2L).pow(32);
     System.out.println("pow = " + pow);
