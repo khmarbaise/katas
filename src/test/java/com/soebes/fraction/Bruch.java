@@ -15,8 +15,9 @@ public class Bruch {
       this.zaehler = 0;
       this.nenner = 1;
     } else {
-      this.zaehler = zaehler;
-      this.nenner = nenner;
+      int kgv = MathUtil.berechne_kgv(zaehler, nenner);
+      this.zaehler = zaehler / kgv;
+      this.nenner = nenner / kgv;
     }
   }
 
@@ -25,6 +26,14 @@ public class Bruch {
       return new Bruch(add.zaehler + this.zaehler, this.nenner);
     } else {
       return new Bruch(add.zaehler * this.nenner + this.zaehler * add.nenner, add.nenner * this.nenner);
+    }
+  }
+
+  public Bruch subtrahiere(Bruch add) {
+    if (this.nenner == add.nenner) {
+      return new Bruch(add.zaehler - this.zaehler, this.nenner);
+    } else {
+      return new Bruch(this.zaehler * add.nenner - this.nenner * add.zaehler , add.nenner * this.nenner);
     }
   }
 
