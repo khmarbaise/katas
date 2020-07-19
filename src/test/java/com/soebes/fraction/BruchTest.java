@@ -56,6 +56,14 @@ class BruchTest {
       Bruch differenz = minuend.subtrahiere(subtrahend);
       assertThat(differenz).isEqualTo(new Bruch(7, 15));
     }
+
+    @Test
+    void subtrahiere_bei_gleichem_nenner() {
+      Bruch minuend = new Bruch(5, 9);
+      Bruch subtrahend = new Bruch(2, 9);
+      Bruch differenz = minuend.subtrahiere(subtrahend);
+      assertThat(differenz).isEqualTo(new Bruch(3, 9));
+    }
   }
 
   @Nested

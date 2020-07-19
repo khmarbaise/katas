@@ -29,11 +29,11 @@ public class Bruch {
     }
   }
 
-  public Bruch subtrahiere(Bruch add) {
-    if (this.nenner == add.nenner) {
-      return new Bruch(add.zaehler - this.zaehler, this.nenner);
+  public Bruch subtrahiere(Bruch subtrahend) {
+    if (this.nenner == subtrahend.nenner) {
+      return new Bruch(this.zaehler - subtrahend.zaehler, this.nenner);
     } else {
-      return new Bruch(this.zaehler * add.nenner - this.nenner * add.zaehler , add.nenner * this.nenner);
+      return new Bruch(this.zaehler * subtrahend.nenner - this.nenner * subtrahend.zaehler , subtrahend.nenner * this.nenner);
     }
   }
 
