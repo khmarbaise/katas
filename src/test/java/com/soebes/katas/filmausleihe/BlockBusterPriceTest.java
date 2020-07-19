@@ -9,7 +9,7 @@ import java.util.stream.Stream;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.params.provider.Arguments.of;
 
-public class BlockBusterPriceTest extends TestBase {
+class BlockBusterPriceTest extends TestBase {
 
   static Stream<Arguments> createPriceTestSetForBlockBusterMovie() {
     //@formatter:off
@@ -26,7 +26,7 @@ public class BlockBusterPriceTest extends TestBase {
 
   @ParameterizedTest
   @MethodSource("createPriceTestSetForBlockBusterMovie")
-  public void shouldGiveThePriceForRentalOfDifferentDaysOfABlockBusterMovie(int rentendDays, double expectedPrice) {
+  void shouldGiveThePriceForRentalOfDifferentDaysOfABlockBusterMovie(int rentendDays, double expectedPrice) {
     PriceType price = new BlockBusterPrice();
     double result = price.calculatePrice(rentendDays);
     assertThat(result).isEqualTo(expectedPrice, DELTA);
