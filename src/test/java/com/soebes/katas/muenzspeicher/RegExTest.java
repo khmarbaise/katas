@@ -10,10 +10,10 @@ import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
-public class RegExTest
+class RegExTest
 {
 
-    public static final Pattern REG = Pattern.compile( "1\\.(0|[1-9][0-9]*)(\\.(0|[1-9][0-9]*))*" );
+    static final Pattern REG = Pattern.compile( "1\\.(0|[1-9][0-9]*)(\\.(0|[1-9][0-9]*))*" );
 
     static Stream<Arguments> createExpectedResults()
     {
@@ -35,7 +35,7 @@ public class RegExTest
 
     @ParameterizedTest(name = "{index} string:\"{0}\" expected:{1}")
     @MethodSource( "createExpectedResults" )
-    public void testFirst(String ip, boolean expected) {
+    void testFirst(String ip, boolean expected) {
         Matcher m = REG.matcher(ip);
         assertThat( m.matches()).isEqualTo(expected);
     }

@@ -22,7 +22,6 @@ public class GeldSorte {
     private int anzahlEnheiten;
 
     public GeldSorte(int cent, int anzahlEnheiten) {
-        super();
         this.cent = cent;
         this.anzahlEnheiten = anzahlEnheiten;
     }
