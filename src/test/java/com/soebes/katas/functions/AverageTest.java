@@ -2,7 +2,6 @@ package com.soebes.katas.functions;
 
 import org.junit.jupiter.api.Test;
 
-import java.math.BigInteger;
 import java.util.function.IntSupplier;
 import java.util.function.IntUnaryOperator;
 import java.util.stream.Collectors;
@@ -34,4 +33,9 @@ class AverageTest {
 
 	}
 
+	@Test
+	void second_test() {
+		int[] counter = { 1 };
+		IntStream.rangeClosed(0, 10).forEach(s -> System.out.println("counter = " + counter[0]++));
+	}
 }
