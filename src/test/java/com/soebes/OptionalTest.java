@@ -1,11 +1,12 @@
 package com.soebes;
 
-import org.junit.jupiter.api.Test;
+import static org.assertj.core.api.Assertions.assertThat;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
+import org.junit.jupiter.api.Test;
 
 class OptionalTest {
 
@@ -28,6 +29,18 @@ class OptionalTest {
   void name() {
     int[] intArray = new int[]{2,3,5};
     int sum = Arrays.stream(intArray).sum();
+    assertThat(sum).isEqualTo(10);
+  }
+
+  @Test
+  void stream_min() {
+    int[] intArray = new int[]{2,3,5};
+    int sum = Arrays.stream(intArray).min().orElse(0);
+  }
+  @Test
+  void stream_max() {
+    int[] intArray = new int[]{2,3,5};
+    int sum = Arrays.stream(intArray).max().orElse(0);
   }
 
   @Test
