@@ -55,6 +55,10 @@ class BitCountingTest {
     }
 
     @Test
+    void overflow_test() {
+    }
+
+    @Test
     void anOtherTest() {
         long x = Long.MAX_VALUE / 2 + 1;
         long y = Long.MAX_VALUE / 2;
