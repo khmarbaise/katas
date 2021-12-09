@@ -11,18 +11,18 @@ public class TheBestClassEver {
   private final long longValue;
   private final float floatValue;
   private final double doubleValue;
-  private final boolean booeanValue;
+  private final boolean booleanValue;
   private final char charValue;
 
   public TheBestClassEver(byte byteValue, short shortValue, int intValue, long longValue, float floatValue,
-                          double doubleValue, boolean booeanValue, char charValue) {
+                          double doubleValue, boolean booleanValue, char charValue) {
     this.byteValue = byteValue;
     this.shortValue = shortValue;
     this.intValue = intValue;
     this.longValue = longValue;
     this.floatValue = floatValue;
     this.doubleValue = doubleValue;
-    this.booeanValue = booeanValue;
+    this.booleanValue = booleanValue;
     this.charValue = charValue;
   }
 
@@ -33,7 +33,7 @@ public class TheBestClassEver {
     os.writeLong(longValue);
     os.writeFloat(floatValue);
     os.writeDouble(doubleValue);
-    os.writeBoolean(booeanValue);
+    os.writeBoolean(booleanValue);
     os.writeChar(charValue);
 
   }

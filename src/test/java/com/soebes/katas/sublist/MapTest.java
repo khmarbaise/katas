@@ -119,7 +119,8 @@ public class MapTest
 	{
 		Map<String, List<MP>> collect = PROJECTS.stream().collect( Collectors.groupingBy( projectIntoVersionlessKey ) );
 		collect.entrySet().stream()
-				.forEach( s -> System.out.println( "k=" + s.getKey() + " Nr:" + s.getValue().size() + " s = " + s.getValue() ) );
+                .parallel()
+				.forEachOrdered( s -> System.out.println( "k=" + s.getKey() + " Nr:" + s.getValue().size() + " s = " + s.getValue() ) );
 
 	}
 
@@ -139,8 +140,7 @@ public class MapTest
                 Collectors.mapping( mp -> mp, Collectors.toList() ) ) );
 
         List<String> collect1 = Optional.ofNullable( collect.get( apply ) ).orElse( Collections.emptyList() ).stream()
-                .map( s -> s.getVersion() ).collect( Collectors.toList() );
-
+                .map( s -> s.getVersion() ).collect( Collectors.collectingAndThen(Collectors.toList(), Collections::unmodifiableList) );
 
     }
 }
