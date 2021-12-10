@@ -44,7 +44,7 @@ record SystemInfoServiceTest() {
 
   @Test
   void forth() {
-    long r = 0x80008000000ff001L;
+    long r = 0x8000_8000_000f_f001L;
     assertThat(toBinary(r)).isEqualTo("1000 0000 0000 0000 1000 0000 0000 0000 0000 0000 0000 1111 1111 0000 0000 0001");
   }
 
