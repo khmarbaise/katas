@@ -90,11 +90,26 @@ class NewTest
     @Test
     void testName()
     {
-        final ArrayList<Integer> a = new ArrayList<Integer>() {{ add (1); add (2); add (3); add (4); }};
-        final ArrayList<Integer> b = new ArrayList<Integer>() {{ add (5); add (6); add (7); add (8); }};
-        final ArrayList<Integer> c = new ArrayList<Integer>() {{ add (9); add (10); add (11); add (12); }};
+        final ArrayList<Integer> a = new ArrayList<>() {{
+            add(1);
+            add(2);
+            add(3);
+            add(4);
+        }};
+        final ArrayList<Integer> b = new ArrayList<>() {{
+            add(5);
+            add(6);
+            add(7);
+            add(8);
+        }};
+        final ArrayList<Integer> c = new ArrayList<>() {{
+            add(9);
+            add(10);
+            add(11);
+            add(12);
+        }};
 
-        ArrayList<ArrayList<Integer>> x = new ArrayList<ArrayList<Integer>>() {{
+        ArrayList<ArrayList<Integer>> x = new ArrayList<>() {{
             add(a);
             add(b);
             add(c);
@@ -126,7 +141,7 @@ class NewTest
     }
     ArrayList<ArrayList<Integer>> performOps( ArrayList<ArrayList<Integer>> A )
     {
-        ArrayList<ArrayList<Integer>> B = new ArrayList<ArrayList<Integer>>();
+        ArrayList<ArrayList<Integer>> B = new ArrayList<>();
         for ( int i = 0; i < A.size(); i++ )
         {
             B.add( new ArrayList<Integer>() );
