@@ -16,7 +16,7 @@ class PlayWithConsumerTest
     @Test
     void testName()
     {
-        Consumer<List<String>> consumer = List<String>::clear;
+        Consumer<List<String>> consumer = List::clear;
 
         List<String> list = new ArrayList<>( Arrays.asList( "a", "b", "c" ) );
 

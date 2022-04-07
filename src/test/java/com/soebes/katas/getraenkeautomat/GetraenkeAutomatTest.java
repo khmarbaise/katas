@@ -10,16 +10,18 @@ public class GetraenkeAutomatTest {
 
     @Test
     public void testForInitializers() {
-        List<String> result = new ArrayList<String>() {
+        List<String> result = new ArrayList<>() {
             private static final long serialVersionUID = 1;
+
             {
                 add("test");
                 add("test");
             }
         };
         
-        List<String> resultLL = new LinkedList<String>() {
+        List<String> resultLL = new LinkedList<>() {
             private static final long serialVersionUID = 1L;
+
             {
                 add("First");
                 add("Second");

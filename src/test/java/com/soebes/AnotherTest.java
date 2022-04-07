@@ -1,5 +1,6 @@
 package com.soebes;
 
+import java.util.stream.StreamSupport;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

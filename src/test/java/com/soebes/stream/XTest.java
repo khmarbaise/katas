@@ -1,5 +1,6 @@
 package com.soebes.stream;
 
+import java.util.Map.Entry;
 import org.junit.jupiter.api.Test;
 
 import java.util.*;
@@ -57,12 +58,12 @@ class XTest {
   void group_by_counting() {
     List<P> existingList = List.of(new P("A", 1), new P("B", 6), new P("A", 5), new P("C", 12));
     List<P> duplicates = existingList.stream()
-      .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()))
-      .entrySet()
-      .stream()
-      .filter(p -> p.getValue() > 1)
-      .map(p -> p.getKey())
-      .collect(Collectors.toList());
+        .collect(Collectors.groupingBy(Function.identity(), Collectors.counting()))
+        .entrySet()
+        .stream()
+        .filter(p -> p.getValue() > 1)
+        .map(Entry::getKey)
+        .toList();
 
     System.out.println("collect = " + duplicates);
   }

@@ -10,28 +10,23 @@ import org.junit.jupiter.api.Test;
 
 public class PlayWithComparatorTest
 {
-    Comparator<Person> PersonComparator = new Comparator<Person>()
-    {
-        @Override
-        public int compare( Person o1, Person o2 )
+    Comparator<Person> PersonComparator = (o1, o2) -> {
+        int lastName = o1.getLastName().compareTo( o2.getLastName() );
+        if ( lastName == 0 )
         {
-            int lastName = o1.getLastName().compareTo( o2.getLastName() );
-            if ( lastName == 0 )
+            int firstName = o1.getFirstName().compareTo( o2.getFirstName() );
+            if ( firstName == 0 )
             {
-                int firstName = o1.getFirstName().compareTo( o2.getFirstName() );
-                if ( firstName == 0 )
-                {
-                    return Integer.compare( o1.getAge(), o2.getAge() );
-                }
-                else
-                {
-                    return firstName;
-                }
+                return Integer.compare( o1.getAge(), o2.getAge() );
             }
             else
             {
-                return lastName;
+                return firstName;
             }
+        }
+        else
+        {
+            return lastName;
         }
     };
 

@@ -7,6 +7,7 @@ import java.nio.file.Paths;
 import java.util.Optional;
 import java.util.stream.Stream;
 
+import java.util.stream.StreamSupport;
 import org.junit.jupiter.api.Test;
 
 public class StreamsTest {

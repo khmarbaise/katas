@@ -16,9 +16,9 @@ public class CodeTest
         throws IOException
     {
         
-        Integer i = Integer.valueOf( 12 );
+        Integer i = 12;
         int pi = 12;
-        Double d = Double.valueOf( 12.56d );
+        Double d = 12.56d;
 
         ByteArrayOutputStream baos = new ByteArrayOutputStream(1);
 

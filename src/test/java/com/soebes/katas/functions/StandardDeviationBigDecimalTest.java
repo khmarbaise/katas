@@ -84,7 +84,7 @@ class StandardDeviationBigDecimalTest {
         BigDecimalSummaryStatistics collect =
                 LongStream.rangeClosed(10, 2_000_001)
                           .mapToObj(BigDecimal::valueOf)
-                          .collect(BigDecimalSummaryStatistics::new,
+                          .collect( BigDecimalSummaryStatistics::new,
                                   BigDecimalSummaryStatistics::accept,
                                   BigDecimalSummaryStatistics::combine);
 

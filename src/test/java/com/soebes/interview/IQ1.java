@@ -1,5 +1,6 @@
 package com.soebes.interview;
 
+import java.util.HexFormat;
 import java.util.stream.IntStream;
 import org.junit.jupiter.api.Test;
 
@@ -122,5 +123,26 @@ public class IQ1 {
 
     int calculatedResult = IntStream.range(0, 8).reduce(0, (a, b) -> b << 1 + (bitSet.get(a) ? 1 : 0));
     System.out.println("calculatedResult = " + calculatedResult);
+  }
+
+  @Test
+  void name() {
+    BitSet bitSet = new BitSet(8);
+    bitSet.set(2);
+    bitSet.set(3);
+    bitSet.set(5);
+    bitSet.set(7);
+
+    System.out.println("bitSet = " + bitSet);
+
+    int sum = bitSet.stream().sum();
+    System.out.println("sum = " + sum);
+
+    int result = IntStream.range(0, 8).reduce(0, (acc, b) -> acc * 2 + (bitSet.get(8 - b) ? 1 : 0));
+
+    System.out.println("result = " + result + " " + HexFormat.of().toHexDigits(result) + " 0b" + Integer.toBinaryString(result));
+
+    //               76543210
+    int expected = 0b10101100;
   }
 }
