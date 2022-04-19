@@ -8,7 +8,7 @@
   <parent>
     <groupId>com.soebes.smpp</groupId>
     <artifactId>smpp</artifactId>
-    <version>5.3.5</version>
+    <version>5.3.8</version>
   </parent>
 
   <groupId>com.soebes.katas</groupId>
@@ -50,7 +50,7 @@
     <dependency>
       <groupId>org.mockito</groupId>
       <artifactId>mockito-core</artifactId>
-      <version>4.0.0</version>
+      <version>4.4.0</version>
       <scope>test</scope>
     </dependency>
     <dependency>
