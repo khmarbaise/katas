@@ -1,17 +1,15 @@
-package com.soebes.katas.version;
+package com.soebes.versions;
+
+import org.junit.jupiter.api.Test;
 
 import java.util.List;
 import java.util.Objects;
-import java.util.concurrent.locks.Lock;
-import java.util.concurrent.locks.ReentrantReadWriteLock;
 import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
-import org.junit.jupiter.api.Test;
-
-public class VersionTest
+public class VersionComparatorTest
 {
 
     @FunctionalInterface
@@ -71,7 +69,7 @@ public class VersionTest
         return predicates.stream().reduce( version -> true, Predicate::and);
     }
 
-    static final Pattern SPLIT_PATTERN = Pattern.compile( "[\\.]+" );
+    static final Pattern SPLIT_PATTERN = Pattern.compile( "[.]+" );
 
     @Test
     void test1()
@@ -87,5 +85,21 @@ public class VersionTest
         System.out.println("-----------------");
         collectVersionLower.forEach( System.out::println );
  
+    }
+
+    @Test
+    void test2()
+    {
+
+        String versionLower = "1.20.63";
+        String versionHigher = "100.3.11";
+
+        List<String> collectVersionHigher = SPLIT_PATTERN.splitAsStream( versionHigher ).collect( Collectors.toList() );
+        List<String> collectVersionLower = SPLIT_PATTERN.splitAsStream( versionLower ).collect( Collectors.toList() );
+
+        collectVersionHigher.forEach( System.out::println );
+        System.out.println("-----------------");
+        collectVersionLower.forEach( System.out::println );
+
     }
 }
