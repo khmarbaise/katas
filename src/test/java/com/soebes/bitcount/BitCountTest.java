@@ -1,14 +1,12 @@
 package com.soebes.bitcount;
 
-import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Nested;
-import org.junit.jupiter.api.Test;
-
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.HashMap;
 import java.util.Map;
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Nested;
+import org.junit.jupiter.api.Test;
 
 class BitCountTest {
   
@@ -182,6 +180,7 @@ class BitCountTest {
   }
   
   @Test
+  @Disabled
   void integer_percentag_of_numbers_where_bitcount_is_equal_21() {
     long numberOf = 0L;
     for (long i = Integer.MIN_VALUE; i < Integer.MAX_VALUE; i++) {
@@ -199,6 +198,7 @@ class BitCountTest {
   }
   
   @Test
+  @Disabled
   void long_percentag_of_numbers_where_bitcount_is_equal_42() {
     long numberOf = 0L;
     for (long i = Integer.MIN_VALUE; i < Integer.MAX_VALUE; i++) {
