@@ -26,4 +26,9 @@ class FilesTest {
   }
 
   private Predicate<String> EndOfFile = s -> s.startsWith("eof");
+
+
+  @Test
+  void first() {
+  }
 }

@@ -83,4 +83,9 @@ class OnesAndZerosTest {
         int i = convert(List.of(1, 0, 1, 0));
         assertThat(i).isEqualTo(10);
     }
+
+    @Test
+    void name() {
+        int[] x = new int[7];
+    }
 }

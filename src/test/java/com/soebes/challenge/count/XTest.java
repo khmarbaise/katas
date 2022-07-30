@@ -97,14 +97,14 @@ class XTest {
 
   }
 
-  @Test
-  void XXXsecond_approach() {
-    var integerIntegerTreeMap = new TreeMap<Integer, Integer>();
-    for (Integer integer : integers) {
-      var orDefault = integerIntegerTreeMap.computeIfAbsent(integer, 1);
-    }
-
-    var collect = integers.stream().map(s -> new Item(s, 1)).collect(Collectors.groupingBy(s -> s.count));
-
-  }
+//  @Test
+//  void XXXsecond_approach() {
+//    var integerIntegerTreeMap = new TreeMap<Integer, Integer>();
+//    for (Integer integer : integers) {
+//      var orDefault = integerIntegerTreeMap.computeIfAbsent(integer, 1);
+//    }
+//
+//    var collect = integers.stream().map(s -> new Item(s, 1)).collect(Collectors.groupingBy(s -> s.count));
+//
+//  }
 }
