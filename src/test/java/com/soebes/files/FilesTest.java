@@ -19,7 +19,7 @@ class FilesTest {
     final URL resource = this
       .getClass()
       .getResource("/test.txt");
-    final Stream<String> lines = Files.lines(Path.of(resource.toURI())).skip(1).filter(not(EndOfFile));
+    final Stream<String> lines = Files.readString(Path.of(resource.toURI())).skip(1).filter(not(EndOfFile));
 
     lines.forEach(s -> System.out.println("s = " + s));
 

@@ -1,12 +1,14 @@
 package com.soebes;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 import java.util.stream.Collectors;
-import org.junit.jupiter.api.Test;
+
+import static org.assertj.core.api.Assertions.assertThat;
 
 class OptionalTest {
 
@@ -70,5 +72,19 @@ class OptionalTest {
         .takeWhile(i -> i > 5)
         .collect(Collectors.toList());
     or.forEach(System.out::println);
+  }
+
+  record Activity(String name) {
+
+  }
+  @Test
+  void fivth() {
+    var strings = Set.of("A", "B", "C");
+
+    var collect = Optional.ofNullable(strings).orElse(Set.of()).stream().map(s -> {
+      var activity = new Activity(s);
+      return activity;
+    }).collect(Collectors.toSet());
+
   }
 }
