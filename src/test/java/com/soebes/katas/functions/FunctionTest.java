@@ -19,7 +19,7 @@ import static java.util.stream.Collectors.toList;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
-public class FunctionTest {
+class FunctionTest {
 
   public static Predicate<String> ONLY_A = s -> s.contains("A");
   public static Predicate<String> ONLY_B = s -> s.contains("B");
@@ -33,7 +33,7 @@ public class FunctionTest {
 
   // Non Lambda:
   static Function<Integer, Integer> compose(Function<Integer, Integer> f1, Function<Integer, Integer> f2) {
-    return new Function<Integer, Integer>() {
+    return new Function<>() {
       public Integer apply(Integer arg) {
         return f1.apply(f2.apply(arg));
       }
@@ -45,32 +45,31 @@ public class FunctionTest {
   }
 
   @Test
-  public void testForInitializers() {
+  void testForInitializers() {
     Function<Integer, Integer> tripple = x -> x * 3;
 
     System.out.println(tripple.apply(10));
   }
 
   @Test
-  public void testXXX() {
+  void testXXX() {
     Function<Integer, Function<Integer, Integer>> tripple = x -> y -> x + y;
 
     System.out.println(tripple.apply(10).apply(5));
   }
 
   @Test
-  public void testFunctionsWithMap() {
+  void testFunctionsWithMap() {
     List<String> collect = Stream.of("A", "B", "C", "D", "E")
       .filter(ONLY_A.or(ONLY_B))
       .map(FunctionTest::mapFunction)
       .collect(toList());
 
-    assertThat(collect).hasSize(2);
     assertThat(collect).containsExactly("Prefix: A", "Prefix: B");
   }
 
   @Test
-  public void xxxTestStream() {
+  void xxxTestStream() {
     //        List<String> asList = Collections.unmodifiableList( Arrays.asList( "a", "b", "c" ));
     List<String> asList = Arrays.asList("a", "b", "c");
     assertThrows(UnsupportedOperationException.class, () -> asList.add("X"));
@@ -78,7 +77,7 @@ public class FunctionTest {
   }
 
   @Test
-  public void shouldBeXXX() {
+  void shouldBeXXX() {
 
     // cos a = sin (pi/2-a)
     //        Function<Double, Double> umfang = x -> x * 2 * Math.PI;
@@ -105,17 +104,17 @@ public class FunctionTest {
     Long summV4 = LIST_OF_INTS.stream().collect(summingLong(i -> i.longValue()));
 
     LongAdder la = new LongAdder();
-    LIST_OF_INTS.stream().forEach(la::add);
-    Long summV5 = la.longValue();
+    LIST_OF_INTS.forEach(la::add);
+    var summV5 = la.longValue();
     System.out.println("Summ:" + summV5);
 
-    LongSummaryStatistics collect = LIST_OF_INTS.stream().collect(Collectors.summarizingLong(i -> i.longValue()));
+    LongSummaryStatistics collect = LIST_OF_INTS.stream().collect(Collectors.summarizingLong(Integer::longValue));
     System.out.println("summarizingLong=" + collect);
     Long summV6 = collect.getSum();
 
 
     Double collect2 = LIST_OF_INTS.stream()
-      .collect(Collectors.averagingDouble((Integer value) -> Double.valueOf(value)));
+      .collect(Collectors.averagingDouble(Double::valueOf));
     System.out.println("averagingDouble=" + collect2);
 
     long[] array = LongStream.rangeClosed(1L, 10_000_000L).toArray();
@@ -139,7 +138,7 @@ public class FunctionTest {
       forEachResult += value;
     }
 
-    Double result = doubleStream.stream().mapToDouble(Double::valueOf).sum();
+    double result = doubleStream.stream().mapToDouble(Double::valueOf).sum();
     System.out.println("result:" + result);
     System.out.println("forEachResult:" + forEachResult);
 

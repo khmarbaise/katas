@@ -1,18 +1,18 @@
 
 package com.soebes.katas.factors;
 
-import static org.assertj.core.api.Assertions.assertThat;
+import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import org.junit.jupiter.api.Test;
+import static org.assertj.core.api.Assertions.assertThat;
 
-public class FactorsTest
+class FactorsTest
 {
     @Test
-    public void nothing()
+    void nothing()
     {
         assertThat( factorsOf( 1 ) ).isEqualTo( Collections.emptyList() );
         assertThat( factorsOf( 2 ) ).containsExactly( 2 );

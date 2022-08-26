@@ -5,6 +5,8 @@ import org.junit.jupiter.api.Test;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
+import java.util.OptionalInt;
+import java.util.OptionalLong;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -86,5 +88,20 @@ class OptionalTest {
       return activity;
     }).collect(Collectors.toSet());
 
+  }
+
+  @Test
+  void testing_optional_int() {
+    var optionalInt = OptionalInt.of(10);
+    var empty = OptionalInt.empty();
+
+    var i = optionalInt.orElse(-1);
+  }
+
+  @Test
+  void testing_optional_long() {
+    var optionalLong = OptionalLong.of(10L);
+    var empty = OptionalLong.empty();
+    var l = optionalLong.orElse(-10L);
   }
 }

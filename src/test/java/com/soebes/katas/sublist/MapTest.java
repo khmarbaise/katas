@@ -1,16 +1,15 @@
 package com.soebes.katas.sublist;
 
+import org.junit.jupiter.api.Test;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Function;
 import java.util.stream.Collectors;
-
-import org.junit.jupiter.api.Test;
 
 public class MapTest
 {
@@ -143,4 +142,19 @@ public class MapTest
                 .map( s -> s.getVersion() ).collect( Collectors.collectingAndThen(Collectors.toList(), Collections::unmodifiableList) );
 
     }
+
+  @Test
+  void keep_original_map() {
+    var stringMap = Map.of("A", "BBBBBBBBBBB", "B", "CCCC", "D", "DDDDDDDDDDDDDD");
+
+    var collect = stringMap.entrySet().stream()
+        .map(es -> {
+          String k = es.getKey();
+          String v = es.getValue();
+          if (es.getValue().length() > 5) {
+            v = es.getValue().substring(0, 5);
+          }
+          return Map.entry(k, v);
+        }).collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+  }
 }

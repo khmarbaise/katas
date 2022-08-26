@@ -1,8 +1,6 @@
 package com.soebes.katas.sublist;
 
-import static java.util.stream.Collectors.collectingAndThen;
-import static java.util.stream.Collectors.counting;
-import static java.util.stream.Collectors.groupingBy;
+import org.junit.jupiter.api.Test;
 
 import java.io.Serializable;
 import java.util.Comparator;
@@ -15,7 +13,9 @@ import java.util.regex.Pattern;
 import java.util.stream.Collector;
 import java.util.stream.Stream;
 
-import org.junit.jupiter.api.Test;
+import static java.util.stream.Collectors.collectingAndThen;
+import static java.util.stream.Collectors.counting;
+import static java.util.stream.Collectors.groupingBy;
 
 class PatternStreamTest {
 
@@ -70,7 +70,7 @@ class PatternStreamTest {
                       .flatMap(SPLIT_TO_WORDS)
                       .collect(
                          collectingAndThen(
-                             GROUPING_BY, map -> Map.copyOf(map)
+                             GROUPING_BY, Map::copyOf
                          )
                       );
 
