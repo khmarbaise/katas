@@ -73,7 +73,6 @@ class PatternStreamTest {
                              GROUPING_BY, Map::copyOf
                          )
                       );
-
         Entry<String, Long> mostFrequentWord = words //
                     .entrySet() //
                     .stream() // Stream<Map.Entry<String, Long>>
