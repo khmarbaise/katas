@@ -2,7 +2,7 @@ package com.soebes.katas.streams;
 
 import org.junit.jupiter.api.Test;
 
-public class SingeltonTest
+class SingeltonTest
 {
 
     @Test

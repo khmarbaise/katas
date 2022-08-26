@@ -2,10 +2,10 @@ package com.soebes.katas.raumbelegung;
 
 import org.junit.jupiter.api.Test;
 
-public class RaumbelegungsTest {
+class RaumbelegungsTest {
 
     @Test
-    public void firstTest() {
+    void firstTest() {
         // Raumbelegungssystem
 
         // Räume

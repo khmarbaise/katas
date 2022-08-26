@@ -1,14 +1,14 @@
 package com.soebes.katas.streams;
 
+import org.junit.jupiter.api.Test;
+
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 
-import org.junit.jupiter.api.Test;
-
 // import jdk.nashorn.internal.ir.debug.ObjectSizeCalculator;
 
-public class CodeTest
+class CodeTest
 {
 
     @Test

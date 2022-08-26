@@ -12,7 +12,7 @@ import java.util.stream.Stream;
 import static java.util.Collections.unmodifiableList;
 
 
-public class StreamSecondTest {
+class StreamSecondTest {
 
   @Test
   void jdk7wayOfDoing() {

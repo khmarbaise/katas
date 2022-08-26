@@ -1,5 +1,7 @@
 package com.soebes.katas.streams;
 
+import org.junit.jupiter.api.Test;
+
 import java.io.FileNotFoundException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -7,13 +9,10 @@ import java.nio.file.Paths;
 import java.util.Optional;
 import java.util.stream.Stream;
 
-import java.util.stream.StreamSupport;
-import org.junit.jupiter.api.Test;
-
-public class StreamsTest {
+class StreamsTest {
 
     @Test
-    public void testName() throws Exception {
+    void testName() throws Exception {
         Path path = Paths.get(getClass().getResource("/test.txt").toURI());
         System.out.println("Path:" + path.toAbsolutePath());
 
@@ -33,12 +32,12 @@ public class StreamsTest {
 
     }
 
-    public class MappingStrategy<DynamicGenerateClass> {
+    class MappingStrategy<DynamicGenerateClass> {
 
     }
 
     @Test
-    public void x() throws FileNotFoundException {
+    void x() throws FileNotFoundException {
 //		CsvToBean<T> reader = new CsvToBeanBuilder<T>(new FileReader("yourfile.csv")).withSeparator('\t').build();
         // reader.setMappingStrategy(Dy);
 
@@ -66,7 +65,7 @@ public class StreamsTest {
     // }
     //
     @Test
-    public void testAnton() throws Exception {
+    void testAnton() throws Exception {
         Path path = Paths.get(getClass().getResource("/test.txt").toURI());
         // The stream hence file will also be closed here
         try (Stream<String> lines = Files.lines(path)) {
