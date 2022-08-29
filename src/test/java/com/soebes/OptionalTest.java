@@ -63,16 +63,14 @@ class OptionalTest {
   void third() {
     List<Integer> integers = List.of(1, 3, 5, 7, 9, 10);
     List<Integer> or = integers.stream()
-        .takeWhile(i -> i > 5)
-        .collect(Collectors.toList());
+        .takeWhile(i -> i > 5).toList();
     or.forEach(System.out::println);
   }
   @Test
   void forth() {
     List<Integer> integers = List.of(10, 1, 3, 5, 7, 9);
     List<Integer> or = integers.stream()
-        .takeWhile(i -> i > 5)
-        .collect(Collectors.toList());
+        .takeWhile(i -> i > 5).toList();
     or.forEach(System.out::println);
   }
 
