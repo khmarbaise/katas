@@ -7,9 +7,8 @@ import java.util.Objects;
 import java.util.function.Function;
 import java.util.function.Predicate;
 import java.util.regex.Pattern;
-import java.util.stream.Collectors;
 
-public class VersionComparatorTest
+class VersionComparatorTest
 {
 
     @FunctionalInterface
@@ -78,8 +77,8 @@ public class VersionComparatorTest
         String versionLower = "1.2.6";
         String versionHigher = "1.3.1";
 
-        List<String> collectVersionHigher = SPLIT_PATTERN.splitAsStream( versionHigher ).collect( Collectors.toList() );
-        List<String> collectVersionLower = SPLIT_PATTERN.splitAsStream( versionLower ).collect( Collectors.toList() );
+        List<String> collectVersionHigher = SPLIT_PATTERN.splitAsStream(versionHigher).toList();
+        List<String> collectVersionLower = SPLIT_PATTERN.splitAsStream(versionLower).toList();
 
         collectVersionHigher.forEach( System.out::println );
         System.out.println("-----------------");
@@ -94,8 +93,8 @@ public class VersionComparatorTest
         String versionLower = "1.20.63";
         String versionHigher = "100.3.11";
 
-        List<String> collectVersionHigher = SPLIT_PATTERN.splitAsStream( versionHigher ).collect( Collectors.toList() );
-        List<String> collectVersionLower = SPLIT_PATTERN.splitAsStream( versionLower ).collect( Collectors.toList() );
+        List<String> collectVersionHigher = SPLIT_PATTERN.splitAsStream(versionHigher).toList();
+        List<String> collectVersionLower = SPLIT_PATTERN.splitAsStream(versionLower).toList();
 
         collectVersionHigher.forEach( System.out::println );
         System.out.println("-----------------");

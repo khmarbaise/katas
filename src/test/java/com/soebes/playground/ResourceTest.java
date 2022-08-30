@@ -2,7 +2,7 @@ package com.soebes.playground;
 
 import org.junit.jupiter.api.Test;
 
-public class ResourceTest {
+class ResourceTest {
 
   @Test
   void firstTest() {

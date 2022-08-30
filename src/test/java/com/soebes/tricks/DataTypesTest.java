@@ -1,12 +1,13 @@
 package com.soebes.tricks;
 
-import static java.lang.Math.pow;
+import org.junit.jupiter.api.Test;
 
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
-import org.junit.jupiter.api.Test;
+
+import static java.lang.Math.pow;
 
 class DataTypesTest {
 
@@ -17,7 +18,7 @@ class DataTypesTest {
     List<? extends Number> numbers = Arrays.asList(-0, +0, -0L, +0L, -0F, 0F, -0D, 0D, 0xF, 0xD, 0x0.DP+0);
 
     numbers.stream().forEach(number -> System.out.println("number = " + number));
-    Set set = new HashSet(numbers);
+    Set<Number> set = new HashSet<>(numbers);
     System.out.println(set.size());
 
     set.stream().forEach(o -> System.out.println("o = " + o));

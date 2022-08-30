@@ -1,6 +1,5 @@
 package com.soebes;
 
-import java.util.stream.StreamSupport;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
@@ -34,14 +33,13 @@ class AnotherTest {
       objects.add(item.getElement());
       objects.addAll(item.getElements());
       return objects.stream();
-    }).collect(Collectors.toList());
+    }).toList();
   }
 
   @Test
   void second_variant() {
     List<Element> collect = fancyStuffs.stream()
-      .flatMap(fs -> Stream.concat(Stream.of(fs.getElement()), fs.getElements().stream()))
-      .collect(Collectors.toList());
+        .flatMap(fs -> Stream.concat(Stream.of(fs.getElement()), fs.getElements().stream())).toList();
   }
 
   class Element {

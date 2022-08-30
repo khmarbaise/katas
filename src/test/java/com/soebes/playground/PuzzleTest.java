@@ -16,7 +16,7 @@ import java.util.stream.Stream;
 
 import static java.util.Comparator.comparingInt;
 
-public class PuzzleTest {
+class PuzzleTest {
 
     @Test
     void get_number_of_processors() {

@@ -63,7 +63,7 @@ class EnumsTest {
 //        String s2 = ClassLayout.parseInstance(enumSet).toPrintable();
 //        System.out.println("Size EnumSet:" + s2);
 
-    Long longValue = Long.valueOf(200L);
+    Long longValue = 200L;
     String longInfos = ClassLayout.parseInstance(longValue).toPrintable();
     System.out.println("Size Long:" + longInfos);
 
