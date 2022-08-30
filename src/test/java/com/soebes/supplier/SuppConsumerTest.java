@@ -17,6 +17,7 @@ class SuppConsumerTest {
       setter.accept(keyExtractor.get());
     }
   }
+
   @Test
   void name() {
     var source = new Source("First", List.of("A", "B"));
