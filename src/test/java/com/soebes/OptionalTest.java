@@ -14,6 +14,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class OptionalTest {
 
+
   public static final String NON_NULL_VALUE = "NON_EMPTY";
 
 //  String first_method(Optional<String> value) {
