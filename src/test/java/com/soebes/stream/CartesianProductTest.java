@@ -28,9 +28,6 @@ class CartesianProductTest {
         List.of("Good", "Neutral", "Evil")
     );
 
-    Supplier<Stream<String>> s1 = () -> Stream.of("Lawful", "Neutral", "Chaotic");
-    Supplier<Stream<String>> s2 = () -> Stream.of("Good", "Neutral", "Evil");
-
     Stream<Supplier<Stream<String>>> streamOfStreamSuppliers = input.stream().map(item -> item::stream);
     Supplier<Stream<String>> result = streamOfStreamSuppliers.reduce(
         (s1, s2) ->
