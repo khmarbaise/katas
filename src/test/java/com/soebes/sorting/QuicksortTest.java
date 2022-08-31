@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 class QuicksortTest {
 
-  class QuickSort {
+  static class QuickSort {
     private int[] daten;
 
     public QuickSort(int[] daten) {

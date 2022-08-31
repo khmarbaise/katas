@@ -26,8 +26,8 @@ class BubbleSortTest {
     assertThat(resultat).containsExactly(1);
   }
 
-  public class BubbleSort {
-    private int[] daten;
+  public static class BubbleSort {
+    private final int[] daten;
 
     public BubbleSort(int[] daten) {
       this.daten = Arrays.copyOf(daten, daten.length);
