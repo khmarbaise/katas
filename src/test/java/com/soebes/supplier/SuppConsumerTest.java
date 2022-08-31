@@ -12,7 +12,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 class SuppConsumerTest {
 
-  private <T> void setValueNonNull(Supplier<T> keyExtractor, Consumer<T> setter) {
+  private <T> void setValueIfNotNull(Supplier<T> keyExtractor, Consumer<T> setter) {
     if (Objects.nonNull(keyExtractor.get())) {
       setter.accept(keyExtractor.get());
     }
@@ -23,8 +23,8 @@ class SuppConsumerTest {
     var source = new Source("First", List.of("A", "B"));
     var target = new Target();
 
-    setValueNonNull(source::getName, target::setName);
-    setValueNonNull(source::getItems, target::setItems);
+    setValueIfNotNull(source::getName, target::setName);
+    setValueIfNotNull(source::getItems, target::setItems);
 
     assertThat(target.getName()).isEqualTo(source.getName());
     assertThat(target.getItems()).containsAll(source.getItems());
