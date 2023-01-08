@@ -11,6 +11,7 @@ class FirstTest {
 
         // 1 + 2 * 3
         MultiplicationNode m = new MultiplicationNode(v2, v3);
+
         AdditionNode add = new AdditionNode(v1, m);
 
         System.out.println("1 + 2 * 3 =" + add.
