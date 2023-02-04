@@ -1,16 +1,16 @@
 package com.soebes.katas.functions;
 
+import org.junit.jupiter.api.Test;
+
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.LongSummaryStatistics;
 import java.util.function.Consumer;
 import java.util.stream.LongStream;
 
-import org.junit.jupiter.api.Test;
+class StandardDeviationTest {
 
-public class StandardDeviationTest {
-
-    public class BigIntegerSummaryStatistics
+    public static class BigIntegerSummaryStatistics
             implements Consumer<BigInteger> {
         private BigInteger count = BigInteger.ZERO;
         private BigInteger sum = BigInteger.ZERO;
@@ -96,7 +96,7 @@ public class StandardDeviationTest {
     void standardDeviationBigInteger() {
         BigIntegerSummaryStatistics collect =
                 LongStream.rangeClosed(10, 10_000_000)
-                          .mapToObj(m -> BigInteger.valueOf(m))
+                          .mapToObj(BigInteger::valueOf)
                           .collect(BigIntegerSummaryStatistics::new,
                                   BigIntegerSummaryStatistics::accept,
                                   BigIntegerSummaryStatistics::combine);

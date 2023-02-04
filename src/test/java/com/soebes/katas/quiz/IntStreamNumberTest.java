@@ -2,16 +2,8 @@ package com.soebes.katas.quiz;
 
 import org.junit.jupiter.api.Test;
 
-import java.io.ObjectStreamConstants;
 import java.math.BigInteger;
-import java.util.LongSummaryStatistics;
-import java.util.Optional;
-import java.util.function.BinaryOperator;
-import java.util.function.LongSupplier;
-import java.util.stream.Collectors;
-import java.util.stream.DoubleStream;
 import java.util.stream.IntStream;
-import java.util.stream.LongStream;
 
 public class IntStreamNumberTest {
     @Test

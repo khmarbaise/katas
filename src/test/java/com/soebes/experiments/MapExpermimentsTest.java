@@ -13,8 +13,8 @@ class MapExpermimentsTest {
     @Test
     void firstTest() {
         Map<String, Integer> mapOfData = Map.ofEntries(
-                entry("first", Integer.valueOf(1)),
-                entry("second", Integer.valueOf(2))
+                entry("first", 1),
+                entry("second", 2)
         );
 
         if (!mapOfData.containsKey("first")) {

@@ -8,9 +8,9 @@ import java.util.stream.LongStream;
 
 class StandardDeviationBigDecimalTest {
 
-    public class BigDecimalSummaryStatistics
+    public static class BigDecimalSummaryStatistics
             implements Consumer<BigDecimal> {
-        private Long count = Long.valueOf(0L);
+        private Long count = 0L;
         private BigDecimal sum = BigDecimal.ZERO;
         private BigDecimal min = null;
         private BigDecimal max = null;

@@ -78,7 +78,7 @@ class EnumSetStreamTest {
         var result = Stream.of(BitValues.values())
                            .skip(1)
                            .filter(item -> (item.getBitMask() & bitValue) != 0)
-                           .collect(toCollection(() -> new ArrayList<>()));
+                           .collect(toCollection(ArrayList::new));
 
         result.forEach(item -> System.out.println("Item: " + item));
         System.out.println(result.getClass().getCanonicalName());
