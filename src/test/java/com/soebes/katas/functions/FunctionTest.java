@@ -94,12 +94,12 @@ class FunctionTest {
       summ += integer;
     }
 
-    Long summS1 = LIST_OF_STRINGS.stream().mapToLong(s -> Integer.valueOf(s)).sum();
+    Long summS1 = LIST_OF_STRINGS.stream().mapToLong(Integer::valueOf).sum();
 
-    Long summV1 = LIST_OF_INTS.stream().mapToLong(i -> i.longValue()).reduce(0, Long::sum);
+    Long summV1 = LIST_OF_INTS.stream().mapToLong(Integer::longValue).reduce(0, Long::sum);
 
-    Long summV2 = LIST_OF_INTS.stream().mapToLong(i -> i.longValue()).sum();
-    LongSummaryStatistics summV3 = LIST_OF_INTS.stream().mapToLong(i -> i.longValue()).summaryStatistics();
+    Long summV2 = LIST_OF_INTS.stream().mapToLong(Integer::longValue).sum();
+    LongSummaryStatistics summV3 = LIST_OF_INTS.stream().mapToLong(Integer::longValue).summaryStatistics();
 
     Long summV4 = LIST_OF_INTS.stream().collect(summingLong(i -> i.longValue()));
 

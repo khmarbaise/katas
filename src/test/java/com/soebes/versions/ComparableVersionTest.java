@@ -15,6 +15,7 @@ class ComparableVersionTest {
   @Test
   void name() {
     String[] versions = VERSIONS.split("//");
+    Arrays.stream(versions).forEach(System.out::println);
     List<ComparableVersion> comparableVersions = Arrays.stream(versions).map(ComparableVersion::new).collect(Collectors.toList());
     Collections.sort(comparableVersions);
   }
