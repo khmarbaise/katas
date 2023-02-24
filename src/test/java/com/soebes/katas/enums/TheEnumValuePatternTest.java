@@ -25,7 +25,7 @@ class TheEnumValuePatternTest {
    * Synthetic fields seemed to be generated during running of unit tests in relationship with
    * JaCoCo code coverage tool.
    */
-  private final Predicate<Field> isSynthentic = s -> s.isSynthetic();
+  private final Predicate<Field> isSynthentic = Field::isSynthetic;
   private final Predicate<Field> isValidField = not(isSynthentic).and(isPublic)
     .and(isStatic)
     .and(isFinal);
@@ -48,7 +48,7 @@ class TheEnumValuePatternTest {
     
     List<Field> collect = Stream.of(declaredFields)
       .filter(s -> s.isSynthetic() && s.canAccess(null))
-      .collect(Collectors.toList());
+      .toList();
     
     collect.forEach(s -> {
       try {

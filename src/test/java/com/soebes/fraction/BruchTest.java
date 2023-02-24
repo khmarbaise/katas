@@ -22,7 +22,7 @@ class BruchTest {
     @Test
     void normalisiere_0_x() {
       Bruch bruch = new Bruch(0, 6);
-      assertThat(bruch.getZaehler()).isEqualTo(0);
+      assertThat(bruch.getZaehler()).isZero();
       assertThat(bruch.getNenner()).isEqualTo(1);
     }
 

@@ -2,7 +2,6 @@ package com.soebes.consumer;
 
 import org.junit.jupiter.api.Test;
 
-import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
@@ -73,7 +72,7 @@ class CollectorTest {
         }
     );
     String input = "{2/4}+{5/6}";
-    List<XT> collect = input.codePoints().mapToObj(value -> value).collect(supplier);
+    List<XT> collect = input.codePoints().boxed().collect(supplier);
     System.out.println("collect = " + collect);
 
   }
