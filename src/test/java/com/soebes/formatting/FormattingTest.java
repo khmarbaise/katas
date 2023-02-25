@@ -3,10 +3,12 @@ package com.soebes.formatting;
 import org.junit.jupiter.api.Test;
 
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 import static java.lang.System.out;
+import static java.util.Map.entry;
 
 class FormattingTest {
 
@@ -22,6 +24,15 @@ class FormattingTest {
   @Test
   void using_formatted_in_stream() {
     var collect = STRING_LIST.stream().map("(%s)"::formatted).collect(Collectors.joining(","));
+    out.println("collect = " + collect);
+  }
+
+  @Test
+  void using_formatted_in_stream_with_map() {
+    var maps = Map.ofEntries(entry("k1", "v1"), entry("k2", "v2"));
+    var collect = maps.entrySet().stream()
+        .map(es -> "(k:%s, v:%s)".formatted(es.getKey(), es.getValue()))
+        .collect(Collectors.joining(","));
     out.println("collect = " + collect);
   }
 
