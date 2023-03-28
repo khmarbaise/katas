@@ -36,4 +36,13 @@ class SortingTest {
                 .map(item -> "Item: " + item)
                 .forEach(System.out::println);
     }
+
+
+    @Test
+    void name() {
+        var collect = GIVEN_LIST.stream().sorted((o1, o2) -> -1).collect(Collectors.toList());
+        System.out.println("collect = " + collect);
+        var collect1 = GIVEN_LIST.stream().sorted().collect(Collectors.toList());
+        System.out.println("collect1 = " + collect1);
+    }
 }

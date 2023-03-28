@@ -2,7 +2,7 @@ package com.soebes;
 
 import org.junit.jupiter.api.Test;
 
-public class LambdaTest {
+class LambdaTest {
 
   @FunctionalInterface
   public interface XZ {

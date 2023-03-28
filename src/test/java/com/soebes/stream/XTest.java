@@ -18,7 +18,7 @@ import static java.util.stream.Collectors.toSet;
 
 class XTest {
 
-  public static <T, R> Set<R> findDuplicatesWith(Collection<? extends T> collection,
+  static <T, R> Set<R> findDuplicatesWith(Collection<? extends T> collection,
                                                  Function<? super T, ? extends R> mapper) {
     Set<R> uniques = new HashSet<>();
     return collection.stream().map(mapper).filter(e -> !uniques.add(e)).collect(toSet());
@@ -31,23 +31,27 @@ class XTest {
 
   private <T> List<T> collectDuplicates(Collection<T> collection) {
     return collection.stream()
-      .distinct()
       .filter(entry -> Collections.frequency(collection, entry) > 1)
       .collect(Collectors.toList());
   }
 
   @Test
   void findDuplicates() {
-    List<P> existingList = List.of(new P("A", 1), new P("B", 5), new P("C", 12), new P("B", 5));
+    List<P> existingList = List.of(
+        new P("A", 1),
+        new P("B", 5),
+        new P("C", 12),
+        new P("B", 5)
+    );
 
-    Set<P> duplicates = findDuplicates(existingList, P::getName);
+    Set<P> duplicates = findDuplicates(existingList, P::name);
     System.out.println("duplicates = " + duplicates);
   }
 
   @Test
   void groupingBy() {
     List<P> existingList = List.of(new P("A", 1), new P("B", 5), new P("C", 12), new P("B", 5));
-    List<P> duplicates = groupingBy(existingList, P::getName);
+    List<P> duplicates = groupingBy(existingList, P::name);
     System.out.println("duplicates = " + duplicates);
   }
 
@@ -56,7 +60,7 @@ class XTest {
     List<P> existingList = List.of(new P("C", 12), new P("A", 1), new P("B", 6), new P("A", 5),
       new P("B", 5));
 
-    List<P> duplicates = groupingBySelf(existingList, P::getName);
+    List<P> duplicates = groupingBySelf(existingList, P::name);
     System.out.println("duplicates = " + duplicates);
   }
 
@@ -100,7 +104,12 @@ class XTest {
 
   @Test
   void collectDuplicates() {
-    List<P> existingList = List.of(new P("A", 1), new P("B", 5), new P("A", 1), new P("C", 12), new P("B", 5));
+    List<P> existingList = List.of(
+        new P("A", 1),
+        new P("B", 5),
+        new P("A", 1),
+        new P("C", 12),
+        new P("B", 5));
     List<P> duplicates = collectDuplicates(existingList);
     System.out.println("duplicates = " + duplicates);
   }
@@ -108,7 +117,7 @@ class XTest {
   @Test
   void collect_duplikation() {
     List<P> existingList = List.of(new P("A", 1), new P("B", 5), new P("A", 1), new P("C", 12), new P("B", 5));
-    Set<String> duplicates = findDuplicatesWith(existingList, P::getName);
+    Set<String> duplicates = findDuplicatesWith(existingList, P::name);
     System.out.println("duplicates = " + duplicates);
   }
 
@@ -116,7 +125,7 @@ class XTest {
   void groupingBy_SubGroups() {
     List<P> existingList = List.of(new P("A", 1), new P("B", 5), new P("A", 1), new P("C", 12), new P("B", 5));
     var collect = existingList.stream()
-      .collect(Collectors.groupingBy(P::getName, averagingDouble(P::getAge)));
+      .collect(Collectors.groupingBy(P::name, averagingDouble(P::age)));
 
     collect.entrySet().stream().forEach(item -> System.out.println("item = " + item));
   }
@@ -124,7 +133,7 @@ class XTest {
   @Test
   void partitioning_by() {
     List<P> existingList = List.of(new P("A", 1), new P("B", 5), new P("A", 1), new P("C", 12), new P("B", 5));
-    var collect = existingList.stream().collect(Collectors.groupingBy(P::getAge));
+    var collect = existingList.stream().collect(Collectors.groupingBy(P::age));
 
     collect.entrySet().stream().forEach(item -> System.out.println("item = " + item));
   }
