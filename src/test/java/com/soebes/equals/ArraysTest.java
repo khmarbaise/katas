@@ -6,6 +6,7 @@ import java.util.Arrays;
 
 class ArraysTest {
 
+
   @Test
   void string_arrays() {
     String[] first =  {"apple", "banana", "orange"};
