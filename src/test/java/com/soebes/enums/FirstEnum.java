@@ -13,9 +13,9 @@ public enum FirstEnum {
 
   };
 
-  private String city;
-  private boolean parkingInTheStreet;
-  private Double price;
+  private final String city;
+  private final boolean parkingInTheStreet;
+  private final Double price;
 
   FirstEnum(String city, boolean parkingInTheStreet, Double price) {
     this.city = city;
