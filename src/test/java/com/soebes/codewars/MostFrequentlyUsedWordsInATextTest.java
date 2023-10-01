@@ -65,6 +65,7 @@ public class MostFrequentlyUsedWordsInATextTest {
                           .entrySet()
                           .stream()
                           .sorted(comparingByValueReversed())
+//                .sorted(Map.Entry.comparingByValue(Comparator.reverseOrder()))
                           .limit(3)
                           .map(Map.Entry::getKey)
                           .collect(Collectors.toList());
