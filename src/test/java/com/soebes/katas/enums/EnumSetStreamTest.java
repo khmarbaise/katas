@@ -40,7 +40,6 @@ class EnumSetStreamTest {
     void firstTest() {
         int bitValue = 0x02 | 0x04 | 0x10;
         var result = Stream.of(BitValues.values())
-                           .skip(1)
                            .filter(item -> (item.getBitMask() & bitValue) != 0)
                            .collect(toCollection(() -> EnumSet.noneOf(BitValues.class)));
 

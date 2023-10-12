@@ -4,11 +4,11 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.jupiter.api.Test;
 
-public class FirstComparatorTest
+class FirstComparatorTest
 {
 
     @Test
-    public void firstTest()
+    void firstTest()
     {
         FirstCompXXXX x = new FirstCompXXXX();
         String o1 = "A";

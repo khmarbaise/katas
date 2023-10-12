@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
-public class ContinuousArraysTest
+class ContinuousArraysTest
 {
 
     final ArrayList<Integer> GIVEN_C = new ArrayList<Integer>()

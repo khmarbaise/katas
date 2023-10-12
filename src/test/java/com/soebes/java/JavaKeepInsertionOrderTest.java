@@ -8,7 +8,7 @@ import java.util.Map;
 import java.util.UUID;
 import java.util.stream.IntStream;
 
-public class JavaKeepInsertionOrderTest {
+class JavaKeepInsertionOrderTest {
 
   @Test
   void no_order() {

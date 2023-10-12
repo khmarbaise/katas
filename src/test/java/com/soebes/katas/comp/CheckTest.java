@@ -4,7 +4,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 import org.junit.jupiter.api.Test;
 
-public class CheckTest
+class CheckTest
 {
 
     public int functionA( int a, int b )
@@ -15,7 +15,7 @@ public class CheckTest
     }
 
     @Test
-    public void firstTest()
+    void firstTest()
     {
         int result = functionA( 2, 5 );
         assertThat( result ).isEqualTo( 2 );

@@ -45,7 +45,7 @@ public enum TheEnumValuePattern {
 	 * @param value The {@link Values} which should be converted to the appropriate
 	 *              enum {@link TheEnumValuePattern}.
 	 * @return a value of {@link TheEnumValuePattern}
-	 * @throws {@link IllegalArgumentException} in case of an non existing text.
+	 * @throws {@link IllegalArgumentException} in case of a non-existing text.
 	 */
 	public static TheEnumValuePattern fromValue(final String value) {
 		return Arrays.stream(TheEnumValuePattern.values())
