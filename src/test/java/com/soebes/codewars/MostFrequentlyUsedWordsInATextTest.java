@@ -37,7 +37,7 @@ public class MostFrequentlyUsedWordsInATextTest {
     public static class MostFrequentlyUsedWordsInAText {
         private final String text;
 
-        private static final Pattern PATTERN = Pattern.compile("[, ':\\-\\.]+");
+        private static final Pattern PATTERN = Pattern.compile("[, ':\\-.]+");
 
         public MostFrequentlyUsedWordsInAText(String text) {
 
