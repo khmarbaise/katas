@@ -60,7 +60,7 @@ public class MostFrequentlyUsedWordsInATextTest {
         public List<String> top3() {
             return PATTERN.splitAsStream(this.text)
                           .map(String::toLowerCase)
-                          .filter(s -> s.length() > 0)
+                          .filter(s -> !s.isEmpty())
                           .collect(groupingBy(word -> word, counting()))
                           .entrySet()
                           .stream()

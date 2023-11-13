@@ -9,7 +9,7 @@ import java.util.Map;
 
 import static java.util.Map.entry;
 
-public class IQ1 {
+class IQ1 {
 
   // Given:
   //  An integer array with 100 elements in it.
