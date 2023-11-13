@@ -82,19 +82,19 @@ public class MostFrequentlyUsedWordsInATextTest {
     @Test
     void shouldReturnTheTop2Word() {
         MostFrequentlyUsedWordsInAText instance = new MostFrequentlyUsedWordsInAText("Word A");
-        assertThat(instance.top3()).isEqualTo(List.of("a", "word"));
+        assertThat(instance.top3()).containsExactly("a", "word");
     }
 
     @Test
     void shouldReturnTheTop1Word() {
         MostFrequentlyUsedWordsInAText instance = new MostFrequentlyUsedWordsInAText("Word");
-        assertThat(instance.top3()).isEqualTo(List.of("word"));
+        assertThat(instance.top3()).containsExactly("word");
     }
 
     @Test
     void shouldReturnTheTop1WordWithATextWithOnlyASingleWord() {
         MostFrequentlyUsedWordsInAText instance = new MostFrequentlyUsedWordsInAText("Word Word Word");
-        assertThat(instance.top3()).isEqualTo(List.of("word"));
+        assertThat(instance.top3()).containsExactly("word");
     }
     
     @Test
