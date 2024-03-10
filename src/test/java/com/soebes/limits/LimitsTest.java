@@ -5,7 +5,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
 
-public class LimitsTest {
+class LimitsTest {
 
     boolean calculateFirst(int k) {
         return (1 * k) > 0;
@@ -16,7 +16,7 @@ public class LimitsTest {
     }
 
     @Nested
-    public class CalculateSecondTest {
+    class CalculateSecondTest {
         @Test
         void testNr1() {
             assertThat(calculateSecond(5)).isFalse();
@@ -34,7 +34,7 @@ public class LimitsTest {
     }
 
     @Nested
-    public class CalculateFirstTest {
+    class CalculateFirstTest {
         @Test
         void testNr1() {
             assertThat(calculateFirst(5)).isTrue();
@@ -58,7 +58,7 @@ public class LimitsTest {
     }
 
     @Nested
-    public class LimitationsTest {
+    class LimitationsTest {
         @Test
         void testNr1Multiply() {
             int a = 5 * Integer.MAX_VALUE;
