@@ -2,7 +2,7 @@ package com.soebes.katas.vending;
 
 import java.util.List;
 
-public interface VendingMachine {
+interface VendingMachine {
     long selectItemAndGetPrice(Item item);
 
     void insertCoin(Coin coin);

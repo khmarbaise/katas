@@ -7,7 +7,6 @@ public class Movie {
 	private String title;
 
     public Movie(String title, PriceType price) {
-        super();
         this.title = title;
         this.priceType = price;
     }

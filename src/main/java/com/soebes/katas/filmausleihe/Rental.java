@@ -6,7 +6,6 @@ public class Rental {
     private int numberOfDaysRented;
 
     public Rental(Movie movie, int numberOfDaysRented) {
-        super();
         this.movie = movie;
         this.numberOfDaysRented = numberOfDaysRented;
     }

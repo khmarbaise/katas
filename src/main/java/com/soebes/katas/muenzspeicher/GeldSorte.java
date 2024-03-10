@@ -43,11 +43,7 @@ public class GeldSorte {
     }
 
     public boolean hasVorrat() {
-        if (anzahlEnheiten > 0) {
-            return true;
-        } else {
-            return false;
-        }
+      return anzahlEnheiten > 0;
     }
 
     public int entnehme() throws NichtGenugVorratException {

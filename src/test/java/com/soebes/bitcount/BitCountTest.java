@@ -62,7 +62,7 @@ class BitCountTest {
       var result = new HashMap<Integer, Integer>();
       for (int i = Short.MIN_VALUE; i <= Short.MAX_VALUE; i++) {
         int numberOfBits = bitCount((short) i);
-        Integer orDefault = result.getOrDefault(numberOfBits, Integer.valueOf(0));
+        Integer orDefault = result.getOrDefault(numberOfBits, 0);
         orDefault++;
         result.put(numberOfBits, orDefault);
       }
@@ -105,7 +105,7 @@ class BitCountTest {
       System.out.println("pow = " + pow);
       int[] integerIntegerMap = calculateBitcountForShort();
       for (int bitCount = 0; bitCount <= 32; bitCount++) {
-        Integer numberOf = integerIntegerMap[bitCount];
+        int numberOf = integerIntegerMap[bitCount];
         BigDecimal percentagOfShort = BigDecimal.valueOf(numberOf)
           .divide(pow)
           .multiply(BigDecimal.valueOf(100L));

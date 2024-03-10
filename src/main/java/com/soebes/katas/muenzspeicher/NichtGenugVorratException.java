@@ -1,9 +1,12 @@
 package com.soebes.katas.muenzspeicher;
 
+import java.io.Serial;
+
 public class NichtGenugVorratException extends Exception {
     /**
      * 
      */
+    @Serial
     private static final long serialVersionUID = 1L;
 
     public NichtGenugVorratException() {

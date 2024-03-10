@@ -29,11 +29,7 @@ class Customer {
     }
 
     public double calculatePrice() {
-        double result = 0.0;
-        for (Rental item : getRentals()) {
-            result += item.getPrice();
-        }
-        return result;
+        return getRentals().stream().mapToDouble(Rental::getPrice).sum();
     }
 
 }
